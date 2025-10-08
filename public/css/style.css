@@ -8,10 +8,12 @@
 
 :root {
     --bg-color: #F5F3EF;
-    --bg-light-color: #FAF9F7;
+    --bg-light-color: #FFFFFF;
+    --bg-medium-color: #FAF9F7;
     --button-color: #00AC66;
-    --text-light-color: #A6A6A6;
+    --text-color: #000000;
     --text-dark-color: #292929;
+    --text-light-color: #A6A6A6;
 }
 
 
@@ -25,6 +27,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--text-dark-color);
     margin: 15px 150px;
 }
 
@@ -38,8 +41,24 @@ nav a:hover,
     font-weight: 600;
 }
 
+footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: var(--bg-light-color);
+    color: var(--text-dark-color);
+    padding: 21px 46px;
+}
+
+footer a:hover,
+.footer-link-active {
+    font-size: 0.97em;
+    font-weight: 500;
+}
+
 ul {
     list-style: none;
+    line-height: 1;
     padding: 0;
 }
 
@@ -53,7 +72,6 @@ a {
     display: flex;
     gap: 45px;
     font-size: 0.875em;
-    line-height: 1;
     letter-spacing: 2%;
     padding-right: 205px;
 }
@@ -78,4 +96,14 @@ a {
     letter-spacing: 0;
     padding: 2.5px 3.5px;
     border-radius: 6.75px;
+}
+
+.footer-list {
+    display: flex;
+    gap: 40px;
+    font-size: 0.75em;
+}
+
+.footer-text {
+    font-weight: 300;
 }

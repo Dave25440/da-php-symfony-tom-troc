@@ -38,6 +38,13 @@
             </nav>
         </header>
         <main></main>
-        <footer></footer>        
+        <footer>
+            <ul class="footer-list">
+                <li><a href="#" class="footer-text">Politique de confidentialité</a></li>
+                <li><a href="#" class="footer-text">Mentions légales</a></li>
+                <li class="footer-text">Tom Troc©</li>
+                <li><img src="images/tt-logo.svg" alt="Logo TT"></li>
+            </ul>
+        </footer>        
     </body>
 </html>
