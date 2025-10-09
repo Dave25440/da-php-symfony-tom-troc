@@ -1,3 +1,4 @@
+/* Global */
 * {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -6,6 +7,8 @@
     margin: 0;
 }
 
+
+/* Couleurs */
 :root {
     --bg-color: #F5F3EF;
     --bg-light-color: #FFFFFF;
@@ -17,6 +20,7 @@
 }
 
 
+/* Balises */
 body {
     background-color: var(--bg-color);
     max-width: 1440px;
@@ -44,7 +48,6 @@ nav a:hover,
 footer {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
     background-color: var(--bg-light-color);
     color: var(--text-dark-color);
     padding: 21px 46px;
@@ -54,6 +57,10 @@ footer a:hover,
 .footer-link-active {
     font-size: 0.97em;
     font-weight: 500;
+}
+
+h1 {
+    font-size: 2.25em;
 }
 
 ul {
@@ -67,7 +74,20 @@ a {
     text-decoration: none;
 }
 
+figure > img {
+    display: block;
+}
 
+figcaption {
+    color: var(--text-light-color);
+    font-size: 0.75em;
+    font-style: oblique;
+    text-align: right;
+    margin-top: 12px;
+}
+
+
+/* Classes */
 .nav-list {
     display: flex;
     gap: 45px;
@@ -87,7 +107,7 @@ a {
     vertical-align: middle;
 }
 
-.message-counter {
+.nav-message-counter {
     background-color: var(--text-dark-color);
     color: var(--bg-color);
     font-size: 0.589em;
@@ -98,12 +118,42 @@ a {
     border-radius: 6.75px;
 }
 
+.section-join {
+    display: flex;
+    margin: 80px 310px 100px 290px;
+}
+
+.section-join-content {
+    margin: 160px 105px 0 0;
+}
+
+.section-join-text {
+    margin: 16px 0 40px 0;
+}
+
 .footer-list {
     display: flex;
+    align-items: center;
     gap: 40px;
     font-size: 0.75em;
 }
 
-.footer-text {
+.title {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cta {
+    display: inline-block;
+    background-color: var(--button-color);
+    color: var(--bg-light-color);
+    font-weight: 600;
+    padding: 22px 38px;
+    border-radius: 10px;
+}
+
+.text-light {
     font-weight: 300;
 }
