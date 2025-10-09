@@ -170,7 +170,7 @@ figcaption {
 
 .book-card img {
     display: block;
-    width: 200px;
+    width: 100%;
     max-height: 200px;
     object-fit: cover;
 }
@@ -233,6 +233,50 @@ figcaption {
 
 .section-how-it-works > .cta {
     margin-top: 48px;
+}
+
+
+/* Section values */
+.section-values {
+    color: var(--text-color);
+}
+
+.section-values > img {
+    width: 100%;
+    max-height: 230px;
+    object-fit: cover;
+    object-position: 0 40%;
+}
+
+.section-values-content {
+    max-width: 462px;
+    padding-left: 106px;
+    margin: 80px auto 87px auto;
+}
+
+.section-values-content > .title {
+    margin-bottom: 30px;
+}
+
+.section-values-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-right: 70px;
+}
+
+.section-values-footer {
+    justify-content: space-between;
+    background-color: transparent;
+    padding: 0;
+    margin-top: 25px;
+}
+
+.section-values-footer > p {
+    color: var(--text-light-color);
+    font-size: 0.75em;
+    font-style: oblique;
+    margin-top: 14px;
 }
 
 
