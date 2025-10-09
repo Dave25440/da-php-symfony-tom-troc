@@ -41,7 +41,7 @@
             <section class="section-join">
                 <div class="section-join-content">
                     <h1 class="title">Rejoignez nos lecteurs passionnés</h1>
-                    <p class="section-join-text text-light">Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres.</p>
+                    <p class="text-light">Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres.</p>
                     <a href="#" class="cta">Découvrir</a>
                 </div>
                 <figure>
@@ -49,7 +49,52 @@
                     <figcaption>Hamza</figcaption>
                 </figure>
             </section>
-            <section></section>
+            <section class="section-books-preview">
+                <h2 class="title">Les derniers livres ajoutés</h2>
+                <div class="book-grid">
+                    <a href="#" class="book-card">
+                        <article>
+                            <img src="images/esther-alabaster-small.webp" alt="">
+                            <div class="book-info">
+                                <h3>Esther</h3>
+                                <h4>Alabaster</h4>
+                                <p>Vendu par : CamilleClubLit</p>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article>
+                            <img src="images/kinfolk-table-williams-small.webp" alt="">
+                            <div class="book-info">
+                                <h3>The Kinfolk Table</h3>
+                                <h4>Nathan Williams</h4>
+                                <p>Vendu par : Nathalire</p>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article>
+                            <img src="images/wabi-sabi-kempton-small.webp" alt="">
+                            <div class="book-info">
+                                <h3>Wabi Sabi</h3>
+                                <h4>Beth Kempton</h4>
+                                <p>Vendu par : Alexlecture</p>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#" class="book-card">
+                        <article>
+                            <img src="images/milk-honey-kaur-small.webp" alt="">
+                            <div class="book-info">
+                                <h3>Milk & honey</h3>
+                                <h4>Rupi Kaur</h4>
+                                <p>Vendu par : Hugo1990_12</p>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+                <a href="#" class="cta">Voir tous les livres</a>
+            </section>
             <section></section>
             <section></section>
         </main>
