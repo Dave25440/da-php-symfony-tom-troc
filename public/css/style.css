@@ -66,7 +66,8 @@ h2 {
     font-size: 2em;
 }
 
-ul {
+ul,
+ol {
     list-style: none;
     line-height: 1;
     padding: 0;
@@ -202,6 +203,39 @@ figcaption {
 }
 
 
+/* Section how it works */
+.section-how-it-works {
+    color: var(--text-color);
+    text-align: center;
+    margin: 80px 236px;
+}
+
+
+.section-how-it-works > p {
+    margin: 24px 0 40px 0;
+}
+
+.section-how-it-works > ol {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px 36px;
+}
+
+.section-how-it-works li {
+    display: block;
+    background-color: var(--bg-light-color);
+    max-width: 215px;
+    font-size: 0.875em;
+    line-height: 1.2;
+    padding: 44px 17px;
+    border-radius: 10px;
+}
+
+.section-how-it-works > .cta {
+    margin-top: 48px;
+}
+
+
 /* Footer */
 .footer-list {
     display: flex;
@@ -226,6 +260,12 @@ figcaption {
     font-weight: 600;
     padding: 22px 38px;
     border-radius: 10px;
+}
+
+.cta-reverse {
+    background-color: transparent;
+    color: var(--button-color);
+    border: 1px solid var(--button-color);
 }
 
 .text-light {

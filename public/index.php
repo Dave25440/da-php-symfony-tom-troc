@@ -95,7 +95,20 @@
                 </div>
                 <a href="#" class="cta">Voir tous les livres</a>
             </section>
-            <section></section>
+            <section class="section-how-it-works">
+                <h2 class="title">Comment ça marche ?</h2>
+                <p class="text-light">
+                    Échanger des livres avec TomTroc c’est simple et<br>
+                    amusant ! Suivez ces étapes pour commencer :
+                </p>
+                <ol>
+                    <li>Inscrivez-vous gratuitement sur notre plateforme.</li>
+                    <li>Ajoutez les livres que vous souhaitez échanger à votre profil.</li>
+                    <li>Parcourez les livres disponibles chez d'autres membres.</li>
+                    <li>Proposez un échange et discutez avec d'autres passionnés de lecture.</li>
+                </ol>
+                <a href="#" class="cta cta-reverse">Voir tous les livres</a>
+            </section>
             <section></section>
         </main>
         <footer>
