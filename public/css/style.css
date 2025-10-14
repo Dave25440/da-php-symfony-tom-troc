@@ -88,7 +88,8 @@ figcaption {
     white-space: nowrap;
 }
 
-.text-light {
+.text-light,
+.text-light * {
     font-weight: 300;
 }
 
@@ -114,7 +115,7 @@ nav > ul {
 }
 
 nav a:hover,
-.nav-link-active {
+nav a.active {
     font-size: 0.98em;
     font-weight: 600;
 }
@@ -298,8 +299,8 @@ nav a:hover,
 }
 
 .section-values-footer {
+    display: flex;
     justify-content: space-between;
-    background-color: transparent;
     padding: 0;
     margin-top: 25px;
 }
@@ -313,23 +314,22 @@ nav a:hover,
 
 
 /* Footer */
-footer {
-    display: flex;
-    justify-content: flex-end;
+.page-footer {
     background-color: var(--bg-light-color);
     color: var(--text-color);
     padding: 21px 46px;
 }
 
-footer a:hover,
-.footer-link-active {
-    font-size: 0.97em;
-    font-weight: 500;
-}
-
-.footer-list {
+.page-footer > ul {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 40px;
     font-size: 0.75em;
+}
+
+.page-footer a:hover,
+.page-footer a.active {
+    font-size: 0.97em;
+    font-weight: 500;
 }

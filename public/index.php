@@ -15,13 +15,13 @@
             <nav>
                 <ul>
                     <li class="nav-item-left">
-                        <a href="#" class="nav-link-active">Accueil</a>
+                        <a href="#" class="active">Accueil</a>
                     </li>
                     <li class="nav-item-left">
                         <a href="#">Nos livres à l'échange</a>
                     </li>
                     <li class="nav-item-right nav-item-border">
-                        <img src="images/message-icon.svg" alt="Icône Messagerie" class="nav-icon">
+                        <img src="icons/message-icon.svg" alt="Icône Messagerie" class="nav-icon">
                         <a href="#">Messagerie</a>
                         <span class="nav-counter" aria-live="polite">
                             1
@@ -29,7 +29,7 @@
                         </span>
                     </li>
                     <li class="nav-item-right">
-                        <img src="images/account-icon.svg" alt="Icône Mon compte" class="nav-icon">
+                        <img src="icons/account-icon.svg" alt="Icône Mon compte" class="nav-icon">
                         <a href="#">Mon compte</a>
                     </li>
                     <li class="nav-item-right">
@@ -126,11 +126,11 @@
                 </div>
             </section>
         </main>
-        <footer>
-            <ul class="footer-list">
-                <li><a href="#" class="text-light">Politique de confidentialité</a></li>
-                <li><a href="#" class="text-light">Mentions légales</a></li>
-                <li class="text-light">Tom Troc©</li>
+        <footer class="page-footer text-light">
+            <ul>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Mentions légales</a></li>
+                <li>Tom Troc©</li>
                 <li><img src="images/tt-logo.svg" alt="Logo TT"></li>
             </ul>
         </footer>        
