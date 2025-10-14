@@ -284,25 +284,19 @@ nav a.active {
 .section-values-content {
     max-width: 462px;
     padding-left: 106px;
-    margin: 80px auto 87px auto;
-}
-
-.section-values-content > .title {
-    margin-bottom: 30px;
+    margin: 80px auto 90px;
 }
 
 .section-values-text {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    margin-right: 70px;
+    margin: 30px 70px 25px 0;
 }
 
 .section-values-footer {
     display: flex;
     justify-content: space-between;
-    padding: 0;
-    margin-top: 25px;
 }
 
 .section-values-footer > p {
