@@ -13,25 +13,26 @@
         <header>
             <img src="images/tom-troc-logo.svg" alt="Logo Tom Troc">
             <nav>
-                <ul class="nav-list">
-                    <li>
+                <ul>
+                    <li class="nav-item-left">
                         <a href="#" class="nav-link-active">Accueil</a>
                     </li>
-                    <li>
+                    <li class="nav-item-left">
                         <a href="#">Nos livres à l'échange</a>
                     </li>
-                </ul>
-                <ul class="nav-list nav-list-user">
-                    <li>
+                    <li class="nav-item-right nav-item-border">
                         <img src="images/message-icon.svg" alt="Icône Messagerie" class="nav-icon">
                         <a href="#">Messagerie</a>
-                        <span class="nav-message-counter" aria-label="1 message non lu">1</span>
+                        <span class="nav-counter" aria-live="polite">
+                            1
+                            <span class="sr-only"> message(s) non lu(s)</span>
+                        </span>
                     </li>
-                    <li>
+                    <li class="nav-item-right">
                         <img src="images/account-icon.svg" alt="Icône Mon compte" class="nav-icon">
                         <a href="#">Mon compte</a>
                     </li>
-                    <li>
+                    <li class="nav-item-right">
                         <a href="#">Connexion</a>
                     </li>
                 </ul>
