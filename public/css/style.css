@@ -42,6 +42,8 @@ h2 {
 
 img {
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 figcaption {
@@ -144,15 +146,22 @@ nav a:hover,
 /* Join section */
 .section-join {
     display: flex;
-    margin: 80px 310px 100px 290px;
+    gap: 105px;
+    max-width: 840px;
+    margin: 80px auto;
 }
 
 .section-join-content {
-    margin: 160px 105px 0 0;
+    flex: 1;
+    margin-top: 160px;
 }
 
 .section-join-content > p {
-    margin: 16px 0 40px 0;
+    margin: 1em 0 40px 0;
+}
+
+.section-join > figure {
+    flex: 0 1 404px;
 }
 
 
