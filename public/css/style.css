@@ -1,14 +1,4 @@
 /* Global */
-* {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    margin: 0;
-}
-
-
-/* Couleurs */
 :root {
     --bg-color: #F5F3EF;
     --bg-light-color: #FFFFFF;
@@ -18,44 +8,16 @@
     --text-light-color: #A6A6A6;
 }
 
+* {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    margin: 0;
+}
 
-/* Balises */
 body {
     background-color: var(--bg-color);
     max-width: 1440px;
     margin: auto;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--text-color);
-    margin: 15px 150px;
-}
-
-nav {
-    display: flex;
-}
-
-nav a:hover,
-.nav-link-active {
-    font-size: 0.98em;
-    font-weight: 600;
-}
-
-footer {
-    display: flex;
-    justify-content: flex-end;
-    background-color: var(--bg-light-color);
-    color: var(--text-color);
-    padding: 21px 46px;
-}
-
-footer a:hover,
-.footer-link-active {
-    font-size: 0.97em;
-    font-weight: 500;
 }
 
 h1 {
@@ -90,13 +52,54 @@ figcaption {
     margin-top: 12px;
 }
 
+.cta {
+    display: inline-block;
+    background-color: var(--button-color);
+    color: var(--bg-light-color);
+    font-weight: 600;
+    padding: 22px 38px;
+    border-radius: 10px;
+}
 
-/* Menu */
+.cta-reverse {
+    background-color: transparent;
+    color: var(--button-color);
+    border: 1px solid var(--button-color);
+}
+
+.text-light {
+    font-weight: 300;
+}
+
+.title {
+    font-family: "Playfair Display", serif;
+}
+
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    margin: 15px 150px;
+}
+
+nav {
+    display: flex;
+}
+
+nav a:hover,
+.nav-link-active {
+    font-size: 0.98em;
+    font-weight: 600;
+}
+
 .nav-list {
     display: flex;
     gap: 45px;
     font-size: 0.875em;
-    letter-spacing: 2%;
+    letter-spacing: 0.02em;
     padding-right: 205px;
 }
 
@@ -123,7 +126,7 @@ figcaption {
 }
 
 
-/* Section join */
+/* join section */
 .section-join {
     display: flex;
     margin: 80px 310px 100px 290px;
@@ -138,7 +141,7 @@ figcaption {
 }
 
 
-/* Section books preview */
+/* books preview section */
 .section-books-preview {
     background-color: var(--bg-medium-color);
     text-align: center;
@@ -203,7 +206,7 @@ figcaption {
 }
 
 
-/* Section how it works */
+/* how it works section */
 .section-how-it-works {
     color: var(--text-color);
     text-align: center;
@@ -236,7 +239,7 @@ figcaption {
 }
 
 
-/* Section values */
+/* values section */
 .section-values {
     color: var(--text-color);
 }
@@ -281,37 +284,23 @@ figcaption {
 
 
 /* Footer */
+footer {
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--bg-light-color);
+    color: var(--text-color);
+    padding: 21px 46px;
+}
+
+footer a:hover,
+.footer-link-active {
+    font-size: 0.97em;
+    font-weight: 500;
+}
+
 .footer-list {
     display: flex;
     align-items: center;
     gap: 40px;
     font-size: 0.75em;
-}
-
-
-/* Classes globales */
-.title {
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.cta {
-    display: inline-block;
-    background-color: var(--button-color);
-    color: var(--bg-light-color);
-    font-weight: 600;
-    padding: 22px 38px;
-    border-radius: 10px;
-}
-
-.cta-reverse {
-    background-color: transparent;
-    color: var(--button-color);
-    border: 1px solid var(--button-color);
-}
-
-.text-light {
-    font-weight: 300;
 }
