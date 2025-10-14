@@ -48,9 +48,7 @@ img {
 }
 
 figcaption {
-    color: var(--text-light-color);
     font-size: 0.75em;
-    font-style: oblique;
     text-align: right;
     margin-top: 12px;
 }
@@ -86,6 +84,11 @@ figcaption {
     clip-path: inset(50%);
     border: 0;
     white-space: nowrap;
+}
+
+.text-caption {
+    color: var(--text-light-color);
+    font-style: oblique;
 }
 
 .text-light,
@@ -233,9 +236,7 @@ nav a.active {
 }
 
 .book-info > p {
-    color: var(--text-light-color);
     font-size: 0.625em;
-    font-style: oblique;
     margin-top: 22px;
 }
 
@@ -300,9 +301,7 @@ nav a.active {
 }
 
 .section-values-footer > p {
-    color: var(--text-light-color);
     font-size: 0.75em;
-    font-style: oblique;
     margin-top: 14px;
 }
 

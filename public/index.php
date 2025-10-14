@@ -47,7 +47,7 @@
                 </div>
                 <figure>
                     <img src="images/reading-hamza-nouasria.webp" alt="Homme en train de lire assis au milieu de piles de livres">
-                    <figcaption>Hamza</figcaption>
+                    <figcaption class="text-caption">Hamza</figcaption>
                 </figure>
             </section>
             <section class="section-books-preview">
@@ -59,7 +59,7 @@
                             <div class="book-info">
                                 <h3>Esther</h3>
                                 <h4>Alabaster</h4>
-                                <p>Vendu par : CamilleClubLit</p>
+                                <p class="text-caption">Vendu par : CamilleClubLit</p>
                             </div>
                         </article>
                     </a>
@@ -69,7 +69,7 @@
                             <div class="book-info">
                                 <h3>The Kinfolk Table</h3>
                                 <h4>Nathan Williams</h4>
-                                <p>Vendu par : Nathalire</p>
+                                <p class="text-caption">Vendu par : Nathalire</p>
                             </div>
                         </article>
                     </a>
@@ -79,7 +79,7 @@
                             <div class="book-info">
                                 <h3>Wabi Sabi</h3>
                                 <h4>Beth Kempton</h4>
-                                <p>Vendu par : Alexlecture</p>
+                                <p class="text-caption">Vendu par : Alexlecture</p>
                             </div>
                         </article>
                     </a>
@@ -89,7 +89,7 @@
                             <div class="book-info">
                                 <h3>Milk & honey</h3>
                                 <h4>Rupi Kaur</h4>
-                                <p>Vendu par : Hugo1990_12</p>
+                                <p class="text-caption">Vendu par : Hugo1990_12</p>
                             </div>
                         </article>
                     </a>
@@ -120,7 +120,7 @@
                         <p>Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.</p>
                     </div>
                     <footer class="section-values-footer">
-                        <p>L'équipe Tom Troc</p>
+                        <p class="text-caption">L'équipe Tom Troc</p>
                         <img src="images/tom-troc-signature.svg" alt="" aria-hidden="true">
                     </footer>
                 </div>
