@@ -52,10 +52,10 @@
             </section>
             <section class="section-books-preview">
                 <h2 class="title">Les derniers livres ajoutés</h2>
-                <div class="book-grid">
+                <div class="books-grid">
                     <a href="#" class="book-card">
                         <article>
-                            <img src="images/esther-alabaster-small.webp" alt="">
+                            <img src="images/esther-alabaster.webp" alt="">
                             <div class="book-info">
                                 <h3>Esther</h3>
                                 <h4>Alabaster</h4>
@@ -65,7 +65,7 @@
                     </a>
                     <a href="#" class="book-card">
                         <article>
-                            <img src="images/kinfolk-table-williams-small.webp" alt="">
+                            <img src="images/kinfolk-table-williams.webp" alt="">
                             <div class="book-info">
                                 <h3>The Kinfolk Table</h3>
                                 <h4>Nathan Williams</h4>
@@ -75,7 +75,7 @@
                     </a>
                     <a href="#" class="book-card">
                         <article>
-                            <img src="images/wabi-sabi-kempton-small.webp" alt="">
+                            <img src="images/wabi-sabi-kempton.webp" alt="">
                             <div class="book-info">
                                 <h3>Wabi Sabi</h3>
                                 <h4>Beth Kempton</h4>
@@ -85,7 +85,7 @@
                     </a>
                     <a href="#" class="book-card">
                         <article>
-                            <img src="images/milk-honey-kaur-small.webp" alt="">
+                            <img src="images/milk-honey-kaur.webp" alt="">
                             <div class="book-info">
                                 <h3>Milk & honey</h3>
                                 <h4>Rupi Kaur</h4>
