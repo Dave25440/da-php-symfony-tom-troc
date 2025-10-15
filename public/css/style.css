@@ -293,9 +293,13 @@ nav a.active {
     color: var(--text-color);
 }
 
-.section-values > img {
+.section-values-banner {
+    height: 230px;
+}
+
+.section-values-banner > img {
     width: 100%;
-    max-height: 230px;
+    height: 100%;
     object-fit: cover;
     object-position: 0 40%;
 }
@@ -526,6 +530,43 @@ nav a.active {
     .section-how-it-works li {
         max-width: 100%;
         padding: 53px 28px;
+    }
+
+
+    /* Values section */
+    .section-values-banner {
+        height: 425px;
+        overflow: hidden;
+    }
+
+    .section-values-banner > img {
+        height: 436px;
+        object-position: 87% 0;
+    }
+
+    .section-values-content {
+        max-width: 100%;
+        padding-left: 0;
+        margin: 32px 20px;
+    }
+
+    .section-values-text {
+        gap: 1.25em;
+        font-size: 0.875em;
+        margin: 35px 0 28px;
+    }
+
+    .section-values-footer {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .section-values-footer > p {
+        margin: 0 0 62px;
+    }
+
+    .section-values-footer > img {
+        margin: 0 auto;
     }
 
 

@@ -117,7 +117,9 @@
                 <a href="#" class="cta cta-reverse">Voir tous les livres</a>
             </section>
             <section class="section-values">
-                <img src="images/banner-darwin-vegher.webp" alt="" aria-hidden="true">
+                <figure class="section-values-banner">
+                    <img src="images/banner-darwin-vegher.webp" alt="" aria-hidden="true">
+                </figure>
                 <div class="section-values-content">
                     <h2 class="title">Nos valeurs</h2>
                     <div class="section-values-text text-light">
