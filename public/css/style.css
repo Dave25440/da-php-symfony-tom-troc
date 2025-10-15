@@ -102,7 +102,7 @@ figcaption {
 
 
 /* Header */
-header {
+.page-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -328,6 +328,51 @@ nav a.active {
 }
 
 
+/* Books section */
+.section-books {
+    background-color: var(--bg-medium-color);
+    padding: 130px 0 80px;
+    margin: 0 auto;
+}
+
+.section-books-header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 914px;
+    margin: 0 auto 70px;
+}
+
+.section-books-header > form {
+    display: flex;
+    background-color: var(--bg-light-color);
+    width: 300px;
+    padding: 16px 12px;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+}
+
+.section-books-header > form:focus-within {
+    outline: 2px solid #000000;
+}
+
+.section-books-header img {
+    width: 15.85px;
+}
+
+.section-books-header input {
+    font-size: 0.875em;
+    width: 100%;
+    padding: 0;
+    margin-left: 12px;
+    border: 0;
+    outline: none;
+}
+
+.section-books-header input::placeholder {
+    color: var(--text-light-color);
+}
+
+
 /* Footer */
 .page-footer {
     background-color: var(--bg-light-color);
@@ -378,7 +423,7 @@ nav a.active {
 
 
     /* Header */
-    header {
+    .page-header {
         flex-direction: column;
         padding: 15px 20px;
     }
