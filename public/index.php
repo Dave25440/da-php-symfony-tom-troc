@@ -8,10 +8,16 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+        <script src="js/menu-toggle.js" defer></script>
     </head>
     <body>
         <header>
-            <img src="images/tom-troc-logo.svg" alt="Logo Tom Troc">
+            <div class="header-brand">
+                <img src="images/tom-troc-logo.svg" alt="Logo Tom Troc">
+                <button id="menu-toggle" aria-label="Afficher le menu" type="button">
+                    <img src="icons/menu-icon.svg" alt="">
+                </button>
+            </div>
             <nav>
                 <ul>
                     <li class="nav-item-left">
@@ -133,6 +139,6 @@
                 <li>Tom Troc©</li>
                 <li><img src="images/tt-logo.svg" alt="Logo TT"></li>
             </ul>
-        </footer>        
+        </footer>
     </body>
 </html>
