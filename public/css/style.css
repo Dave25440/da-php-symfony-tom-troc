@@ -358,6 +358,10 @@ nav a.active {
         font-size: 1.875em;
     }
 
+    h2 {
+        font-size: 1.75em;
+    }
+
     figcaption {
         padding-right: 25px;
         margin-top: 5px;
@@ -442,6 +446,59 @@ nav a.active {
 
     .section-join-content > p {
         margin: 0;
+    }
+
+
+    /* Books preview section */
+    .section-books-preview {
+        padding-bottom: 80px;
+    }
+
+    .section-books-preview > .title {
+        padding: 48px 55px 34px;
+    }
+
+    .section-books-preview > .cta {
+        display: none;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-flow: row;
+        gap: 15px;
+        margin: 0 20px;
+    }
+
+    .book-card {
+        max-width: 160px;
+        border-radius: 0 0 8px 8px;
+        filter: drop-shadow(0 3.2px 19.2px rgba(0, 0, 0, 0.01));
+    }
+
+    .book-card:hover {
+        filter: drop-shadow(0 3.2px 19.2px rgba(0, 0, 0, 0.1));
+    }
+
+    .book-card img {
+        max-height: 160px;
+    }
+
+    .book-info {
+        padding: 16px 11.2px 19.4px;
+    }
+
+    .book-info > h3 {
+        font-size: 0.81em;
+    }
+
+    .book-info > h4 {
+        font-size: 0.69em;
+        margin-top: 5.6px;
+    }
+
+    .book-info > p {
+        font-size: 0.5em;
+        margin-top: 18.2px;
     }
 
 
