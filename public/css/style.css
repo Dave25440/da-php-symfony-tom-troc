@@ -403,4 +403,21 @@ nav a.active {
         border-left: 0;
         border-top: 1px solid rgba(166, 166, 166, 0.2);
     }
+
+
+    /* Footer */
+    .page-footer {
+        padding: 32px 20px;
+    }
+
+    .page-footer > ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .page-footer a:hover,
+    .page-footer a.active {
+        font-size: 0.96em;
+    }
 }
