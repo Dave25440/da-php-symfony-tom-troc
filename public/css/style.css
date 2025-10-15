@@ -354,6 +354,20 @@ nav a.active {
         max-width: 375px;
     }
 
+    h1 {
+        font-size: 1.875em;
+    }
+
+    figcaption {
+        padding-right: 25px;
+        margin-top: 5px;
+    }
+
+    .cta {
+        display: block;
+        text-align: center;
+    }
+
 
     /* Header */
     header {
@@ -402,6 +416,32 @@ nav a.active {
         margin: 20px 0 0;
         border-left: 0;
         border-top: 1px solid rgba(166, 166, 166, 0.2);
+    }
+
+
+    /* Join section */
+    .section-join {
+        flex-direction: column-reverse;
+        gap: 32px;
+        max-width: 100%;
+        margin: 0 0 48px;
+    }
+
+    .section-join > figure {
+        flex: auto;
+    }
+
+    .section-join-content {
+        display: flex;
+        flex-direction: column;
+        flex: auto;
+        gap: 32px;
+        padding: 0 20px;
+        margin-top: 0;
+    }
+
+    .section-join-content > p {
+        margin: 0;
     }
 
 
