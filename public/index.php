@@ -61,7 +61,9 @@
                 <div class="books-grid">
                     <a href="#" class="book-card">
                         <article>
-                            <img src="images/esther-alabaster.webp" alt="">
+                            <figure>
+                                <img src="images/esther-alabaster.webp" alt="">
+                            </figure>
                             <div class="book-info">
                                 <h3>Esther</h3>
                                 <h4>Alabaster</h4>
@@ -71,7 +73,9 @@
                     </a>
                     <a href="#" class="book-card">
                         <article>
-                            <img src="images/kinfolk-table-williams.webp" alt="">
+                            <figure>
+                                <img src="images/kinfolk-table-williams.webp" alt="">
+                            </figure>
                             <div class="book-info">
                                 <h3>The Kinfolk Table</h3>
                                 <h4>Nathan Williams</h4>
@@ -81,7 +85,9 @@
                     </a>
                     <a href="#" class="book-card">
                         <article>
-                            <img src="images/wabi-sabi-kempton.webp" alt="">
+                            <figure>
+                                <img src="images/wabi-sabi-kempton.webp" alt="">
+                            </figure>
                             <div class="book-info">
                                 <h3>Wabi Sabi</h3>
                                 <h4>Beth Kempton</h4>
@@ -91,7 +97,9 @@
                     </a>
                     <a href="#" class="book-card">
                         <article>
-                            <img src="images/milk-honey-kaur.webp" alt="">
+                            <figure>
+                                <img src="images/milk-honey-kaur.webp" alt="">
+                            </figure>
                             <div class="book-info">
                                 <h3>Milk & honey</h3>
                                 <h4>Rupi Kaur</h4>
