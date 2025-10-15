@@ -502,6 +502,33 @@ nav a.active {
     }
 
 
+    /* How it works section */
+    .section-how-it-works {
+        margin: 48px 20px;
+    }
+
+    .section-how-it-works > .title {
+        padding: 0 25px;
+    }
+
+    .section-how-it-works > p {
+        font-size: 0.875em;
+        margin-top: 1em;
+    }
+
+    .section-how-it-works > ol {
+        grid-template-columns: auto;
+        gap: 16px;
+        max-width: 100%;
+        margin: 32px 0;
+    }
+
+    .section-how-it-works li {
+        max-width: 100%;
+        padding: 53px 28px;
+    }
+
+
     /* Footer */
     .page-footer {
         padding: 32px 20px;
