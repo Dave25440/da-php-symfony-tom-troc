@@ -350,10 +350,11 @@ nav a.active {
 .section-books-header > form {
     display: flex;
     background-color: var(--bg-light-color);
-    width: 300px;
+    width: 322px;
     padding: 16px 12px;
     border: 1px solid #F0F0F0;
     border-radius: 6px;
+    box-sizing: border-box;
 }
 
 .section-books-header > form:focus-within {
@@ -617,6 +618,26 @@ nav a.active {
 
     .section-values-footer > img {
         margin: 0 auto;
+    }
+
+
+    /* Books section */
+    .section-books {
+        padding: 55px 0;
+        margin: 0;
+    }
+
+    .section-books-header {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 28px;
+        max-width: 100%;
+        margin: 0 20px 40px;
+    }
+
+    .section-books-header > form {
+        width: 100%;
     }
 
 
