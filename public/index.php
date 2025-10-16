@@ -18,7 +18,7 @@
                     <img src="icons/menu-icon.svg" alt="">
                 </button>
             </div>
-            <nav>
+            <nav class="main-nav">
                 <ul>
                     <li class="nav-item-left">
                         <a href="index.php" class="active">Accueil</a>
@@ -28,7 +28,7 @@
                     </li>
                     <li class="nav-item-right nav-item-border">
                         <img src="icons/message-icon.svg" alt="Icône Messagerie" class="nav-icon">
-                        <a href="#">Messagerie</a>
+                        <a href="message.php">Messagerie</a>
                         <span class="nav-counter" aria-live="polite">
                             1
                             <span class="sr-only"> message(s) non lu(s)</span>
@@ -49,7 +49,7 @@
                 <div class="section-join-content">
                     <h1 class="title">Rejoignez nos lecteurs passionnés</h1>
                     <p class="text-light">Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres.</p>
-                    <a href="#" class="cta">Découvrir</a>
+                    <a href="books.php" class="cta">Découvrir</a>
                 </div>
                 <figure>
                     <img src="images/reading-hamza-nouasria.webp" alt="Homme en train de lire assis au milieu de piles de livres">
@@ -71,7 +71,7 @@
                             </div>
                         </article>
                     </a>
-                    <a href="#" class="book-card">
+                    <a href="book.php" class="book-card">
                         <article>
                             <figure>
                                 <img src="images/kinfolk-table-williams.webp" alt="">

@@ -129,7 +129,7 @@ figcaption {
     filter: brightness(0.25);
 }
 
-nav > ul {
+.main-nav > ul {
     display: flex;
     color: var(--text-color);
     font-size: 0.875em;
@@ -137,8 +137,8 @@ nav > ul {
     white-space: nowrap;
 }
 
-nav a:hover,
-nav a.active {
+.main-nav a:hover,
+.main-nav a.active {
     font-size: 0.98em;
     font-weight: 600;
 }
@@ -451,18 +451,18 @@ nav a.active {
         display: block;
     }
 
-    nav > ul {
+    .main-nav > ul {
         display: none;
     }
 
-    nav > ul.visible {
+    .main-nav > ul.visible {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    nav a:hover,
-    nav a.active {
+    .main-nav a:hover,
+    .main-nav a.active {
         font-size: 0.97em;
     }
 

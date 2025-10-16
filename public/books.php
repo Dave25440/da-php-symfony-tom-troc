@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Accueil - Tom Troc</title>
+        <title>Nos livres - Tom Troc</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
                     <img src="icons/menu-icon.svg" alt="">
                 </button>
             </div>
-            <nav>
+            <nav class="main-nav">
                 <ul>
                     <li class="nav-item-left">
                         <a href="index.php">Accueil</a>
@@ -28,7 +28,7 @@
                     </li>
                     <li class="nav-item-right nav-item-border">
                         <img src="icons/message-icon.svg" alt="Icône Messagerie" class="nav-icon">
-                        <a href="#">Messagerie</a>
+                        <a href="message.php">Messagerie</a>
                         <span class="nav-counter" aria-live="polite">
                             1
                             <span class="sr-only"> message(s) non lu(s)</span>
@@ -67,7 +67,7 @@
                             </div>
                         </article>
                     </a>
-                    <a href="#" class="book-card">
+                    <a href="book.php" class="book-card">
                         <article>
                             <figure>
                                 <img src="images/kinfolk-table-williams.webp" alt="">

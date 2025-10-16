@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.getElementById("menu-toggle");
-    const nav = document.querySelector("nav > ul");
+    const nav = document.querySelector(".main-nav > ul");
 
     if (toggle && nav) {
         toggle.addEventListener("click", () => {
