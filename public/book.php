@@ -55,6 +55,12 @@
                     </li>
                 </ol>
             </nav>
+            <article class="article-book">
+                <figure>
+                    <img src="images/kinfolk-table-williams.webp" alt="">
+                </figure>
+                <div></div>
+            </article>
         </main>
         <footer class="page-footer text-light">
             <ul>

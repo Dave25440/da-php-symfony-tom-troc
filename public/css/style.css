@@ -250,7 +250,6 @@ figcaption {
 
 .book-card figure {
     height: 200px;
-    overflow: hidden;
 }
 
 .book-card img {
@@ -397,6 +396,24 @@ figcaption {
 
 .section-books-header input::placeholder {
     color: var(--text-light-color);
+}
+
+
+/* Book article */
+.article-book {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.article-book > figure {
+    height: 863px;
+}
+
+.article-book img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
 }
 
 
