@@ -60,11 +60,13 @@ figcaption {
     font-weight: 600;
     padding: 22px 38px;
     border-radius: 10px;
+    transition: all 0.3s ease-out;
 }
 
 .cta:hover {
     background-color: var(--button-dark-color);
     color: var(--bg-light-color);
+    border-color: transparent;
 }
 
 .cta-reverse {
@@ -221,6 +223,7 @@ nav a.active {
     text-align: left;
     border-radius: 0 0 10px 10px;
     filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.01));
+    transition: filter 0.3s ease-out;
 }
 
 .book-card:hover {
