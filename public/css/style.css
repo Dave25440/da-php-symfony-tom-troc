@@ -173,6 +173,24 @@ figcaption {
 }
 
 
+/* Breadcrumb nav */
+.breadcrumb-nav > ol {
+    display: flex;
+    gap: 0.3em;
+    color: var(--text-light-color);
+    font-size: 0.625em;
+    padding: 16px 150px;
+}
+
+.breadcrumb-nav li:not(:last-child)::after {
+    content: ">";
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--text-color);
+}
+
+
 /* Join section */
 .section-join {
     display: flex;
@@ -478,6 +496,12 @@ figcaption {
         margin: 20px 0 0;
         border-left: 0;
         border-top: 1px solid rgba(166, 166, 166, 0.2);
+    }
+
+
+    /* Breadcrumb nav */
+    .breadcrumb-nav {
+        display: none;
     }
 
 
