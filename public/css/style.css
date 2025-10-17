@@ -131,6 +131,7 @@ figcaption {
 
 .main-nav > ul {
     display: flex;
+    flex-wrap: wrap;
     color: var(--text-color);
     font-size: 0.875em;
     letter-spacing: 0.02em;
