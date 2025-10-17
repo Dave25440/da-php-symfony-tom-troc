@@ -766,6 +766,33 @@ figcaption {
     }
 
 
+    /* Book article */
+    .article-book {
+        grid-template-columns: auto;
+    }
+
+    .article-book > figure {
+        height: 450px;
+    }
+
+    .article-book-content {
+        padding: 40px 20px 80px;
+    }
+
+    .article-book-content > h1 {
+        font-size: 1.875em;
+    }
+
+    .article-book-content > h2,
+    .article-book-content > .cta {
+        margin-top: 40px;
+    }
+
+    .article-book-text {
+        margin-bottom: 8px;
+    }
+
+
     /* Footer */
     .page-footer {
         padding: 32px 20px;
