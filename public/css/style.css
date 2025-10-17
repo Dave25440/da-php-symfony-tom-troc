@@ -577,10 +577,7 @@ figcaption {
         font-size: 0.97em;
     }
 
-    .nav-item-left {
-        padding: 20px 0 0;
-    }
-
+    .nav-item-left,
     .nav-item-right {
         padding: 20px 0 0;
     }
