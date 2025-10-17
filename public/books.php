@@ -58,7 +58,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/esther-alabaster.webp" alt="">
+                                <img src="images/esther-alabaster.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Esther</h3>
@@ -70,7 +70,7 @@
                     <a href="book.php" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/kinfolk-table-williams.webp" alt="">
+                                <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>The Kinfolk Table</h3>
@@ -82,7 +82,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/wabi-sabi-kempton.webp" alt="">
+                                <img src="images/wabi-sabi-kempton.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Wabi Sabi</h3>
@@ -94,7 +94,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/milk-honey-kaur.webp" alt="">
+                                <img src="images/milk-honey-kaur.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Milk & honey</h3>
@@ -106,7 +106,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/delight-rossow.webp" alt="">
+                                <img src="images/delight-rossow.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Delight!</h3>
@@ -118,7 +118,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/milwaukee-mission-low.webp" alt="">
+                                <img src="images/milwaukee-mission-low.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Milwaukee Mission</h3>
@@ -130,7 +130,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/minimalist-graphics-schonlau.webp" alt="">
+                                <img src="images/minimalist-graphics-schonlau.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Minimalist Graphics</h3>
@@ -142,7 +142,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/hygge-wiking.webp" alt="">
+                                <img src="images/hygge-wiking.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Hygge</h3>
@@ -154,7 +154,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/innovation-ridley.webp" alt="">
+                                <img src="images/innovation-ridley.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Innovation</h3>
@@ -166,7 +166,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/psalms-alabaster.webp" alt="">
+                                <img src="images/psalms-alabaster.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Psalms</h3>
@@ -178,7 +178,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/thinking-fast-kahneman.webp" alt="">
+                                <img src="images/thinking-fast-kahneman.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Thinking, Fast & Slow</h3>
@@ -190,7 +190,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/book-hope-kaur.webp" alt="">
+                                <img src="images/book-hope-kaur.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>A Book Full of Hope</h3>
@@ -202,7 +202,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/subtle-art-manson.webp" alt="">
+                                <img src="images/subtle-art-manson.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>The Subtle Art of Not Giving a F*ck</h3>
@@ -214,7 +214,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/narnia-lewis.webp" alt="">
+                                <img src="images/narnia-lewis.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Narnia</h3>
@@ -226,7 +226,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/company-one-jarvis.webp" alt="">
+                                <img src="images/company-one-jarvis.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Company of One</h3>
@@ -238,7 +238,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/two-towers-tolkien.webp" alt="">
+                                <img src="images/two-towers-tolkien.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>The Two Towers</h3>

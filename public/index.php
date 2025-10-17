@@ -62,7 +62,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/esther-alabaster.webp" alt="">
+                                <img src="images/esther-alabaster.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Esther</h3>
@@ -74,7 +74,7 @@
                     <a href="book.php" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/kinfolk-table-williams.webp" alt="">
+                                <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>The Kinfolk Table</h3>
@@ -86,7 +86,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/wabi-sabi-kempton.webp" alt="">
+                                <img src="images/wabi-sabi-kempton.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Wabi Sabi</h3>
@@ -98,7 +98,7 @@
                     <a href="#" class="book-card">
                         <article>
                             <figure>
-                                <img src="images/milk-honey-kaur.webp" alt="">
+                                <img src="images/milk-honey-kaur.webp" alt="" class="img-cover">
                             </figure>
                             <div class="book-info">
                                 <h3>Milk & honey</h3>
@@ -126,7 +126,7 @@
             </section>
             <section class="section-values">
                 <figure class="section-values-banner">
-                    <img src="images/banner-darwin-vegher.webp" alt="" aria-hidden="true">
+                    <img src="images/banner-darwin-vegher.webp" alt="" aria-hidden="true" class="img-cover">
                 </figure>
                 <div class="section-values-content">
                     <h2 class="title">Nos valeurs</h2>

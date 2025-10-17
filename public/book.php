@@ -57,7 +57,7 @@
             </nav>
             <article class="article-book">
                 <figure>
-                    <img src="images/kinfolk-table-williams.webp" alt="" class="article-book-cover">
+                    <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover article-book-cover">
                 </figure>
                 <div class="article-book-content">
                     <h1 class="title">The Kinfolk Table</h1>
@@ -73,7 +73,7 @@
                     <h3>Propriétaire</h3>
                     <a href="profile.php" class="user-card">
                         <figure>
-                            <img src="images/user-nathalire.webp" alt="">
+                            <img src="images/user-nathalire.webp" alt="" class="img-cover">
                         </figure>
                         Nathalire
                     </a>
