@@ -490,6 +490,24 @@ figcaption {
 }
 
 
+/* Sign in section */
+.section-signin {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--bg-medium-color);
+}
+
+.section-signin > figure {
+    height: 886px;
+    overflow: hidden;
+}
+
+.section-signin img {
+    height: 1238px;
+    object-position: 10% -306px;
+}
+
+
 /* Footer */
 .page-footer {
     background-color: var(--bg-light-color);

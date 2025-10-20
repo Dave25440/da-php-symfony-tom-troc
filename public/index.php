@@ -39,7 +39,7 @@
                         <a href="#">Mon compte</a>
                     </li>
                     <li class="nav-item-right">
-                        <a href="#">Connexion</a>
+                        <a href="signin.php">Connexion</a>
                     </li>
                 </ul>
             </nav>
