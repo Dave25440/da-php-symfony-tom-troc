@@ -561,7 +561,7 @@ figcaption {
 
 .section-account > .title {
     font-size: 1.625em;
-    margin-bottom: 48px;
+    margin-bottom: 16px;
 }
 
 .section-account > .title,
@@ -967,6 +967,28 @@ figcaption {
 
     .section-auth-wrapper .cta {
         margin-bottom: 32px;
+    }
+
+
+    /* Account section */
+    .section-account {
+        grid-template-columns: auto;
+        padding : 80px 20px 60px;
+    }
+
+    .section-account > .title {
+        font-size: 1.875em;
+    }
+
+    .section-account > .title,
+    .section-account-books {
+        grid-column: auto;
+    }
+
+
+    /* Account profile section */
+    .section-account-profile {
+        padding-bottom: 36px;
     }
 
 
