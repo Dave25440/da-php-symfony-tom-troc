@@ -103,6 +103,12 @@ figcaption {
     color: var(--text-light-color);
 }
 
+.form-label {
+    color: var(--text-light-color);
+    font-size: 0.875em;
+    margin-bottom: 10px;
+}
+
 .img-cover {
     width: 100%;
     height: 100%;
@@ -507,6 +513,36 @@ figcaption {
 .section-signin img {
     height: 1238px;
     object-position: 10% -306px;
+}
+
+.section-signin-wrapper {
+    max-width: 322px;
+    margin: 130px 0 0 150px;
+}
+
+.section-signin-wrapper > .title {
+    margin-bottom: 56px;
+}
+
+.section-signin-wrapper > p {
+    color: var(--text-color);
+    font-size: 0.875em;
+}
+
+.section-signin-wrapper .form-input {
+    margin-bottom: 32px;
+}
+
+.section-signin-wrapper .cta {
+    margin-bottom: 40px;
+}
+
+.section-signin-wrapper a {
+    text-decoration: underline;
+}
+
+.section-signin-wrapper a:hover {
+    font-weight: 600;
 }
 
 
