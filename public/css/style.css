@@ -143,6 +143,14 @@ figcaption {
     font-family: "Playfair Display", serif;
 }
 
+.title-uppercase {
+    color: var(--text-color);
+    font-size: 0.5em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 
 /* Header */
 .page-header {
@@ -441,11 +449,6 @@ figcaption {
 }
 
 .article-book-content > h3 {
-    color: var(--text-color);
-    font-size: 0.5em;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     margin: 32px 0 16px;
 }
 
