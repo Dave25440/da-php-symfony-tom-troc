@@ -24,7 +24,7 @@
                         <a href="index.php">Accueil</a>
                     </li>
                     <li class="nav-item-left">
-                        <a href="books.php" class="active">Nos livres à l'échange</a>
+                        <a href="books.php">Nos livres à l'échange</a>
                     </li>
                     <li class="nav-item-right nav-item-border">
                         <img src="icons/message-icon.svg" alt="Icône Messagerie" class="nav-icon">
@@ -39,7 +39,7 @@
                         <a href="#">Mon compte</a>
                     </li>
                     <li class="nav-item-right">
-                        <a href="signin.php">Connexion</a>
+                        <a href="signin.php" class="active">Connexion</a>
                     </li>
                 </ul>
             </nav>
