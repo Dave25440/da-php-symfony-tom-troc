@@ -47,7 +47,20 @@
         <main>
             <section class="section-account">
                 <h1 class="title">Mon compte</h1>
-                <section class="section-account-profile"></section>
+                <section class="section-account-profile">
+                    <figure>
+                        <img src="images/user-nathalire.webp" alt="" class="img-cover">
+                    </figure>
+                    <a href="#">modifier</a>
+                    <hr>
+                    <h2 class="title">nathalire</h2>
+                    <p class="profile-membership">Membre depuis 1 an</p>
+                    <h3 class="title-uppercase">Bibliothèque</h3>
+                    <p class="profile-books">
+                        <img src="icons/books-icon.svg" alt="" aria-hidden="true">
+                        4 livres
+                    </p>
+                </section>
                 <section class="section-account-details"></section>
                 <section class="section-account-books"></section>
             </section>

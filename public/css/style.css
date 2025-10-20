@@ -569,6 +569,75 @@ figcaption {
     grid-column: span 2;
 }
 
+.section-account-profile,
+.section-account-details,
+.section-account-books {
+    background-color: var(--bg-light-color);
+    border-radius: 20px;
+}
+
+
+/* Account profile section */
+.section-account-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 0 90px;
+}
+
+.section-account-profile > figure {
+    width: 135px;
+    height: 135px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.section-account-profile > a {
+    text-decoration: underline;
+    margin-top: 5px;
+}
+
+.section-account-profile > a,
+.profile-membership {
+    color: var(--text-light-color);
+    font-size: 0.875em;
+}
+
+.section-account-profile > a:hover,
+.section-account-profile > h2,
+.profile-books {
+    color: var(--text-color);
+}
+
+.section-account-profile > hr {
+    width: 242px;
+    margin: 48px 0;
+    border: 0;
+    border-top: 1px solid var(--bg-color);
+}
+
+.section-account-profile > h2 {
+    font-size: 1.5em;
+}
+
+.section-account-profile > h3 {
+    margin: 22px 0 6px;
+}
+
+.profile-membership {
+    margin-top: 0.75em;
+}
+
+.profile-books {
+    display: flex;
+    gap: 0.35em;
+    font-size: 0.875em;
+}
+
+.profile-books > img {
+    width: 10.4px;
+}
+
 
 /* Footer */
 .page-footer {
