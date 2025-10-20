@@ -803,6 +803,21 @@ figcaption {
     }
 
 
+    /* Sign in section */
+    .section-signin {
+        grid-template-columns: auto;
+    }
+
+    .section-signin > figure {
+        height: 462px;
+    }
+
+    .section-signin img {
+        height: 646px;
+        object-position: 10% -160px;
+    }
+
+
     /* Footer */
     .page-footer {
         padding: 32px 20px;
