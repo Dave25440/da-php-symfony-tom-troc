@@ -41,6 +41,11 @@ h2 {
     font-size: 2em;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 img {
     display: block;
     max-width: 100%;
@@ -69,10 +74,33 @@ figcaption {
     border-color: transparent;
 }
 
+.cta-input {
+    border: 0;
+    cursor: pointer;
+}
+
 .cta-reverse {
     background-color: transparent;
     color: var(--button-color);
     border: 1px solid var(--button-color);
+}
+
+.form-input {
+    width: 322px;
+    font-size: 0.875em;
+    padding: 16px 12px;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-input:focus-within {
+    outline: 2px solid #000000;
+}
+
+.form-input::placeholder {
+    color: var(--text-light-color);
 }
 
 .img-cover {
@@ -367,35 +395,9 @@ figcaption {
     margin: 0 auto 70px;
 }
 
-.section-books-header > form {
-    display: flex;
-    background-color: var(--bg-light-color);
-    width: 322px;
-    padding: 16px 12px;
-    border: 1px solid #F0F0F0;
-    border-radius: 6px;
-    box-sizing: border-box;
-}
-
-.section-books-header > form:focus-within {
-    outline: 2px solid #000000;
-}
-
-.section-books-header img {
-    width: 15.85px;
-}
-
 .section-books-header input {
-    font-size: 0.875em;
-    width: 100%;
-    padding: 0;
-    margin-left: 12px;
-    border: 0;
-    outline: none;
-}
-
-.section-books-header input::placeholder {
-    color: var(--text-light-color);
+    background: url("../icons/search-icon.svg") no-repeat 12px center / 15.85px auto;
+    padding-left: 40px;
 }
 
 

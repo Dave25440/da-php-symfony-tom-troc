@@ -49,9 +49,8 @@
                 <header class="section-books-header">
                     <h1 class="title">Nos livres à l’échange</h1>
                     <form role="search">
-                        <img src="icons/search-icon.svg" alt="" aria-hidden=true>
                         <label for="search-input" class="sr-only">Rechercher un livre</label>
-                        <input type="search" id="search-input" placeholder="Rechercher un livre">
+                        <input type="search" id="search-input" placeholder="Rechercher un livre" class="form-input">
                     </form>
                 </header>
                 <div class="books-grid">
