@@ -75,6 +75,7 @@ figcaption {
 }
 
 .cta-input {
+    font-size: 1em;
     border: 0;
     cursor: pointer;
 }
@@ -498,50 +499,50 @@ figcaption {
 }
 
 
-/* Sign in section */
-.section-signin {
+/* Auth section */
+.section-auth {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     background-color: var(--bg-medium-color);
 }
 
-.section-signin > figure {
+.section-auth > figure {
     height: 886px;
     overflow: hidden;
 }
 
-.section-signin img {
+.section-auth img {
     height: 1238px;
     object-position: 10% -306px;
 }
 
-.section-signin-wrapper {
+.section-auth-wrapper {
     max-width: 322px;
     margin: 130px 0 0 150px;
 }
 
-.section-signin-wrapper > .title {
+.section-auth-wrapper > .title {
     margin-bottom: 56px;
 }
 
-.section-signin-wrapper > p {
+.section-auth-wrapper > p {
     color: var(--text-color);
     font-size: 0.875em;
 }
 
-.section-signin-wrapper .form-input {
+.section-auth-wrapper .form-input {
     margin-bottom: 32px;
 }
 
-.section-signin-wrapper .cta {
+.section-auth-wrapper .cta {
     margin-bottom: 40px;
 }
 
-.section-signin-wrapper a {
+.section-auth-wrapper a {
     text-decoration: underline;
 }
 
-.section-signin-wrapper a:hover {
+.section-auth-wrapper a:hover {
     font-weight: 600;
 }
 
@@ -845,34 +846,34 @@ figcaption {
     }
 
 
-    /* Sign in section */
-    .section-signin {
+    /* Auth section */
+    .section-auth {
         grid-template-columns: auto;
     }
 
-    .section-signin > figure {
+    .section-auth > figure {
         height: 462px;
     }
 
-    .section-signin img {
+    .section-auth img {
         height: 646px;
         object-position: 10% -160px;
     }
 
-    .section-signin-wrapper {
+    .section-auth-wrapper {
         max-width: 100%;
         margin: 80px 20px 100px;
     }
 
-    .section-signin-wrapper > .title {
+    .section-auth-wrapper > .title {
         margin-bottom: 32px;
     }
 
-    .section-signin-wrapper > p {
+    .section-auth-wrapper > p {
         font-size: 1em;
     }
 
-    .section-signin-wrapper .cta {
+    .section-auth-wrapper .cta {
         margin-bottom: 32px;
     }
 

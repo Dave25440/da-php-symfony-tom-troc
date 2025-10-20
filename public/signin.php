@@ -45,8 +45,8 @@
             </nav>
         </header>
         <main>
-            <section class="section-signin">
-                <div class="section-signin-wrapper">
+            <section class="section-auth">
+                <div class="section-auth-wrapper">
                     <h1 class="title">Connexion</h1>
                     <form aria-label="Formulaire de connexion">
                         <label for="email" class="form-label">Adresse email</label>
