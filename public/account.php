@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Connexion - Tom Troc</title>
+        <title>Mon compte - Tom Troc</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,33 +36,20 @@
                     </li>
                     <li class="nav-item-right">
                         <img src="icons/account-icon.svg" alt="Icône Mon compte" class="nav-icon">
-                        <a href="account.php">Mon compte</a>
+                        <a href="account.php" class="active">Mon compte</a>
                     </li>
                     <li class="nav-item-right">
-                        <a href="signin.php" class="active">Connexion</a>
+                        <a href="signin.php">Connexion</a>
                     </li>
                 </ul>
             </nav>
         </header>
         <main>
-            <section class="section-auth">
-                <div class="section-auth-wrapper">
-                    <h1 class="title">Connexion</h1>
-                    <form aria-label="Formulaire de connexion">
-                        <label for="email" class="form-label">Adresse email</label>
-                        <input type="email" id="email" class="form-input">
-                        <label for="password" class="form-label">Mot de passe</label>
-                        <input type="password" id="password" class="form-input">
-                        <input type="submit" id="signin" value="Se connecter" class="cta cta-input">
-                    </form>
-                    <p>
-                        Pas de compte ?
-                        <a href="signup.php">Inscrivez-vous</a>
-                    </p>
-                </div>
-                <figure>
-                    <img src="images/library-marialaura-gionfriddo.webp" alt="Étagères d'une bibliothèque remplies de piles de livres" class="img-cover">
-                </figure>
+            <section class="section-account">
+                <h1 class="title">Mon compte</h1>
+                <section class="section-account-profile"></section>
+                <section class="section-account-details"></section>
+                <section class="section-account-books"></section>
             </section>
         </main>
         <footer class="page-footer text-light">

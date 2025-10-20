@@ -403,7 +403,7 @@ figcaption {
 }
 
 .section-books-header input {
-    background: url("../icons/search-icon.svg") no-repeat 12px center / 15.85px auto;
+    background: var(--bg-light-color) url("../icons/search-icon.svg") no-repeat 12px center / 15.85px auto;
     padding-left: 40px;
 }
 
@@ -544,6 +544,26 @@ figcaption {
 
 .section-auth-wrapper a:hover {
     font-weight: 600;
+}
+
+
+/* Account section */
+.section-account {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    background-color: var(--bg-medium-color);
+    padding : 90px 150px 100px;
+}
+
+.section-account > .title {
+    font-size: 1.625em;
+    margin-bottom: 48px;
+}
+
+.section-account > .title,
+.section-account-books {
+    grid-column: span 2;
 }
 
 

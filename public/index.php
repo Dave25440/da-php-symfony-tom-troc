@@ -36,7 +36,7 @@
                     </li>
                     <li class="nav-item-right">
                         <img src="icons/account-icon.svg" alt="Icône Mon compte" class="nav-icon">
-                        <a href="#">Mon compte</a>
+                        <a href="account.php">Mon compte</a>
                     </li>
                     <li class="nav-item-right">
                         <a href="signin.php">Connexion</a>
