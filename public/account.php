@@ -61,7 +61,18 @@
                         4 livres
                     </p>
                 </section>
-                <section class="section-account-details"></section>
+                <section class="section-account-details">
+                    <h2>Vos informations personnelles</h2>
+                    <form>
+                        <label for="email" class="form-label">Adresse email</label>
+                        <input type="email" id="email" value="nathalie@mail.com" class="form-input form-input-update">
+                        <label for="password" class="form-label">Mot de passe</label>
+                        <input type="password" id="password" value="nathalire" class="form-input form-input-update">
+                        <label for="username" class="form-label">Pseudo</label>
+                        <input type="text" id="username" value="nathalire" class="form-input form-input-update">
+                        <input type="submit" id="save" value="Enregistrer" class="cta cta-input cta-reverse">
+                    </form>
+                </section>
                 <section class="section-account-books"></section>
             </section>
         </main>
