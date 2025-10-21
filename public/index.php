@@ -64,7 +64,7 @@
                             <figure>
                                 <img src="images/esther-alabaster.webp" alt="" class="img-cover">
                             </figure>
-                            <div class="book-info">
+                            <div class="text-ellipsis book-info">
                                 <h3>Esther</h3>
                                 <h4>Alabaster</h4>
                                 <p class="text-caption">Vendu par : CamilleClubLit</p>
@@ -76,7 +76,7 @@
                             <figure>
                                 <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">
                             </figure>
-                            <div class="book-info">
+                            <div class="text-ellipsis book-info">
                                 <h3>The Kinfolk Table</h3>
                                 <h4>Nathan Williams</h4>
                                 <p class="text-caption">Vendu par : Nathalire</p>
@@ -88,7 +88,7 @@
                             <figure>
                                 <img src="images/wabi-sabi-kempton.webp" alt="" class="img-cover">
                             </figure>
-                            <div class="book-info">
+                            <div class="text-ellipsis book-info">
                                 <h3>Wabi Sabi</h3>
                                 <h4>Beth Kempton</h4>
                                 <p class="text-caption">Vendu par : Alexlecture</p>
@@ -100,7 +100,7 @@
                             <figure>
                                 <img src="images/milk-honey-kaur.webp" alt="" class="img-cover">
                             </figure>
-                            <div class="book-info">
+                            <div class="text-ellipsis book-info">
                                 <h3>Milk & honey</h3>
                                 <h4>Rupi Kaur</h4>
                                 <p class="text-caption">Vendu par : Hugo1990_12</p>

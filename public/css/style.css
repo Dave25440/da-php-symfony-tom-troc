@@ -140,6 +140,13 @@ figcaption {
     font-style: oblique;
 }
 
+.text-ellipsis,
+.text-ellipsis * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .text-light,
 .text-light * {
     font-weight: 300;
@@ -312,12 +319,6 @@ figcaption {
 
 .book-info {
     padding: 20px 14px 26px;
-}
-
-.book-info > * {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .book-info > h3 {
