@@ -1011,6 +1011,21 @@ figcaption {
     }
 
 
+    /* Account details section */
+    .section-account-details {
+        padding: 40px 32px 48px;
+    }
+
+    .section-account-details > h2 {
+        margin-bottom: 22px;
+    }
+
+    .section-account-details .cta {
+        max-width: 100%;
+        padding: 22px 38px;
+    }
+
+
     /* Footer */
     .page-footer {
         padding: 32px 20px;
