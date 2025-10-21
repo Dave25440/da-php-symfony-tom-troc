@@ -50,7 +50,7 @@
                     <h1 class="title">Nos livres à l’échange</h1>
                     <form role="search">
                         <label for="search-input" class="sr-only">Rechercher un livre</label>
-                        <input type="search" id="search-input" placeholder="Rechercher un livre" class="form-input">
+                        <input type="search" id="search" name="search" placeholder="Rechercher un livre" class="form-input">
                     </form>
                 </header>
                 <div class="books-grid">
