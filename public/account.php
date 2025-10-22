@@ -51,7 +51,7 @@
                     <figure>
                         <img src="images/user-nathalire.webp" alt="" class="img-cover">
                     </figure>
-                    <a href="#" aria-label="Modifier la photo de profil">modifier</a>
+                    <a href="#" aria-label="Modifier la photo de profil" class="profile-update">modifier</a>
                     <hr>
                     <h2 class="title">nathalire</h2>
                     <p class="profile-membership">Membre depuis 1 an</p>
