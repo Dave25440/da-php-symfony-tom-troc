@@ -761,7 +761,7 @@ img {
 
 /* Account public section */
 .section-account-public {
-    grid-template-columns: 340px 768px;
+    grid-template-columns: 1fr 2.26fr;
     padding : 100px 150px 215px;
 }
 
@@ -780,6 +780,82 @@ img {
 .section-account-public > .section-account-books tbody td:last-child {
     color: var(--text-color);
     padding: 26px 63px 26px 80px;
+}
+
+
+/* Edit section */
+.section-edit {
+    background-color: var(--bg-medium-color);
+    padding: 40px 150px 90px;
+}
+
+.section-edit > a {
+    color: var(--text-light-color);
+    font-size: 0.875em;
+}
+
+.section-edit > a:hover {
+    color: var(--text-color);
+}
+
+.section-edit > .title {
+    font-size: 1.625em;
+    margin-top: 23px;
+}
+
+.section-edit-wrapper {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bg-light-color);
+    padding: 56px 50px 68px;
+    margin-top: 23px;
+    border-radius: 20px;
+}
+
+.section-edit-wrapper > figure {
+    display: flex;
+    flex-direction: column;
+    width: 488px;
+}
+
+.section-edit-wrapper img {
+    height: 488px;
+    object-position: 0 79%;
+}
+
+.section-edit-wrapper a {
+    align-self: flex-end;
+    color: var(--text-color);
+    font-size: 0.75em;
+    text-decoration: underline;
+    margin-top: 23px;
+}
+
+.section-edit-wrapper a:hover {
+    font-size: 0.73em;
+    font-weight: 600;
+}
+
+.section-edit-wrapper > form {
+    width: 435px;
+}
+
+.section-edit-wrapper .form-input {
+    width: 100%;
+}
+
+.section-edit-wrapper textarea {
+    resize: none;
+}
+
+.section-edit-wrapper select {
+    appearance: none;
+    background: var(--bg-secondary-color) url("../icons/chevron-icon.svg") no-repeat right 24px center;
+}
+
+.section-edit-wrapper .cta {
+    width: 322px;
+    margin-top: 12px;
 }
 
 
