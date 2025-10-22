@@ -759,6 +759,30 @@ figcaption {
 }
 
 
+/* Account public section */
+.section-account-public {
+    grid-template-columns: 340px 768px;
+    padding : 100px 150px 215px;
+}
+
+.section-account-public > .section-account-profile > hr {
+    margin-top: 70px;
+}
+
+.section-account-public > .section-account-profile > .cta {
+    margin-top: 45px;
+}
+
+.section-account-public > .section-account-books {
+    grid-column: auto;
+}
+
+.section-account-public > .section-account-books tbody td:last-child {
+    color: var(--text-color);
+    padding: 26px 63px 26px 80px;
+}
+
+
 /* Footer */
 .page-footer {
     background-color: var(--bg-light-color);
