@@ -46,7 +46,7 @@
         </header>
         <main>
             <section class="section-edit">
-                <a href="account.php"><- retour</a>
+                <a href="account.php">&lt;- retour</a>
                 <h1 class="title">Modifier les informations</h1>
                 <div class="section-edit-wrapper">
                     <figure>
