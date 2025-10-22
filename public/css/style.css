@@ -65,12 +65,6 @@ img {
     height: auto;
 }
 
-figcaption {
-    font-size: 0.75em;
-    text-align: right;
-    margin-top: 12px;
-}
-
 .cta {
     display: inline-block;
     background-color: var(--button-color);
@@ -141,7 +135,7 @@ figcaption {
     padding: 0;
     margin: -1px;
     overflow: hidden;
-    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
     clip-path: inset(50%);
     border: 0;
     white-space: nowrap;
@@ -289,6 +283,12 @@ figcaption {
 
 .section-join > figure {
     flex: 0 1 404px;
+}
+
+.section-join figcaption {
+    font-size: 0.75em;
+    text-align: right;
+    margin-top: 12px;
 }
 
 .section-join-content {
@@ -821,11 +821,6 @@ figcaption {
         font-size: 1.75em;
     }
 
-    figcaption {
-        padding-right: 25px;
-        margin-top: 5px;
-    }
-
     .cta {
         display: block;
         text-align: center;
@@ -907,6 +902,11 @@ figcaption {
 
     .section-join > figure {
         flex: auto;
+    }
+
+    .section-join figcaption {
+        padding-right: 25px;
+        margin-top: 5px;
     }
 
     .section-join-content {
