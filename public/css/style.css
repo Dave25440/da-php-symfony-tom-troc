@@ -1340,6 +1340,68 @@ img {
     }
 
 
+    /* Edit section */
+    .section-edit {
+        padding: 54px 0 80px;
+    }
+
+    .section-edit > a,
+    .section-edit > .title {
+        padding: 0 20px;
+    }
+
+    .section-edit > .title {
+        font-size: 1.875em;
+        margin-top: 7px;
+    }
+
+    .section-edit-wrapper {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 42px 20px 48px;
+        margin-top: 35px;
+    }
+
+    .section-edit-wrapper > figure {
+        width: 335px;
+    }
+
+    .section-edit-wrapper figcaption {
+        font-size: 0.69em;
+        margin-bottom: 7px;
+    }
+
+    .section-edit-wrapper img {
+        height: 335px;
+    }
+
+    .section-edit-wrapper a {
+        font-size: 1em;
+        margin-top: 25px;
+    }
+
+    .section-edit-wrapper a:hover {
+        font-size: 0.98em;
+    }
+
+    .section-edit-wrapper > form {
+        width: 335px;
+        margin-top: 32px;
+    }
+
+    .section-edit-wrapper textarea {
+        height: 433px;
+    }
+
+    .section-edit-wrapper select {
+        background-position: right 16px center;
+    }
+
+    .section-edit-wrapper .cta {
+        width: 100%;
+    }
+
+
     /* Footer */
     .page-footer {
         padding: 32px 20px;
