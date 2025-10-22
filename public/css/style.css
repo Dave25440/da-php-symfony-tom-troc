@@ -1186,6 +1186,10 @@ figcaption {
         border-radius: 20px;
     }
 
+    .section-account-books tbody > tr:first-child {
+        margin-top: 0;
+    }
+
     .section-account-books tbody > tr:nth-child(even) {
         background-color: var(--bg-light-color);
     }
@@ -1226,6 +1230,37 @@ figcaption {
         -webkit-line-clamp: 3;
         width: 220px;
         margin: 21px 0 50px;
+    }
+
+
+    /* Account public section */
+    .section-account-public {
+        padding : 70px 20px 45px;
+    }
+
+    .section-account-public > .section-account-profile {
+        padding-bottom: 56px;
+    }
+
+    .section-account-public > .section-account-books tbody > tr {
+        grid-template-rows: 40px repeat(2, auto);
+        padding-bottom: 48px;
+    }
+
+    .section-account-public > .section-account-books tbody th {
+        margin-top: 23px;
+    }
+
+    .section-account-public > .section-account-books tbody td:first-child {
+        grid-row: span 2;
+    }
+
+    .section-account-public > .section-account-books tbody td:last-child {
+        padding: 0;
+    }
+
+    .section-account-public .account-books-desc {
+        margin-bottom: 0;
     }
 
 

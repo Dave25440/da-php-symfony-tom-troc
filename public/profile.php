@@ -62,7 +62,7 @@
                     <a href="message.php" class="cta cta-reverse">Écrire un message</a>
                 </section>
                 <section class="section-account-books">
-                    <h2 class="sr-only">Vos livres</h2>
+                    <h2 class="sr-only">Livres de Alexlecture</h2>
                     <table>
                         <caption class="sr-only">Liste des livres enregistrés</caption>
                         <thead class="title-uppercase">
