@@ -1579,6 +1579,53 @@ textarea {
     }
 
 
+    /* Chat section */
+    .section-chat {
+        display: block;
+        max-width: none;
+        margin: 0;
+    }
+
+    .section-chat-conversations {
+        max-width: 100%;
+    }
+
+    .section-chat-conversations > .title {
+        padding-left: 20px;
+    }
+
+    .section-chat-conversations > nav {
+        min-height: 400px;
+        max-height: none;
+        overflow-y: visible;
+    }
+
+
+    /* Chat card */
+    .chat-card > article {
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--bg-light-color);
+    }
+
+    .chat-card.active > article {
+        background-color: inherit;
+    }
+
+    .chat-card.active:hover > article {
+        background-color: var(--bg-light-color);
+    }
+
+    .chat-card p {
+        grid-column: 2;
+    }
+
+
+    /* Chat content section */
+    .section-chat-content {
+        display: none;
+    }
+
+
     /* Footer */
     .page-footer {
         padding: 32px 20px;
