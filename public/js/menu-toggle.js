@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    // Toggle menu
     const toggle = document.getElementById("menu-toggle");
     const nav = document.querySelector(".main-nav > ul");
 
@@ -7,5 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
             nav.classList.toggle("visible");
             toggle.classList.toggle("active");
         });
+    }
+
+
+    // Chat scroll
+    const chatList = document.querySelector(".section-chat-messages > ul");
+
+    if (chatList) {
+        chatList.scrollTop = chatList.scrollHeight - chatList.clientHeight;
     }
 });
