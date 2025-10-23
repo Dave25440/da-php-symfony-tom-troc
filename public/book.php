@@ -27,8 +27,8 @@
                         <a href="books.php" class="active">Nos livres à l'échange</a>
                     </li>
                     <li class="nav-item-right nav-item-border">
-                        <img src="icons/message-icon.svg" alt="Icône Messagerie" class="nav-icon">
-                        <a href="message.php">Messagerie</a>
+                        <img src="icons/chat-icon.svg" alt="Icône Messagerie" class="nav-icon">
+                        <a href="chat.php">Messagerie</a>
                         <span class="nav-counter" aria-live="polite">
                             1
                             <span class="sr-only"> message(s) non lu(s)</span>
@@ -77,7 +77,7 @@
                         </figure>
                         Nathalire
                     </a>
-                    <a href="message.php" class="cta">Envoyer un message</a>
+                    <a href="chat.php" class="cta">Envoyer un message</a>
                 </div>
             </article>
         </main>

@@ -27,8 +27,8 @@
                         <a href="books.php">Nos livres à l'échange</a>
                     </li>
                     <li class="nav-item-right nav-item-border">
-                        <img src="icons/message-icon.svg" alt="Icône Messagerie" class="nav-icon">
-                        <a href="message.php">Messagerie</a>
+                        <img src="icons/chat-icon.svg" alt="Icône Messagerie" class="nav-icon">
+                        <a href="chat.php">Messagerie</a>
                         <span class="nav-counter" aria-live="polite">
                             1
                             <span class="sr-only"> message(s) non lu(s)</span>
@@ -59,7 +59,7 @@
                         <img src="icons/books-icon.svg" alt="" aria-hidden="true">
                         4 livres
                     </p>
-                    <a href="message.php" class="cta cta-reverse">Écrire un message</a>
+                    <a href="chat.php" class="cta cta-reverse">Écrire un message</a>
                 </section>
                 <section class="section-account-books">
                     <h2 class="sr-only">Livres de Alexlecture</h2>
