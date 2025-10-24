@@ -1599,6 +1599,10 @@ textarea {
         max-width: 100%;
     }
 
+    .section-chat-conversations.hidden {
+        display: none;
+    }
+
     .section-chat-conversations > .title {
         padding-left: 20px;
     }
@@ -1632,6 +1636,10 @@ textarea {
     /* Chat content section */
     .section-chat-content {
         display: none;
+    }
+
+    .section-chat-content.visible {
+        display: block;
     }
 
     #chat-back {
