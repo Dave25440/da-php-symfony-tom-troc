@@ -14,7 +14,7 @@
         <header class="page-header">
             <div class="header-brand">
                 <img src="images/tom-troc-logo.svg" alt="Logo Tom Troc">
-                <button id="menu-toggle" aria-label="Afficher le menu" type="button">
+                <button id="menu-toggle" aria-label="Afficher le menu" type="button" class="btn-js">
                     <img src="icons/menu-icon.svg" alt="">
                 </button>
             </div>

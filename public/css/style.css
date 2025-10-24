@@ -69,6 +69,19 @@ textarea {
     resize: none;
 }
 
+.btn-js {
+    display: none;
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn-js:focus {
+    outline: 2px solid var(--text-color);
+    outline-offset: 2px;
+}
+
 .cta {
     display: inline-block;
     background-color: var(--button-color);
@@ -194,19 +207,6 @@ textarea {
     justify-content: space-between;
     align-items: center;
     padding: 15px 150px;
-}
-
-#menu-toggle {
-    display: none;
-    background-color: transparent;
-    padding: 0;
-    border: 0;
-    cursor: pointer;
-}
-
-#menu-toggle:focus {
-    outline: 2px solid var(--text-color);
-    outline-offset: 2px;
 }
 
 #menu-toggle:hover > img,
@@ -965,6 +965,15 @@ textarea {
     padding: 0 38px;
 }
 
+#chat-back {
+    color: var(--text-light-color);
+    font-size: 0.875em;
+}
+
+#chat-back:hover {
+    color: var(--text-color);
+}
+
 .section-chat-messages {
     display: flex;
     flex-direction: column;
@@ -1623,6 +1632,10 @@ textarea {
     /* Chat content section */
     .section-chat-content {
         display: none;
+    }
+
+    #chat-back {
+        display: block;
     }
 
 

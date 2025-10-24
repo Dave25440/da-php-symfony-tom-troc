@@ -14,7 +14,7 @@
         <header class="page-header">
             <div class="header-brand">
                 <img src="images/tom-troc-logo.svg" alt="Logo Tom Troc">
-                <button id="menu-toggle" aria-label="Afficher le menu" type="button">
+                <button id="menu-toggle" aria-label="Afficher le menu" type="button" class="btn-js">
                     <img src="icons/menu-icon.svg" alt="">
                 </button>
             </div>
@@ -90,6 +90,9 @@
                     </nav>
                 </div>
                 <section class="section-chat-content">
+                    <button id="chat-back" aria-label="Retour à la liste des conversations" type="button" class="btn-js">
+                        &lt;- retour
+                    </button>
                     <div class="chat-card">
                         <figure>
                             <img src="images/user-alexlecture.webp" alt="Avatar de Alexlecture" class="img-cover">
