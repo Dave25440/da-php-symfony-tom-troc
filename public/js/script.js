@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Media query
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    function isMobile() {
+        return mediaQuery.matches;
+    }
+
+
     // Toggle menu
     const toggle = document.getElementById("menu-toggle");
     const nav = document.querySelector(".main-nav > ul");
@@ -15,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Chat scroll
     const chatList = document.querySelector(".section-chat-messages > ul");
 
-    if (chatList) {
+    if (chatList && !isMobile()) {
         chatList.scrollTop = chatList.scrollHeight - chatList.clientHeight;
     }
 
@@ -25,11 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatCards = document.querySelectorAll(".section-chat-conversations .chat-card");
     const chatContent = document.querySelector(".section-chat-content");
     const chatBack = document.getElementById("chat-back");
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-
-    function isMobile() {
-        return mediaQuery.matches;
-    }
 
     function chatToggle() {
         if (isMobile()) {
