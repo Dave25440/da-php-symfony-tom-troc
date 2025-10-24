@@ -13,7 +13,9 @@
     <body>
         <header class="page-header">
             <div class="header-brand">
-                <img src="images/tom-troc-logo.svg" alt="Logo Tom Troc">
+                <a href="index.php" aria-label="Accueil">
+                    <img src="images/tom-troc-logo.svg" alt="Logo Tom Troc" class="header-logo">
+                </a>
                 <button id="menu-toggle" aria-label="Afficher le menu" type="button" class="btn-js">
                     <img src="icons/menu-icon.svg" alt="">
                 </button>
