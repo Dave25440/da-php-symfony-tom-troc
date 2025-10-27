@@ -1,1 +1,6 @@
-app/Config/config.php
+# App
+/app/Config/
+
+# Composer
+/vendor/
+composer.phar
