@@ -19,7 +19,7 @@
                 </div>
             </article>
         </a>
-        <a href="book.php" class="book-card">
+        <a href="index.php?action=book" class="book-card">
             <article>
                 <figure>
                     <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">

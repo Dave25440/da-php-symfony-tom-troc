@@ -11,4 +11,10 @@ class BooksController
         $view = new View('Nos livres');
         $view->render('books', 'books');
     }
+
+    public function showBook() : void
+    {
+        $view = new View('The Kinfolk Table');
+        $view->render('book', 'books');
+    }
 }

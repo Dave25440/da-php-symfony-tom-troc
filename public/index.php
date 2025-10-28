@@ -19,6 +19,10 @@ try {
             (new BooksController())->showBooks();
             break;
 
+        case 'book':
+            (new BooksController())->showBook();
+            break;
+
         case 'chat':
             (new ChatController())->showChat();
             break;
