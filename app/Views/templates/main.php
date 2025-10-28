@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?= $this->title ?> - Tom Troc</title>
+        <title><?= htmlspecialchars($title) ?> - Tom Troc</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
             <nav class="main-nav">
                 <ul>
                     <li class="nav-item-left">
-                        <a href="index.php" class="active">Accueil</a>
+                        <a href="index.php" <?= $activeMenu === 'home' ? 'class="active"' : '' ?>>Accueil</a>
                     </li>
                     <li class="nav-item-left">
                         <a href="books.php">Nos livres à l'échange</a>

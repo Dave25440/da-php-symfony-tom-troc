@@ -11,7 +11,7 @@ class View
         $this->title = $title;
     }
 
-    public function render(string $template): void
+    public function render(string $template, string $activeMenu): void
     {
         $viewPath = __DIR__ . '/templates/' . $template . '.php';
 
@@ -22,6 +22,9 @@ class View
         ob_start();
         require $viewPath;
         $content = ob_get_clean();
+
+        $title = $this->title;
+        $activeMenu = $activeMenu;
 
         require __DIR__ . '/templates/main.php';
     }
