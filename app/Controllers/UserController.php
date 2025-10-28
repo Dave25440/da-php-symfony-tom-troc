@@ -11,4 +11,10 @@ class UserController
         $view = new View('Mon compte');
         $view->render('account', 'account');
     }
+
+    public function showSignIn() : void
+    {
+        $view = new View('Connexion');
+        $view->render('signin', 'signin');
+    }
 }

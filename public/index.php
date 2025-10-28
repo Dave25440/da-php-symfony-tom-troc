@@ -27,6 +27,10 @@ try {
             (new UserController())->editAccount();
             break;
 
+        case 'signin':
+            (new UserController())->showSignIn();
+            break;
+
         default:
             throw new \Exception("Action '$action' inconnue ou indisponible.");
     }
