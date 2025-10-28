@@ -26,11 +26,11 @@
                         <a href="index.php" <?= $activeMenu === 'home' ? 'class="active"' : '' ?>>Accueil</a>
                     </li>
                     <li class="nav-item-left">
-                        <a href="books.php">Nos livres à l'échange</a>
+                        <a href="index.php?action=books" <?= $activeMenu === 'books' ? 'class="active"' : '' ?>>Nos livres à l'échange</a>
                     </li>
                     <li class="nav-item-right nav-item-border">
                         <img src="icons/chat-icon.svg" alt="Icône Messagerie" class="nav-icon">
-                        <a href="chat.php">Messagerie</a>
+                        <a href="index.php?action=chat" <?= $activeMenu === 'chat' ? 'class="active"' : '' ?>>Messagerie</a>
                         <span class="nav-counter" aria-live="polite">
                             1
                             <span class="sr-only"> message(s) non lu(s)</span>
@@ -38,10 +38,10 @@
                     </li>
                     <li class="nav-item-right">
                         <img src="icons/account-icon.svg" alt="Icône Mon compte" class="nav-icon">
-                        <a href="account.php">Mon compte</a>
+                        <a href="index.php?action=account" <?= $activeMenu === 'account' ? 'class="active"' : '' ?>>Mon compte</a>
                     </li>
                     <li class="nav-item-right">
-                        <a href="signin.php">Connexion</a>
+                        <a href="index.php?action=signin" <?= $activeMenu === 'signin' ? 'class="active"' : '' ?>>Connexion</a>
                     </li>
                 </ul>
             </nav>

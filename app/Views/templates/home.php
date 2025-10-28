@@ -2,7 +2,7 @@
     <div class="section-join-content">
         <h1 class="title">Rejoignez nos lecteurs passionnés</h1>
         <p class="text-light">Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres.</p>
-        <a href="books.php" class="cta">Découvrir</a>
+        <a href="index.php?action=books" class="cta">Découvrir</a>
     </div>
     <figure>
         <img src="images/reading-hamza-nouasria.webp" alt="Homme en train de lire assis au milieu de piles de livres">
@@ -61,7 +61,7 @@
             </article>
         </a>
     </div>
-    <a href="books.php" class="cta">Voir tous les livres</a>
+    <a href="index.php?action=books" class="cta">Voir tous les livres</a>
 </section>
 <section class="section-how-it-works">
     <h2 class="title">Comment ça marche ?</h2>
@@ -75,7 +75,7 @@
         <li>Parcourez les livres disponibles chez d'autres membres.</li>
         <li>Proposez un échange et discutez avec d'autres passionnés de lecture.</li>
     </ol>
-    <a href="books.php" class="cta cta-reverse">Voir tous les livres</a>
+    <a href="index.php?action=books" class="cta cta-reverse">Voir tous les livres</a>
 </section>
 <section class="section-values">
     <figure class="section-values-banner">
