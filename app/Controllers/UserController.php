@@ -6,12 +6,6 @@ use App\Views\View;
 
 class UserController
 {
-    public function editAccount() : void
-    {
-        $view = new View('Mon compte');
-        $view->render('account', 'account');
-    }
-
     public function showSignIn() : void
     {
         $view = new View('Connexion');
@@ -22,5 +16,11 @@ class UserController
     {
         $view = new View('Inscription');
         $view->render('signup', 'signin');
+    }
+
+    public function editAccount() : void
+    {
+        $view = new View('Mon compte');
+        $view->render('editAccount', 'account');
     }
 }

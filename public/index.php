@@ -23,7 +23,7 @@ try {
             (new ChatController())->showChat();
             break;
 
-        case 'account':
+        case 'editAccount':
             (new UserController())->editAccount();
             break;
 

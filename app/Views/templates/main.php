@@ -38,7 +38,7 @@
                     </li>
                     <li class="nav-item-right">
                         <img src="icons/account-icon.svg" alt="Icône Mon compte" class="nav-icon">
-                        <a href="index.php?action=account" <?= $activeMenu === 'account' ? 'class="active"' : '' ?>>Mon compte</a>
+                        <a href="index.php?action=editAccount" <?= $activeMenu === 'account' ? 'class="active"' : '' ?>>Mon compte</a>
                     </li>
                     <li class="nav-item-right">
                         <a href="index.php?action=signin" <?= $activeMenu === 'signin' ? 'class="active"' : '' ?>>Connexion</a>
