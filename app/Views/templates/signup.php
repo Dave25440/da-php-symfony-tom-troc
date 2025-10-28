@@ -12,7 +12,7 @@
         </form>
         <p>
             Déjà inscrit(e) ?
-            <a href="signin.php">Connectez-vous</a>
+            <a href="index.php?action=signin">Connectez-vous</a>
         </p>
     </div>
     <figure>

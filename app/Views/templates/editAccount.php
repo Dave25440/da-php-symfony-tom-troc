@@ -59,7 +59,7 @@
                         <p class="tag">disponible</p>
                     </td>
                     <td>
-                        <a href="edit.php" aria-label="Éditer The Kinfolk Table">Éditer</a>
+                        <a href="index.php?action=editBook" aria-label="Éditer The Kinfolk Table">Éditer</a>
                     </td>
                     <td>
                         <a href="#" aria-label="Supprimer The Kinfolk Table">Supprimer</a>
@@ -83,7 +83,7 @@
                         <p class="tag tag-unavailable">non dispo.</p>
                     </td>
                     <td>
-                        <a href="edit.php" aria-label="Éditer The Kinfolk Table">Éditer</a>
+                        <a href="index.php?action=editBook" aria-label="Éditer The Kinfolk Table">Éditer</a>
                     </td>
                     <td>
                         <a href="#" aria-label="Supprimer The Kinfolk Table">Supprimer</a>
@@ -107,7 +107,7 @@
                         <p class="tag">disponible</p>
                     </td>
                     <td>
-                        <a href="edit.php" aria-label="Éditer The Kinfolk Table">Éditer</a>
+                        <a href="index.php?action=editBook" aria-label="Éditer The Kinfolk Table">Éditer</a>
                     </td>
                     <td>
                         <a href="#" aria-label="Supprimer The Kinfolk Table">Supprimer</a>
@@ -131,7 +131,7 @@
                         <p class="tag tag-unavailable">non dispo.</p>
                     </td>
                     <td>
-                        <a href="edit.php" aria-label="Éditer The Kinfolk Table">Éditer</a>
+                        <a href="index.php?action=editBook" aria-label="Éditer The Kinfolk Table">Éditer</a>
                     </td>
                     <td>
                         <a href="#" aria-label="Supprimer The Kinfolk Table">Supprimer</a>

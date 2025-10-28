@@ -12,7 +12,7 @@
             <img src="icons/books-icon.svg" alt="" aria-hidden="true">
             4 livres
         </p>
-        <a href="chat.php" class="cta cta-reverse">Écrire un message</a>
+        <a href="index.php?action=chat" class="cta cta-reverse">Écrire un message</a>
     </section>
     <section class="section-account-books">
         <h2 class="sr-only">Livres de Alexlecture</h2>

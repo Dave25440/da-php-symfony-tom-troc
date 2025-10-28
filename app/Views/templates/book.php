@@ -1,10 +1,10 @@
 <nav class="breadcrumb-nav">
     <ol class="text-light">
         <li>
-            <a href="books.php">Nos livres</a>
+            <a href="index.php?action=books">Nos livres</a>
         </li>
         <li>
-            <a href="book.php">The Kinfolk Table</a>
+            <a href="index.php?action=book">The Kinfolk Table</a>
         </li>
     </ol>
 </nav>
@@ -30,6 +30,6 @@
             </figure>
             Nathalire
         </a>
-        <a href="chat.php" class="cta">Envoyer un message</a>
+        <a href="index.php?action=chat" class="cta">Envoyer un message</a>
     </div>
 </article>
