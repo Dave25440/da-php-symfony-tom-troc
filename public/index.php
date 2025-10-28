@@ -23,8 +23,8 @@ try {
             (new ChatController())->showChat();
             break;
 
-        case 'editAccount':
-            (new UserController())->editAccount();
+        case 'account':
+            (new UserController())->showAccount();
             break;
 
         case 'signin':
@@ -33,6 +33,10 @@ try {
 
         case 'signup':
             (new UserController())->showSignUp();
+            break;
+
+        case 'editAccount':
+            (new UserController())->editAccount();
             break;
 
         default:

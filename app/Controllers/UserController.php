@@ -6,6 +6,12 @@ use App\Views\View;
 
 class UserController
 {
+    public function showAccount() : void
+    {
+        $view = new View('Profil de Alexlecture');
+        $view->render('account', '');
+    }
+
     public function showSignIn() : void
     {
         $view = new View('Connexion');
