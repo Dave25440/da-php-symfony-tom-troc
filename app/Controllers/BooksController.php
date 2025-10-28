@@ -17,4 +17,10 @@ class BooksController
         $view = new View('The Kinfolk Table');
         $view->render('book', 'books');
     }
+
+    public function editBook() : void
+    {
+        $view = new View('The Kinfolk Table');
+        $view->render('editBook', 'account');
+    }
 }

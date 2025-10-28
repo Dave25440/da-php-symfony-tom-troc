@@ -43,6 +43,10 @@ try {
             (new UserController())->editAccount();
             break;
 
+        case 'editBook':
+            (new BooksController())->editBook();
+            break;
+
         default:
             throw new \Exception("Action '$action' inconnue ou indisponible.");
     }
