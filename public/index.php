@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\HomeController;
 use App\Controllers\BooksController;
+use App\Controllers\ChatController;
 
 $action = $_GET['action'] ?? 'home';
 
@@ -15,6 +16,10 @@ try {
 
         case 'books':
             (new BooksController())->showBooks();
+            break;
+
+        case 'chat':
+            (new ChatController())->showChat();
             break;
 
         default:
