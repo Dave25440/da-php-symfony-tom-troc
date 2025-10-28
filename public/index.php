@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\HomeController;
+use App\Controllers\BooksController;
 
 $action = $_GET['action'] ?? 'home';
 
@@ -11,6 +12,11 @@ try {
         case 'home':
             (new HomeController())->showHome();
             break;
+
+        case 'books':
+            (new BooksController())->showBooks();
+            break;
+
         default:
             throw new \Exception("Action '$action' inconnue ou indisponible.");
     }
