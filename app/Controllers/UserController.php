@@ -9,7 +9,7 @@ class UserController
     public function showAccount() : void
     {
         $view = new View('Profil de Alexlecture');
-        $view->render('account', '');
+        $view->render('account');
     }
 
     public function showSignIn() : void
