@@ -17,4 +17,10 @@ class UserController
         $view = new View('Connexion');
         $view->render('signin', 'signin');
     }
+
+    public function showSignUp() : void
+    {
+        $view = new View('Inscription');
+        $view->render('signup', 'signin');
+    }
 }

@@ -31,6 +31,10 @@ try {
             (new UserController())->showSignIn();
             break;
 
+        case 'signup':
+            (new UserController())->showSignUp();
+            break;
+
         default:
             throw new \Exception("Action '$action' inconnue ou indisponible.");
     }
