@@ -1,5 +1,13 @@
 <?php
 
+$configPath = __DIR__ . '/../app/Config/config.php';
+
+if (file_exists($configPath)) {
+    require_once $configPath;
+} else {
+    throw new \Exception('Le fichier de configuration est introuvable.');
+}
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\HomeController;
