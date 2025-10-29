@@ -19,6 +19,10 @@ class DBConnection
         $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
 
+    private function __clone() {}
+
+    private function __wakeup() {}
+
     public static function getInstance(): self
     {
         if (self::$instance === null) {
@@ -33,7 +37,15 @@ class DBConnection
         return $this->db;
     }
 
-    private function __clone() {}
+    public function query(string $sql, ?array $params = null): \PDOStatement
+    {
+        if ($params === null) {
+            $stmt = $this->db->query($sql);
+        } else {
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute($params);
+        }
 
-    private function __wakeup() {}
+        return $stmt;
+    }
 }
