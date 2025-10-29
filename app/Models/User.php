@@ -1,0 +1,78 @@
+<?php
+
+namespace App\Models;
+
+class User extends AbstractModel
+{
+    private string $nickname;
+    private string $email;
+    private string $password;
+    private ?string $avatar = null;
+    private ?\DateTime $updatedAt = null;
+
+    public function __construct(string $nickname, string $email, string $password)
+    {
+        parent::__construct();
+        $this->nickname = $nickname;
+        $this->setEmail($email);
+        $this->setPassword($password);
+    }
+
+    public function getNickname(): string
+    {
+        return $this->nickname;
+    }
+
+    public function setNickname(string $nickname): void
+    {
+        $this->nickname = $nickname;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new \InvalidArgumentException("Adresse '$email' invalide.");
+        }
+
+        $this->email = $email;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): void
+    {
+        $this->avatar = $avatar;
+    }
+
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(string|\DateTime|null $updatedAt): void
+    {
+        if (is_string($updatedAt)) {
+            $updatedAt = new \DateTime($updatedAt);
+        }
+
+        $this->updatedAt = $updatedAt;
+    }
+}
