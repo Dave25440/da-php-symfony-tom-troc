@@ -2,9 +2,11 @@
 
 namespace App\Models\Managers;
 
+use App\Services\DBConnection;
+
 abstract class AbstractManager
 {
-    protected \PDO $db;
+    protected DBConnection $db;
 
     public function __construct() 
     {

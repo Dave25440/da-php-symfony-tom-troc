@@ -2,6 +2,8 @@
 
 namespace App\Models\Managers;
 
+use App\Models\Book;
+
 class BookManager extends AbstractManager
 {
     public function findAll(): array
