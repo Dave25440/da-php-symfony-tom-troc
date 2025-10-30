@@ -4,17 +4,23 @@
             <a href="index.php?action=books">Nos livres</a>
         </li>
         <li>
-            <a href="index.php?action=book">The Kinfolk Table</a>
+            <a href="index.php?action=book&id=<?= htmlspecialchars($book->getId()) ?>">
+                <?= htmlspecialchars($book->getTitle()) ?>
+            </a>
         </li>
     </ol>
 </nav>
 <article class="article-book">
     <figure>
-        <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover article-book-cover">
+        <img src="<?= htmlspecialchars($book->getCoverImage()) ?>" alt="" class="img-cover article-book-cover">
     </figure>
     <div class="article-book-content">
-        <h1 class="title">The Kinfolk Table</h1>
-        <h2>par Nathan Williams</h2>
+        <h1 class="title">
+            <?= htmlspecialchars($book->getTitle()) ?>
+        </h1>
+        <h2>
+            <?= htmlspecialchars($book->getAuthor()) ?>
+        </h2>
         <hr>
         <h3 class="title-uppercase">Description</h3>
         <div class="article-book-text">
