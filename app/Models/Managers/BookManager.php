@@ -26,4 +26,20 @@ class BookManager extends AbstractManager
 
         return $books;
     }
+
+    public function findById(int $id): ?Book
+    {
+        $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.is_exchangeable
+                FROM book
+                WHERE id = :id';
+
+        $stmt = $this->db->query($sql, ['id' => $id]);
+        $data = $stmt->fetch();
+
+        if ($data) {
+            return Book::fromArray($data);
+        }
+
+        return null;
+    }
 }
