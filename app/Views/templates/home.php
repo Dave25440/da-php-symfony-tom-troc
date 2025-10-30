@@ -12,54 +12,20 @@
 <section class="section-books-preview">
     <h2 class="title">Les derniers livres ajoutés</h2>
     <div class="books-grid">
-        <a href="#" class="book-card">
-            <article>
-                <figure>
-                    <img src="images/esther-alabaster.webp" alt="" class="img-cover">
-                </figure>
-                <div class="text-ellipsis book-info">
-                    <h3>Esther</h3>
-                    <h4>Alabaster</h4>
-                    <p class="text-caption">Vendu par : CamilleClubLit</p>
-                </div>
-            </article>
-        </a>
-        <a href="index.php?action=book" class="book-card">
-            <article>
-                <figure>
-                    <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">
-                </figure>
-                <div class="text-ellipsis book-info">
-                    <h3>The Kinfolk Table</h3>
-                    <h4>Nathan Williams</h4>
-                    <p class="text-caption">Vendu par : Nathalire</p>
-                </div>
-            </article>
-        </a>
-        <a href="#" class="book-card">
-            <article>
-                <figure>
-                    <img src="images/wabi-sabi-kempton.webp" alt="" class="img-cover">
-                </figure>
-                <div class="text-ellipsis book-info">
-                    <h3>Wabi Sabi</h3>
-                    <h4>Beth Kempton</h4>
-                    <p class="text-caption">Vendu par : Alexlecture</p>
-                </div>
-            </article>
-        </a>
-        <a href="#" class="book-card">
-            <article>
-                <figure>
-                    <img src="images/milk-honey-kaur.webp" alt="" class="img-cover">
-                </figure>
-                <div class="text-ellipsis book-info">
-                    <h3>Milk & honey</h3>
-                    <h4>Rupi Kaur</h4>
-                    <p class="text-caption">Vendu par : Hugo1990_12</p>
-                </div>
-            </article>
-        </a>
+        <?php foreach ($books as $book): ?>
+            <a href="index.php?action=book&id=<?= htmlspecialchars($book->getId()) ?>" class="book-card">
+                <article>
+                    <figure>
+                        <img src="<?= htmlspecialchars($book->getCoverImage()) ?>" alt="" class="img-cover">
+                    </figure>
+                    <div class="text-ellipsis book-info">
+                        <h3><?= htmlspecialchars($book->getTitle()) ?></h3>
+                        <h4><?= htmlspecialchars($book->getAuthor()) ?></h4>
+                        <p class="text-caption">Vendu par : <?= htmlspecialchars($book->getUserNickname() ?? 'Inconnu') ?></p>
+                    </div>
+                </article>
+            </a>
+        <?php endforeach; ?>
     </div>
     <a href="index.php?action=books" class="cta">Voir tous les livres</a>
 </section>
