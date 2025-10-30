@@ -21,6 +21,14 @@ class Book extends AbstractModel
         $this->author = $author;
     }
 
+    public static function fromArray(array $data): Book
+    {
+        $book = new self($data['user_id'], $data['title'], $data['author']);
+        unset($data['user_id'], $data['title'], $data['author']);
+        $book->hydrate($data);
+        return $book;
+    }
+
     public function getUserId(): int
     {
         return $this->userId;

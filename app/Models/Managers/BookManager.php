@@ -21,15 +21,7 @@ class BookManager extends AbstractManager
         $books = [];
 
         while ($data = $stmt->fetch()) {
-            $book = new Book(
-                $data['user_id'],
-                $data['title'],
-                $data['author']
-            );
-
-            unset($data['user_id'], $data['title'], $data['author']);
-            $book->hydrate($data);
-            $books[] = $book;
+            $books[] = Book::fromArray($data);
         }
 
         return $books;
