@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\Managers\BookManager;
 use App\Views\View;
 
-class BooksController
+class BookController
 {
     public function showBooks() : void
     {

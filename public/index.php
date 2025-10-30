@@ -11,7 +11,7 @@ if (file_exists($configPath)) {
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\HomeController;
-use App\Controllers\BooksController;
+use App\Controllers\BookController;
 use App\Controllers\ChatController;
 use App\Controllers\UserController;
 
@@ -24,11 +24,11 @@ try {
             break;
 
         case 'books':
-            (new BooksController())->showBooks();
+            (new BookController())->showBooks();
             break;
 
         case 'book':
-            (new BooksController())->showBook();
+            (new BookController())->showBook();
             break;
 
         case 'chat':
@@ -52,7 +52,7 @@ try {
             break;
 
         case 'editBook':
-            (new BooksController())->editBook();
+            (new BookController())->editBook();
             break;
 
         default:
