@@ -11,7 +11,7 @@ class BookManager extends AbstractManager
         $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.is_exchangeable, user.nickname AS user_nickname
                 FROM book
                 INNER JOIN user ON book.user_id = user.id
-                ORDER BY book.id ASC';
+                ORDER BY book.id DESC';
 
         $stmt = $this->db->query($sql);
         $books = [];
