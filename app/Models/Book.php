@@ -11,6 +11,7 @@ class Book extends AbstractModel
     private ?string $description = null;
     private bool $isExchangeable = false;
     private ?\DateTime $updatedAt = null;
+    private ?string $userNickname = null;
 
     public function __construct(int $userId, string $title, string $author)
     {
@@ -92,5 +93,15 @@ class Book extends AbstractModel
         }
 
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getUserNickname(): ?string
+    {
+        return $this->userNickname;
+    }
+
+    public function setUserNickname(?string $userNickname): void
+    {
+        $this->userNickname = $userNickname;
     }
 }
