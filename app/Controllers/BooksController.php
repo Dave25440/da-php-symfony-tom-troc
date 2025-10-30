@@ -2,13 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Models\Managers\BookManager;
 use App\Views\View;
 
 class BooksController
 {
     public function showBooks() : void
     {
-        $view = new View('Nos livres');
+        $bookManager = new BookManager();
+        $books = $bookManager->findAll();
+
+        $view = new View('Nos livres', ['books' => $books]);
         $view->render('books', 'books');
     }
 
