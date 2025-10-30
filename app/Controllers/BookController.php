@@ -18,7 +18,20 @@ class BookController
 
     public function showBook() : void
     {
-        $view = new View('The Kinfolk Table');
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
+        if ($id <= 0) {
+            throw new \Exception('Le livre demandé est introuvable.');
+        }
+
+        $bookManager = new BookManager();
+        $book = $bookManager->findById($id);
+
+        if ($book === null) {
+            throw new \Exception('Le livre demandé est introuvable.');
+        }
+
+        $view = new View($book->getTitle(), ['book' => $book]);
         $view->render('book', 'books');
     }
 
