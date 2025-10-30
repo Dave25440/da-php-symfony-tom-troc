@@ -2,7 +2,7 @@
     <h1 class="title">Mon compte</h1>
     <section class="section-account-profile">
         <figure>
-            <img src="images/user-nathalire.webp" alt="" class="img-cover">
+            <img src="images/users/user-nathalire.webp" alt="" class="img-cover">
         </figure>
         <a href="#" aria-label="Modifier la photo de profil" class="profile-update">modifier</a>
         <hr>

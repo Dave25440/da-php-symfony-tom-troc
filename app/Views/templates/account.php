@@ -2,7 +2,7 @@
     <h1 class="sr-only">Profil de Alexlecture</h1>
     <section class="section-account-profile">
         <figure>
-            <img src="images/user-alexlecture.webp" alt="" class="img-cover">
+            <img src="images/users/user-alexlecture.webp" alt="" class="img-cover">
         </figure>
         <hr>
         <h2 class="title">Alexlecture</h2>

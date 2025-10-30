@@ -7,7 +7,7 @@
                     <a href="#" class="chat-card active">
                         <article>
                             <figure>
-                                <img src="images/user-alexlecture.webp" alt="Avatar de Alexlecture" class="img-cover">
+                                <img src="images/users/user-alexlecture.webp" alt="Avatar de Alexlecture" class="img-cover">
                             </figure>
                             <h3 class="text-ellipsis">Alexlecture</h3>
                             <time datetime="2025-08-21T15:43">15:43</time>
@@ -19,7 +19,7 @@
                     <a href="#" class="chat-card">
                         <article>
                             <figure>
-                                <img src="images/user-nathalire.webp" alt="Avatar de Nathalire" class="img-cover">
+                                <img src="images/users/user-nathalire.webp" alt="Avatar de Nathalire" class="img-cover">
                             </figure>
                             <h3 class="text-ellipsis">Nathalire</h3>
                             <time datetime="2025-08-20">20.08</time>
@@ -31,7 +31,7 @@
                     <a href="#" class="chat-card">
                         <article>
                             <figure>
-                                <img src="images/user-sas634.webp" alt="Avatar de Sas634" class="img-cover">
+                                <img src="images/users/user-sas634.webp" alt="Avatar de Sas634" class="img-cover">
                             </figure>
                             <h3 class="text-ellipsis">Sas634</h3>
                             <time datetime="2025-08-15">15.08</time>
@@ -48,7 +48,7 @@
         </button>
         <div class="chat-card">
             <figure>
-                <img src="images/user-alexlecture.webp" alt="Avatar de Alexlecture" class="img-cover">
+                <img src="images/users/user-alexlecture.webp" alt="Avatar de Alexlecture" class="img-cover">
             </figure>
             <h2>Alexlecture</h2>
         </div>
@@ -63,7 +63,7 @@
                 <li>
                     <article class="chat-message received" aria-label="Message reçu">
                         <figure>
-                            <img src="images/user-alexlecture.webp" alt="Avatar de Alexlecture" class="img-cover">
+                            <img src="images/users/user-alexlecture.webp" alt="Avatar de Alexlecture" class="img-cover">
                         </figure>
                         <time datetime="2025-08-21T15:48">21.08 15:48</time>
                         <p>Lorem ipsum dolor sit amet, consectetur .adipiscing elit, sed do eiusmod tempor</p>

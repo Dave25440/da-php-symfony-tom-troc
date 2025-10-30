@@ -26,7 +26,7 @@
         <h3 class="title-uppercase">Propriétaire</h3>
         <a href="index.php?action=account" class="user-card">
             <figure>
-                <img src="images/user-nathalire.webp" alt="" class="img-cover">
+                <img src="images/users/user-nathalire.webp" alt="" class="img-cover">
             </figure>
             Nathalire
         </a>
