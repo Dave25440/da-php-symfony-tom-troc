@@ -5,7 +5,7 @@ $configPath = __DIR__ . '/../app/Config/config.php';
 if (file_exists($configPath)) {
     require_once $configPath;
 } else {
-    throw new \Exception('Le fichier de configuration est introuvable.');
+    throw new Exception('Le fichier de configuration est introuvable.');
 }
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -56,7 +56,7 @@ try {
             break;
 
         default:
-            throw new \Exception("Action '$action' inconnue ou indisponible.");
+            throw new Exception("Action '$action' inconnue ou indisponible.");
     }
 } catch (Exception $e) {
     error_log('Erreur de navigation : ' . $e->getMessage());
