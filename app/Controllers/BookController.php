@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Managers\BookManager;
+use App\Models\Managers\UserManager;
 use App\Views\View;
 
 class BookController
@@ -31,7 +32,10 @@ class BookController
             throw new \Exception('Le livre demandé est introuvable.');
         }
 
-        $view = new View($book->getTitle(), ['book' => $book]);
+        $userManager = new UserManager();
+        $user = $userManager->findById($book->getUserId());
+
+        $view = new View($book->getTitle(), ['book' => $book, 'user' => $user]);
         $view->render('book', 'books');
     }
 

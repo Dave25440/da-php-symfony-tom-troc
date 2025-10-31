@@ -34,11 +34,11 @@
             ?>
         </div>
         <h3 class="title-uppercase">Propriétaire</h3>
-        <a href="index.php?action=account" class="user-card">
+        <a href="index.php?action=account&id=<?= htmlspecialchars($user->getId()) ?>" class="user-card">
             <figure>
-                <img src="images/users/user-nathalire.webp" alt="" class="img-cover">
+                <img src="<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="img-cover">
             </figure>
-            Nathalire
+            <?= htmlspecialchars($user->getNickname()) ?>
         </a>
         <a href="index.php?action=chat" class="cta">Envoyer un message</a>
     </div>
