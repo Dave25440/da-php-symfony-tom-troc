@@ -18,6 +18,14 @@ class User extends AbstractModel
         $this->setPassword($password);
     }
 
+    public static function fromArray(array $data): User
+    {
+        $user = new self($data['nickname'], $data['email'], $data['password']);
+        unset($data['nickname'], $data['email'], $data['password']);
+        $user->hydrate($data);
+        return $user;
+    }
+
     public function getNickname(): string
     {
         return $this->nickname;
