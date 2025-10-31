@@ -43,7 +43,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">
+                        <img src="images/books/kinfolk-table-williams.webp" alt="" class="img-cover">
                     </td>
                     <th scope="row" class="text-ellipsis account-books-title">The Kinfolk Table</th>
                     <td class="text-ellipsis account-books-author">Nathan Williams</td>
@@ -67,7 +67,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">
+                        <img src="images/books/kinfolk-table-williams.webp" alt="" class="img-cover">
                     </td>
                     <th scope="row" class="text-ellipsis account-books-title">The Kinfolk Table</th>
                     <td class="text-ellipsis account-books-author">Nathan Williams</td>
@@ -91,7 +91,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">
+                        <img src="images/books/kinfolk-table-williams.webp" alt="" class="img-cover">
                     </td>
                     <th scope="row" class="text-ellipsis account-books-title">The Kinfolk Table</th>
                     <td class="text-ellipsis account-books-author">Nathan Williams</td>
@@ -115,7 +115,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">
+                        <img src="images/books/kinfolk-table-williams.webp" alt="" class="img-cover">
                     </td>
                     <th scope="row" class="text-ellipsis account-books-title">The Kinfolk Table</th>
                     <td class="text-ellipsis account-books-author">Nathan Williams</td>

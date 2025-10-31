@@ -4,7 +4,7 @@
     <div class="section-edit-wrapper">
         <figure>
             <figcaption class="form-label">Photo</figcaption>
-            <img src="images/kinfolk-table-williams.webp" alt="" class="img-cover">
+            <img src="images/books/kinfolk-table-williams.webp" alt="" class="img-cover">
             <a href="#">Modifier la photo</a>
         </figure>
         <form>

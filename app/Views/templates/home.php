@@ -16,7 +16,7 @@
             <a href="index.php?action=book&id=<?= htmlspecialchars($book->getId()) ?>" class="book-card">
                 <article>
                     <figure>
-                        <img src="<?= htmlspecialchars($book->getCoverImage()) ?>" alt="" class="img-cover">
+                        <img src="images/books/<?= htmlspecialchars($book->getCoverImage()) ?>" alt="" class="img-cover">
                     </figure>
                     <div class="text-ellipsis book-info">
                         <h3><?= htmlspecialchars($book->getTitle()) ?></h3>
