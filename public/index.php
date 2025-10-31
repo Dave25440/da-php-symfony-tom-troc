@@ -20,39 +20,39 @@ $action = $_GET['action'] ?? 'home';
 try {
     switch ($action) {
         case 'home':
-            (new HomeController())->showHome();
+            (new HomeController())->show();
             break;
 
         case 'books':
-            (new BookController())->showBooks();
+            (new BookController())->list();
             break;
 
         case 'book':
-            (new BookController())->showBook();
+            (new BookController())->show();
             break;
 
         case 'chat':
-            (new ChatController())->showChat();
+            (new ChatController())->show();
             break;
 
         case 'account':
-            (new UserController())->showAccount();
+            (new UserController())->show();
             break;
 
         case 'signin':
-            (new UserController())->showSignIn();
+            (new UserController())->signIn();
             break;
 
         case 'signup':
-            (new UserController())->showSignUp();
+            (new UserController())->signUp();
             break;
 
         case 'editAccount':
-            (new UserController())->editAccount();
+            (new UserController())->edit();
             break;
 
         case 'editBook':
-            (new BookController())->editBook();
+            (new BookController())->edit();
             break;
 
         default:

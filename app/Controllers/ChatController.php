@@ -6,7 +6,7 @@ use App\Views\View;
 
 class ChatController
 {
-    public function showChat() : void
+    public function show() : void
     {
         $view = new View('Messagerie');
         $view->render('chat', 'chat');

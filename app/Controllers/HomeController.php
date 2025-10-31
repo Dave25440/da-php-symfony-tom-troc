@@ -7,7 +7,7 @@ use App\Views\View;
 
 class HomeController
 {
-    public function showHome() : void
+    public function show() : void
     {
         $bookManager = new BookManager();
         $books = $bookManager->findAll(4);

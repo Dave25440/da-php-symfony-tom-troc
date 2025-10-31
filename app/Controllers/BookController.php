@@ -8,7 +8,7 @@ use App\Views\View;
 
 class BookController
 {
-    public function showBooks() : void
+    public function list() : void
     {
         $bookManager = new BookManager();
         $books = $bookManager->findAll();
@@ -17,7 +17,7 @@ class BookController
         $view->render('books', 'books');
     }
 
-    public function showBook() : void
+    public function show() : void
     {
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
@@ -39,7 +39,7 @@ class BookController
         $view->render('book', 'books');
     }
 
-    public function editBook() : void
+    public function edit() : void
     {
         $view = new View('The Kinfolk Table');
         $view->render('editBook', 'account');
