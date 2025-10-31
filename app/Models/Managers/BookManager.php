@@ -29,7 +29,7 @@ class BookManager extends AbstractManager
 
     public function findById(int $id): ?Book
     {
-        $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.is_exchangeable
+        $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.description, book.is_exchangeable
                 FROM book
                 WHERE id = :id';
 

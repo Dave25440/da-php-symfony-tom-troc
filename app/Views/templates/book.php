@@ -24,10 +24,14 @@
         <hr>
         <h3 class="title-uppercase">Description</h3>
         <div class="article-book-text">
-            <p>J'ai récemment plongé dans les pages de 'The Kinfolk Table' et j'ai été enchanté par cette œuvre captivante. Ce livre va bien au-delà d'une simple collection de recettes ; il célèbre l'art de partager des moments authentiques autour de la table.</p>
-            <p>Les photographies magnifiques et le ton chaleureux captivent dès le départ, transportant le lecteur dans un voyage à travers des recettes et des histoires qui mettent en avant la beauté de la simplicité et de la convivialité.</p>
-            <p>Chaque page est une invitation à ralentir, à savourer et à créer des souvenirs durables avec les êtres chers.</p>
-            <p>'The Kinfolk Table' incarne parfaitement l'esprit de la cuisine et de la camaraderie, et il est certain que ce livre trouvera une place spéciale dans le cœur de tout amoureux de la cuisine et des rencontres inspirantes.</p>
+            <?php
+                $description = $book->getDescription() ?? 'Aucune description fournie.';
+                $paragraphs = preg_split('/\R{2,}/', htmlspecialchars($description));
+
+                foreach ($paragraphs as $p) {
+                    echo '<p>' . nl2br(trim($p)) . '</p>';
+                }
+            ?>
         </div>
         <h3 class="title-uppercase">Propriétaire</h3>
         <a href="index.php?action=account" class="user-card">
