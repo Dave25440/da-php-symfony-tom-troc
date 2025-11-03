@@ -42,4 +42,26 @@ class BookManager extends AbstractManager
 
         return null;
     }
+
+    public function findBySearch(string $search): array
+    {
+        $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.is_exchangeable, user.nickname AS user_nickname
+                FROM book
+                INNER JOIN user ON book.user_id = user.id
+                WHERE book.title LIKE :search
+                    OR book.author LIKE :search
+                    OR user.nickname LIKE :search
+                ORDER BY book.id DESC';
+
+        $params = ['search' => '%' . $search . '%'];
+
+        $stmt = $this->db->query($sql, $params);
+        $books = [];
+
+        while ($data = $stmt->fetch()) {
+            $books[] = Book::fromArray($data);
+        }
+
+        return $books;
+    }
 }
