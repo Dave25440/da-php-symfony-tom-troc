@@ -82,4 +82,21 @@ class BookManager extends AbstractManager
             ];
         }, $books);
     }
+
+    public function findByUserId(int $userId): array
+    {
+        $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.description, book.is_exchangeable
+                FROM book
+                WHERE book.user_id = :user_id
+                ORDER BY book.id DESC';
+
+        $stmt = $this->db->query($sql, ['user_id' => $userId]);
+        $books = [];
+
+        while ($data = $stmt->fetch()) {
+            $books[] = Book::fromArray($data);
+        }
+
+        return $books;
+    }
 }
