@@ -8,10 +8,8 @@ use App\Views\View;
 
 class UserController
 {
-    public function show() : void
+    protected function load(int $id) : array
     {
-        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
-
         if ($id <= 0) {
             throw new \Exception("Le profil demandé est introuvable.");
         }
@@ -29,7 +27,16 @@ class UserController
         $memberSince = $user->getMemberSince();
         $booksCount = count($books);
 
-        $view = new View('Profil de ' . $user->getNickname(), ['user' => $user, 'books' => $books, 'memberSince' => $memberSince, 'booksCount' => $booksCount]);
+        // Crée un tableau associatif à partir de variables
+        return compact('user', 'books', 'memberSince', 'booksCount');
+    }
+
+    public function show() : void
+    {
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+        $data = $this->load($id);
+
+        $view = new View('Profil de ' . $data['user']->getNickname(), $data);
         $view->render('account');
     }
 
