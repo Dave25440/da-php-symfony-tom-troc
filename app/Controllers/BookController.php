@@ -2,12 +2,29 @@
 
 namespace App\Controllers;
 
+use App\Models\Book;
 use App\Models\Managers\BookManager;
 use App\Models\Managers\UserManager;
 use App\Views\View;
 
 class BookController
 {
+    protected function load(int $id) : Book
+    {
+        if ($id <= 0) {
+            throw new \Exception('Le livre demandé est introuvable.');
+        }
+
+        $bookManager = new BookManager();
+        $book = $bookManager->findById($id);
+
+        if ($book === null) {
+            throw new \Exception('Le livre demandé est introuvable.');
+        }
+
+        return $book;
+    }
+
     public function list() : void
     {
         $search = $_GET['search'] ?? '';
@@ -26,17 +43,7 @@ class BookController
     public function show() : void
     {
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
-
-        if ($id <= 0) {
-            throw new \Exception('Le livre demandé est introuvable.');
-        }
-
-        $bookManager = new BookManager();
-        $book = $bookManager->findById($id);
-
-        if ($book === null) {
-            throw new \Exception('Le livre demandé est introuvable.');
-        }
+        $book = $this->load($id);
 
         $userManager = new UserManager();
         $user = $userManager->findById($book->getUserId());
