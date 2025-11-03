@@ -159,6 +159,7 @@ textarea {
 }
 
 .tag {
+    display: inline-block;
     background-color: var(--button-secondary-color);
     color: var(--bg-light-color);
     font-size: 0.74em;
@@ -1096,7 +1097,6 @@ textarea {
     }
 
     .tag {
-        display: inline-block;
         font-size: 0.63em;
     }
 

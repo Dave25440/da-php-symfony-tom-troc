@@ -54,7 +54,10 @@ class UserController
 
     public function edit() : void
     {
-        $view = new View('Mon compte');
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+        $data = $this->load($id);
+
+        $view = new View('Mon compte', $data);
         $view->render('editAccount', 'account');
     }
 }
