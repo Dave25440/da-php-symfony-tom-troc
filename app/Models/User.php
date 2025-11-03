@@ -83,4 +83,27 @@ class User extends AbstractModel
 
         $this->updatedAt = $updatedAt;
     }
+
+    public function getMemberSince(): string
+    {
+        $createdAt = $this->createdAt;
+
+        if ($createdAt === null) {
+            return ': durée inconnue';
+        }
+
+        $now = new \DateTime();
+        $interval = $createdAt->diff($now);
+
+        $months = $interval->m + 12 * $interval->y;
+
+        if ($months < 1) {
+            return "moins d'un mois";
+        } elseif ($months < 12) {
+            return $months . ' mois';
+        } else {
+            $years = $interval->y;
+            return $years . ' an' . ($years > 1 ? 's' : '');
+        }
+    }
 }

@@ -8,7 +8,7 @@ class UserManager extends AbstractManager
 {
     public function findById(int $id): ?User
     {
-        $sql = 'SELECT user.id, user.nickname, user.email, user.password, user.avatar
+        $sql = 'SELECT user.id, user.nickname, user.email, user.password, user.avatar, user.created_at
                 FROM user
                 WHERE id = :id';
 
