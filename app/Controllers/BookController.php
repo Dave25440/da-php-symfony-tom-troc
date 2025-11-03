@@ -66,7 +66,10 @@ class BookController
 
     public function edit() : void
     {
-        $view = new View('The Kinfolk Table');
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+        $book = $this->load($id);
+
+        $view = new View('Modifier ' . $book->getTitle(), ['book' => $book]);
         $view->render('editBook', 'account');
     }
 }
