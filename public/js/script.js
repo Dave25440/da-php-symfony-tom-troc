@@ -57,4 +57,52 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+
+    // Book search
+    function bookSearch() {
+        const search = document.getElementById('search');
+        const booksGrid = document.querySelector('.books-grid');
+        let timeout;
+
+        if (!search || !booksGrid) return;
+
+        search.addEventListener('input', () => {
+            // Annule la recherche précédente en cours (debouncing)
+            clearTimeout(timeout);
+
+            timeout = setTimeout(() => {
+                const query = search.value.trim();
+
+                fetch(`index.php?action=searchBook&search=${encodeURIComponent(query)}`)
+                    .then(res => res.json())
+                    .then(books => {
+                        if (!books.length) {
+                            booksGrid.innerHTML = '<p>Aucun livre trouvé.</p>';
+                            return;
+                        }
+
+                        booksGrid.innerHTML = books.map(book => `
+                            <a href="index.php?action=book&id=${book.id}" class="book-card">
+                                <article>
+                                    <figure>
+                                        <img src="images/books/${book.cover_image}" alt="" class="img-cover">
+                                    </figure>
+                                    <div class="text-ellipsis book-info">
+                                        <h3>${book.title}</h3>
+                                        <h4>${book.author}</h4>
+                                        <p class="text-caption">Vendu par : ${book.user_nickname || 'Inconnu'}</p>
+                                    </div>
+                                </article>
+                            </a>
+                        `).join('');
+                    })
+                    .catch(() => {
+                        booksGrid.innerHTML = '<p>Erreur lors de la recherche, merci de réessayer plus tard.</p>';
+                    });
+            }, 300);
+        });
+    }
+
+    bookSearch();
 });
