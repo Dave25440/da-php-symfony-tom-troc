@@ -4,7 +4,7 @@
             <a href="index.php?action=books">Nos livres</a>
         </li>
         <li>
-            <a href="index.php?action=book&id=<?= htmlspecialchars($book->getId()) ?>">
+            <a href="index.php?action=book&id=<?= (int) $book->getId() ?>">
                 <?= htmlspecialchars($book->getTitle()) ?>
             </a>
         </li>
@@ -34,7 +34,7 @@
             ?>
         </div>
         <h3 class="title-uppercase">Propriétaire</h3>
-        <a href="index.php?action=account&id=<?= htmlspecialchars($user->getId()) ?>" class="user-card">
+        <a href="index.php?action=account&id=<?= (int) $user->getId() ?>" class="user-card">
             <figure>
                 <img src="images/users/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="img-cover">
             </figure>

@@ -9,7 +9,7 @@
     </header>
     <div class="books-grid">
         <?php foreach ($books as $book): ?>
-            <a href="index.php?action=book&id=<?= htmlspecialchars($book->getId()) ?>" class="book-card">
+            <a href="index.php?action=book&id=<?= (int) $book->getId() ?>" class="book-card">
                 <article>
                     <figure>
                         <img src="images/books/<?= htmlspecialchars($book->getCoverImage()) ?>" alt="" class="img-cover">
