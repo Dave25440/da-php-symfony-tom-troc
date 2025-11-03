@@ -64,4 +64,22 @@ class BookManager extends AbstractManager
 
         return $books;
     }
+
+    public function findBySearchForJson(string $search): array
+    {
+        $books = $this->findBySearch($search);
+
+        // Transforme chaque objet Book en tableau associatif
+        return array_map(function($book) {
+            return [
+                'id' => $book->getId(),
+                'user_id' => $book->getUserId(),
+                'title' => $book->getTitle(),
+                'author' => $book->getAuthor(),
+                'cover_image' => $book->getCoverImage(),
+                'is_exchangeable' => $book->isExchangeable(),
+                'user_nickname' => $book->getUserNickname()
+            ];
+        }, $books);
+    }
 }

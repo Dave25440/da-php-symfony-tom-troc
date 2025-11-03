@@ -31,6 +31,14 @@ try {
             (new BookController())->show();
             break;
 
+        case 'searchBook':
+            (new BookController())->search();
+            break;
+
+        case 'editBook':
+            (new BookController())->edit();
+            break;
+
         case 'chat':
             (new ChatController())->show();
             break;
@@ -49,10 +57,6 @@ try {
 
         case 'editAccount':
             (new UserController())->edit();
-            break;
-
-        case 'editBook':
-            (new BookController())->edit();
             break;
 
         default:

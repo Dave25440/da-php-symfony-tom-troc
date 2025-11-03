@@ -45,6 +45,18 @@ class BookController
         $view->render('book', 'books');
     }
 
+    public function search(): void
+    {
+        $search = $_GET['search'] ?? '';
+
+        $bookManager = new BookManager();
+        $books = $bookManager->findBySearchForJson($search);
+
+        header('Content-Type: application/json');
+        echo json_encode($books);
+        exit;
+    }
+
     public function edit() : void
     {
         $view = new View('The Kinfolk Table');
