@@ -1,9 +1,10 @@
 <section class="section-books">
     <header class="section-books-header">
         <h1 class="title">Nos livres à l’échange</h1>
-        <form role="search">
-            <label for="search-input" class="sr-only">Rechercher un livre</label>
-            <input type="search" id="search" name="search" placeholder="Rechercher un livre" class="form-input">
+        <form action="index.php" method="get" role="search">
+            <input type="hidden" name="action" value="books">
+            <label for="search" class="sr-only">Rechercher un livre</label> 
+            <input type="search" id="search" name="search" placeholder="Rechercher un livre" value="<?= htmlspecialchars($search) ?>" class="form-input">
         </form>
     </header>
     <div class="books-grid">

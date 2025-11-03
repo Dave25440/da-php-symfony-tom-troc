@@ -10,10 +10,16 @@ class BookController
 {
     public function list() : void
     {
+        $search = $_GET['search'] ?? '';
         $bookManager = new BookManager();
-        $books = $bookManager->findAll();
 
-        $view = new View('Nos livres', ['books' => $books]);
+        if ($search !== '') {
+            $books = $bookManager->findBySearch($search);
+        } else {
+            $books = $bookManager->findAll();
+        }
+
+        $view = new View('Nos livres', ['books' => $books, 'search' => $search]);
         $view->render('books', 'books');
     }
 
