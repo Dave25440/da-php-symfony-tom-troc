@@ -766,7 +766,12 @@ textarea {
 /* Account public section */
 .section-account-public {
     grid-template-columns: 1fr 2.26fr;
+    align-items: start;
     padding : 100px 150px 215px;
+}
+
+.section-account-public > .section-account-profile {
+    padding-bottom: 48px;
 }
 
 .section-account-public > .section-account-profile > hr {

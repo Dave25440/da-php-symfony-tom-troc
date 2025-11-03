@@ -2,13 +2,31 @@
 
 namespace App\Controllers;
 
+use App\Models\Managers\BookManager;
+use App\Models\Managers\UserManager;
 use App\Views\View;
 
 class UserController
 {
     public function show() : void
     {
-        $view = new View('Profil de Alexlecture');
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
+        if ($id <= 0) {
+            throw new \Exception("Le profil demandé est introuvable.");
+        }
+
+        $userManager = new UserManager();
+        $user = $userManager->findById($id);
+
+        if ($user === null) {
+            throw new \Exception("Le profil demandé est introuvable.");
+        }
+
+        $bookManager = new BookManager();
+        $books = $bookManager->findByUserId($user->getId());
+
+        $view = new View('Profil de ' . $user->getNickname(), ['user' => $user, 'books' => $books]);
         $view->render('account');
     }
 
