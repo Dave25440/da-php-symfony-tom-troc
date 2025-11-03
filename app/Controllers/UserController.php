@@ -26,7 +26,10 @@ class UserController
         $bookManager = new BookManager();
         $books = $bookManager->findByUserId($user->getId());
 
-        $view = new View('Profil de ' . $user->getNickname(), ['user' => $user, 'books' => $books]);
+        $memberSince = $user->getMemberSince();
+        $booksCount = count($books);
+
+        $view = new View('Profil de ' . $user->getNickname(), ['user' => $user, 'books' => $books, 'memberSince' => $memberSince, 'booksCount' => $booksCount]);
         $view->render('account');
     }
 

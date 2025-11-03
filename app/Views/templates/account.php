@@ -6,11 +6,12 @@
         </figure>
         <hr>
         <h2 class="title"><?= htmlspecialchars($user->getNickname()) ?></h2>
-        <p class="profile-membership">Membre depuis 1 an</p>
+        <p class="profile-membership">Membre depuis <?= htmlspecialchars($memberSince) ?></p>
         <h3 class="title-uppercase">Bibliothèque</h3>
         <p class="profile-books">
             <img src="icons/books-icon.svg" alt="" aria-hidden="true">
-            4 livres
+            <?= (int) $booksCount ?>
+            <?= $booksCount > 1 ? 'livres' : 'livre' ?>
         </p>
         <a href="index.php?action=chat" class="cta cta-reverse">Écrire un message</a>
     </section>
