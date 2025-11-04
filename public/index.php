@@ -27,12 +27,12 @@ try {
             (new BookController())->list();
             break;
 
-        case 'book':
-            (new BookController())->show();
-            break;
-
         case 'searchBook':
             (new BookController())->search();
+            break;
+
+        case 'book':
+            (new BookController())->show();
             break;
 
         case 'editBook':
@@ -47,16 +47,16 @@ try {
             (new UserController())->show();
             break;
 
-        case 'signin':
-            (new UserController())->signIn();
+        case 'editAccount':
+            (new UserController())->edit();
             break;
 
         case 'signup':
             (new UserController())->signUp();
             break;
 
-        case 'editAccount':
-            (new UserController())->edit();
+        case 'signin':
+            (new UserController())->signIn();
             break;
 
         default:

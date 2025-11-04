@@ -40,10 +40,13 @@ class UserController
         $view->render('account');
     }
 
-    public function signIn() : void
+    public function edit() : void
     {
-        $view = new View('Connexion');
-        $view->render('signin', 'signin');
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+        $data = $this->load($id);
+
+        $view = new View('Mon compte', $data);
+        $view->render('editAccount', 'account');
     }
 
     public function signUp() : void
@@ -52,12 +55,9 @@ class UserController
         $view->render('signup', 'signin');
     }
 
-    public function edit() : void
+    public function signIn() : void
     {
-        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
-        $data = $this->load($id);
-
-        $view = new View('Mon compte', $data);
-        $view->render('editAccount', 'account');
+        $view = new View('Connexion');
+        $view->render('signin', 'signin');
     }
 }

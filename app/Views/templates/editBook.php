@@ -9,9 +9,9 @@
         </figure>
         <form>
             <label for="title" class="form-label">Titre</label>
-            <input type="text" id="title" name="title" value="<?= htmlspecialchars($book->getTitle()) ?>" class="form-input form-input-update">
+            <input type="text" id="title" name="title" value="<?= htmlspecialchars($book->getTitle()) ?>" class="form-input form-input-update" required>
             <label for="author" class="form-label">Auteur</label>
-            <input type="text" id="author" name="author" value="<?= htmlspecialchars($book->getAuthor()) ?>" class="form-input form-input-update">
+            <input type="text" id="author" name="author" value="<?= htmlspecialchars($book->getAuthor()) ?>" class="form-input form-input-update" required>
             <label for="description" class="form-label">Description</label>
             <textarea id="description" name="description" rows="19" class="form-input form-input-update"><?=
                 htmlspecialchars($book->getDescription() ?? 'Aucune description fournie.')

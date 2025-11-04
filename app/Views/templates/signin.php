@@ -3,9 +3,9 @@
         <h1 class="title">Connexion</h1>
         <form aria-label="Formulaire de connexion">
             <label for="email" class="form-label">Adresse email</label>
-            <input type="email" id="email" name="email" class="form-input">
+            <input type="email" id="email" name="email" class="form-input" required>
             <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" id="password" name="password" class="form-input">
+            <input type="password" id="password" name="password" class="form-input" required>
             <input type="submit" id="signin" value="Se connecter" class="cta cta-input">
         </form>
         <p>

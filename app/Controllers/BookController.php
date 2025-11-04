@@ -40,18 +40,6 @@ class BookController
         $view->render('books', 'books');
     }
 
-    public function show() : void
-    {
-        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
-        $book = $this->load($id);
-
-        $userManager = new UserManager();
-        $user = $userManager->findById($book->getUserId());
-
-        $view = new View($book->getTitle(), ['book' => $book, 'user' => $user]);
-        $view->render('book', 'books');
-    }
-
     public function search(): void
     {
         $search = $_GET['search'] ?? '';
@@ -62,6 +50,18 @@ class BookController
         header('Content-Type: application/json');
         echo json_encode($books);
         exit;
+    }
+
+    public function show() : void
+    {
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+        $book = $this->load($id);
+
+        $userManager = new UserManager();
+        $user = $userManager->findById($book->getUserId());
+
+        $view = new View($book->getTitle(), ['book' => $book, 'user' => $user]);
+        $view->render('book', 'books');
     }
 
     public function edit() : void

@@ -19,11 +19,11 @@
         <h2>Vos informations personnelles</h2>
         <form>
             <label for="email" class="form-label">Adresse email</label>
-            <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="form-input form-input-update">
+            <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="form-input form-input-update" required>
             <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" id="password" name="password" value="password" class="form-input form-input-update">
+            <input type="password" id="password" name="password" class="form-input form-input-update" required>
             <label for="username" class="form-label">Pseudo</label>
-            <input type="text" id="username" name="username" value="<?= htmlspecialchars($user->getNickname()) ?>" class="form-input form-input-update">
+            <input type="text" id="username" name="username" value="<?= htmlspecialchars($user->getNickname()) ?>" class="form-input form-input-update" required>
             <input type="submit" id="save" value="Enregistrer" class="cta cta-input cta-reverse">
         </form>
     </section>
