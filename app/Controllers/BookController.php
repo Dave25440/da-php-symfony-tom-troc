@@ -7,7 +7,7 @@ use App\Models\Managers\BookManager;
 use App\Models\Managers\UserManager;
 use App\Views\View;
 
-class BookController
+class BookController extends AbstractController
 {
     protected function load(int $id) : Book
     {
@@ -66,8 +66,15 @@ class BookController
 
     public function edit() : void
     {
+        $this->checkAuth();
+
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
         $book = $this->load($id);
+
+        if ($book->getUserId() !== $_SESSION['userId']) {
+            header('Location: index.php?action=editAccount');
+            exit;
+        }
 
         $view = new View('Modifier ' . $book->getTitle(), ['book' => $book]);
         $view->render('editBook', 'account');
