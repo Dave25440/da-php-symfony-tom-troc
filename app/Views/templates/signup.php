@@ -10,7 +10,7 @@
             <input type="password" id="password" name="password" class="form-input" required>
             <input type="submit" id="signup" value="S'inscrire" class="cta cta-input">
         </form>
-        <p>
+        <p class="section-auth-text">
             Déjà inscrit(e) ?
             <a href="index.php?action=signin">Connectez-vous</a>
         </p>

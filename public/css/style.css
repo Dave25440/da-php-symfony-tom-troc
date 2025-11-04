@@ -184,6 +184,11 @@ textarea {
     text-overflow: ellipsis;
 }
 
+.text-error {
+    color: var(--text-secondary-color);
+    font-weight: 600;
+}
+
 .text-light,
 .text-light * {
     font-weight: 300;
@@ -565,13 +570,13 @@ textarea {
     margin-bottom: 56px;
 }
 
-.section-auth-wrapper > p {
-    color: var(--text-color);
-    font-size: 0.875em;
-}
-
+.section-auth-wrapper > .text-error,
 .section-auth-wrapper .cta {
     margin-bottom: 40px;
+}
+
+.section-auth-wrapper > p {
+    font-size: 0.875em;
 }
 
 .section-auth-wrapper a {
@@ -580,6 +585,10 @@ textarea {
 
 .section-auth-wrapper a:hover {
     font-weight: 600;
+}
+
+.section-auth-text {
+    color: var(--text-color);
 }
 
 
@@ -1373,16 +1382,14 @@ textarea {
         margin: 80px 20px 100px;
     }
 
-    .section-auth-wrapper > .title {
+    .section-auth-wrapper > .title,
+    .section-auth-wrapper > .text-error,
+    .section-auth-wrapper .cta {
         margin-bottom: 32px;
     }
 
     .section-auth-wrapper > p {
         font-size: 1em;
-    }
-
-    .section-auth-wrapper .cta {
-        margin-bottom: 32px;
     }
 
 
