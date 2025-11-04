@@ -41,7 +41,11 @@
                         <a href="index.php?action=editAccount&id=14" <?= $activeMenu === 'account' ? 'class="active"' : '' ?>>Mon compte</a>
                     </li>
                     <li class="nav-item-right">
-                        <a href="index.php?action=signin" <?= $activeMenu === 'signin' ? 'class="active"' : '' ?>>Connexion</a>
+                        <?php if (isset($_SESSION['userId'])): ?>
+                            <a href="index.php?action=logout">Déconnexion</a>
+                        <?php else: ?>
+                            <a href="index.php?action=signin" <?= $activeMenu === 'signin' ? 'class="active"' : '' ?>>Connexion</a>
+                        <?php endif; ?>
                     </li>
                 </ul>
             </nav>

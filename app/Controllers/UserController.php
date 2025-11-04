@@ -87,4 +87,12 @@ class UserController
         header('Location: index.php?action=editAccount&id=' . urlencode($user->getId()));
         exit;
     }
+
+    public function logOut(): void
+    {
+        unset($_SESSION['userId']);
+
+        header('Location: index.php');
+        exit;
+    }
 }

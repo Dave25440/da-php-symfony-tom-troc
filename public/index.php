@@ -63,6 +63,10 @@ try {
             (new UserController())->logIn();
             break;
 
+        case 'logout':
+            (new UserController())->logOut();
+            break;
+
         default:
             throw new Exception("Action '$action' inconnue ou indisponible.");
     }
