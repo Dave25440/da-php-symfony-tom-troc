@@ -15,7 +15,7 @@ class User extends AbstractModel
         parent::__construct();
         $this->nickname = $nickname;
         $this->setEmail($email);
-        $this->setPassword($password);
+        $this->password = $password;
     }
 
     public static function fromArray(array $data): User
@@ -57,7 +57,7 @@ class User extends AbstractModel
 
     public function setPassword(string $password): void
     {
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $password;
     }
 
     public function getAvatar(): ?string

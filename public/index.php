@@ -59,6 +59,10 @@ try {
             (new UserController())->signIn();
             break;
 
+        case 'login':
+            (new UserController())->logIn();
+            break;
+
         default:
             throw new Exception("Action '$action' inconnue ou indisponible.");
     }

@@ -55,9 +55,36 @@ class UserController
         $view->render('signup', 'signin');
     }
 
-    public function signIn() : void
+    public function signIn(array $data = []) : void
     {
-        $view = new View('Connexion');
+        $view = new View('Connexion', $data);
         $view->render('signin', 'signin');
+    }
+
+    public function logIn() : void
+    {
+        $email = trim(htmlspecialchars($_POST['email'] ?? ''));
+        $password = $_POST['password'] ?? null;
+        $data = ['error' => null, 'email' => $email];
+
+        if (empty($email) || empty($password)) {
+            $data['error'] = 'Tous les champs sont obligatoires.';
+            $this->signIn($data);
+            return;
+        }
+
+        $userManager = new UserManager();
+        $user = $userManager->findByEmail($email);
+
+        if (!$user || !password_verify($password, $user->getPassword())) {
+            $data['error'] = 'Données incorrectes.';
+            $this->signIn($data);
+            return;
+        }
+
+        $_SESSION['userId'] = $user->getId();
+
+        header('Location: index.php?action=editAccount&id=' . urlencode($user->getId()));
+        exit;
     }
 }
