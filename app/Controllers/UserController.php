@@ -6,7 +6,7 @@ use App\Models\Managers\BookManager;
 use App\Models\Managers\UserManager;
 use App\Views\View;
 
-class UserController
+class UserController extends AbstractController
 {
     protected function load(int $id) : array
     {
@@ -42,8 +42,9 @@ class UserController
 
     public function edit() : void
     {
-        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
-        $data = $this->load($id);
+        $this->checkAuth();
+
+        $data = $this->load($_SESSION['userId']);
 
         $view = new View('Mon compte', $data);
         $view->render('editAccount', 'account');
@@ -84,7 +85,7 @@ class UserController
 
         $_SESSION['userId'] = $user->getId();
 
-        header('Location: index.php?action=editAccount&id=' . urlencode($user->getId()));
+        header('Location: index.php?action=editAccount');
         exit;
     }
 

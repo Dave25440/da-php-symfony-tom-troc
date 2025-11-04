@@ -1,5 +1,5 @@
 <section class="section-edit">
-    <a href="index.php?action=editAccount&id=<?= (int) $book->getUserId() ?>">&lt;- retour</a>
+    <a href="index.php?action=editAccount">&lt;- retour</a>
     <h1 class="title">Modifier les informations</h1>
     <div class="section-edit-wrapper">
         <figure>
