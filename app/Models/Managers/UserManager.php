@@ -21,4 +21,20 @@ class UserManager extends AbstractManager
 
         return null;
     }
+
+    public function findByEmail(string $email): ?User
+    {
+        $sql = 'SELECT user.id, user.nickname, user.email, user.password
+                FROM user
+                WHERE email = :email';
+
+        $stmt = $this->db->query($sql, ['email' => $email]);
+        $data = $stmt->fetch();
+
+        if ($data) {
+            return User::fromArray($data);
+        }
+
+        return null;
+    }
 }
