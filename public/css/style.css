@@ -630,7 +630,7 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 48px;
+    padding: 32px 0;
 }
 
 .section-account-profile > figure {
@@ -642,7 +642,7 @@ textarea {
 
 .section-account-profile > hr {
     width: 242px;
-    margin: 48px 0;
+    margin: 35px 0;
     border: 0;
     border-top: 1px solid var(--bg-color);
 }
@@ -659,6 +659,10 @@ textarea {
 
 .section-account-profile > h3 {
     margin: 22px 0 6px;
+}
+
+.section-account-profile > .cta {
+    margin-top: 32px;
 }
 
 .profile-update {
@@ -787,11 +791,11 @@ textarea {
 }
 
 .section-account-public > .section-account-profile {
-    padding-bottom: 48px;
+    padding: 48px 0;
 }
 
 .section-account-public > .section-account-profile > hr {
-    margin-top: 70px;
+    margin: 70px 0 48px 0;
 }
 
 .section-account-public > .section-account-profile > .cta {
@@ -1418,7 +1422,15 @@ textarea {
 
     /* Account profile section */
     .section-account-profile {
-        padding-bottom: 36px;
+        padding: 48px 0 56px 0;
+    }
+
+    .section-account-profile > hr {
+        margin: 48px 0;
+    }
+
+    .section-account-profile > .cta {
+        margin-top: 45px;
     }
 
 

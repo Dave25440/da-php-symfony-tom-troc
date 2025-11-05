@@ -14,6 +14,7 @@
             <?= (int) $booksCount ?>
             <?= $booksCount > 1 ? 'livres' : 'livre' ?>
         </p>
+        <a href="index.php?action=addBook" class="cta cta-reverse">Ajouter un livre</a>
     </section>
     <section class="section-account-details">
         <h2>Vos informations personnelles</h2>
