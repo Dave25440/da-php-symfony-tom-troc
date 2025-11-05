@@ -35,6 +35,10 @@ try {
             (new BookController())->show();
             break;
 
+        case 'addBook':
+            (new BookController())->add();
+            break;
+
         case 'editBook':
             (new BookController())->edit();
             break;

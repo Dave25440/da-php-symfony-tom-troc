@@ -64,6 +64,12 @@ class BookController extends AbstractController
         $view->render('book', 'books');
     }
 
+    public function add() : void
+    {
+        $view = new View('Ajouter un livre');
+        $view->render('addBook', 'account');
+    }
+
     public function edit() : void
     {
         $this->checkAuth();
