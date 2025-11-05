@@ -194,6 +194,11 @@ textarea {
     font-weight: 300;
 }
 
+.text-success {
+    color: var(--button-color);
+    font-weight: 600;
+}
+
 .title {
     font-family: "Playfair Display", serif;
 }
@@ -570,6 +575,7 @@ textarea {
     margin-bottom: 56px;
 }
 
+.section-auth-wrapper > .text-success,
 .section-auth-wrapper > .text-error,
 .section-auth-wrapper .cta {
     margin-bottom: 40px;
@@ -1383,6 +1389,7 @@ textarea {
     }
 
     .section-auth-wrapper > .title,
+    .section-auth-wrapper > .text-success,
     .section-auth-wrapper > .text-error,
     .section-auth-wrapper .cta {
         margin-bottom: 32px;
