@@ -2,7 +2,7 @@
     <h1 class="sr-only">Profil de <?= htmlspecialchars($user->getNickname()) ?></h1>
     <section class="section-account-profile">
         <figure>
-            <img src="images/users/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="img-cover">
+            <img src="images/users/<?= htmlspecialchars($user->getAvatar() ?? 'user-default.webp') ?>" alt="" class="img-cover">
         </figure>
         <hr>
         <h2 class="title"><?= htmlspecialchars($user->getNickname()) ?></h2>
@@ -31,7 +31,7 @@
                 <?php foreach ($books as $book): ?>
                     <tr>
                         <td>
-                            <img src="images/books/<?= htmlspecialchars($book->getCoverImage()) ?>" alt="" class="img-cover">
+                            <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'book-default.webp') ?>" alt="" class="img-cover">
                         </td>
                         <th scope="row" class="text-ellipsis account-books-title"><?= htmlspecialchars($book->getTitle()) ?></th>
                         <td class="text-ellipsis account-books-author"><?= htmlspecialchars($book->getAuthor()) ?></td>

@@ -12,7 +12,7 @@
 </nav>
 <article class="article-book">
     <figure>
-        <img src="images/books/<?= htmlspecialchars($book->getCoverImage()) ?>" alt="" class="img-cover article-book-cover">
+        <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'book-default.webp') ?>" alt="" class="img-cover article-book-cover">
     </figure>
     <div class="article-book-content">
         <h1 class="title">
@@ -36,7 +36,7 @@
         <h3 class="title-uppercase">Propriétaire</h3>
         <a href="index.php?action=account&id=<?= (int) $user->getId() ?>" class="user-card">
             <figure>
-                <img src="images/users/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="img-cover">
+                <img src="images/users/<?= htmlspecialchars($user->getAvatar() ?? 'user-default.webp') ?>" alt="" class="img-cover">
             </figure>
             <?= htmlspecialchars($user->getNickname()) ?>
         </a>

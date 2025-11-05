@@ -4,7 +4,7 @@
     <div class="section-edit-wrapper">
         <figure>
             <figcaption class="form-label">Photo</figcaption>
-            <img src="images/books/<?= htmlspecialchars($book->getCoverImage()) ?>" alt="" class="img-cover">
+            <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'book-default.webp') ?>" alt="" class="img-cover">
             <a href="#">Modifier la photo</a>
         </figure>
         <form>
