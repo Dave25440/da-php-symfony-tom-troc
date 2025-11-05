@@ -43,10 +43,6 @@ class User extends AbstractModel
 
     public function setEmail(string $email): void
     {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new \InvalidArgumentException("Adresse '$email' invalide.");
-        }
-
         $this->email = $email;
     }
 

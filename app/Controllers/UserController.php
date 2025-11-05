@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
 use App\Models\Managers\BookManager;
 use App\Models\Managers\UserManager;
 use App\Views\View;
@@ -50,10 +51,44 @@ class UserController extends AbstractController
         $view->render('editAccount', 'account');
     }
 
-    public function signUp() : void
+    public function signUp(array $data = []) : void
     {
-        $view = new View('Inscription');
+        $view = new View('Inscription', $data);
         $view->render('signup', 'signin');
+    }
+
+    public function register(): void
+    {
+        $nickname = str_replace(' ', '_', trim($_POST['nickname'] ?? ''));
+        $email = trim($_POST['email'] ?? '');
+        $password = trim($_POST['password'] ?? '');
+        $data = ['error' => null, 'nickname' => $nickname, 'email' => $email];
+
+        if (empty($nickname) || empty($email) || empty($password)) {
+            $data['error'] = 'Tous les champs sont obligatoires.';
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $data['error'] = "Adresse '$email' invalide.";
+        } elseif (strlen($password) < 8) {
+            $data['error'] = 'Le mot de passe doit compter au moins 8 caractères.';
+        } else {
+            $userManager = new UserManager();
+
+            if ($userManager->findByEmail($email)) {
+                $data['error'] = "Adresse '$email' indisponible.";
+            }
+        }
+
+        if ($data['error']) {
+            $this->signUp($data);
+            return;
+        }
+
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $user = new User($nickname, $email, $hash);
+        $userManager->insert($user);
+
+        header('Location: index.php?action=signin');
+        exit;
     }
 
     public function signIn(array $data = []) : void

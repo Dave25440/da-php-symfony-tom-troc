@@ -55,6 +55,10 @@ try {
             (new UserController())->signUp();
             break;
 
+        case 'register':
+            (new UserController())->register();
+            break;
+
         case 'signin':
             (new UserController())->signIn();
             break;
