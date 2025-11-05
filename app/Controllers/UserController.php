@@ -87,12 +87,16 @@ class UserController extends AbstractController
         $user = new User($nickname, $email, $hash);
         $userManager->insert($user);
 
-        header('Location: index.php?action=signin');
+        header('Location: index.php?action=signin&register');
         exit;
     }
 
     public function signIn(array $data = []) : void
     {
+        if (isset($_GET['register'])) {
+            $data['register'] = 'Inscription réussie, vous pouvez vous connecter.';
+        }
+
         $view = new View('Connexion', $data);
         $view->render('signin', 'signin');
     }

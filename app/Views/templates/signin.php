@@ -1,10 +1,10 @@
 <section class="section-auth">
     <div class="section-auth-wrapper">
         <h1 class="title">Connexion</h1>
-        <?php if (!empty($error)): ?>
-            <p role="alert" class="text-error">
-                <?= htmlspecialchars($error) ?>
-            </p>
+        <?php if (!empty($register)): ?>
+            <p role="alert" class="text-success"><?= htmlspecialchars($register) ?></p>
+        <?php elseif (!empty($error)): ?>
+            <p role="alert" class="text-error"><?= htmlspecialchars($error) ?></p>
         <?php endif; ?>
         <form action="index.php?action=login" method="post" aria-label="Formulaire de connexion">
             <label for="email" class="form-label">Adresse email</label>
