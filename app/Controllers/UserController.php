@@ -64,21 +64,22 @@ class UserController extends AbstractController
 
     public function logIn() : void
     {
-        $email = trim(htmlspecialchars($_POST['email'] ?? ''));
+        $email = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? null;
         $data = ['error' => null, 'email' => $email];
 
         if (empty($email) || empty($password)) {
             $data['error'] = 'Tous les champs sont obligatoires.';
-            $this->signIn($data);
-            return;
+        } else {
+            $userManager = new UserManager();
+            $user = $userManager->findByEmail($email);
+
+            if (!$user || !password_verify($password, $user->getPassword())) {
+                $data['error'] = 'Données incorrectes.';
+            }
         }
 
-        $userManager = new UserManager();
-        $user = $userManager->findByEmail($email);
-
-        if (!$user || !password_verify($password, $user->getPassword())) {
-            $data['error'] = 'Données incorrectes.';
+        if ($data['error']) {
             $this->signIn($data);
             return;
         }
