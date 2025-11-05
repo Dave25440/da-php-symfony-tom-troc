@@ -85,7 +85,7 @@ class UserController extends AbstractController
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $user = new User($nickname, $email, $hash);
-        $userManager->insert($user);
+        $userManager->add($user);
 
         header('Location: index.php?action=signin&register');
         exit;

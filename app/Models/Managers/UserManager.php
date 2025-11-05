@@ -38,7 +38,7 @@ class UserManager extends AbstractManager
         return null;
     }
 
-    public function insert(User $user): void
+    public function add(User $user): void
     {
         $sql = 'INSERT INTO user (nickname, email, password)
                 VALUES (:nickname, :email, :password)';
