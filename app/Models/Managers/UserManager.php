@@ -37,4 +37,16 @@ class UserManager extends AbstractManager
 
         return null;
     }
+
+    public function insert(User $user): void
+    {
+        $sql = 'INSERT INTO user (nickname, email, password)
+                VALUES (:nickname, :email, :password)';
+
+        $this->db->query($sql, [
+            'nickname' => $user->getNickname(),
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword()
+        ]);
+    }
 }
