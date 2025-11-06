@@ -69,7 +69,12 @@
                             <a href="index.php?action=editBook&id=<?= (int) $book->getId() ?>" aria-label="Éditer <?= htmlspecialchars($book->getTitle()) ?>">Éditer</a>
                         </td>
                         <td>
-                            <a href="index.php?action=deleteBook&id=<?= (int) $book->getId() ?>" aria-label="Supprimer <?= htmlspecialchars($book->getTitle()) ?>">Supprimer</a>
+                            <a href="index.php?action=deleteBook&id=<?= (int) $book->getId() ?>"
+                                data-confirm="Confirmez-vous la suppression de <?= htmlspecialchars($book->getTitle()) ?> ?"
+                                aria-label="Supprimer <?= htmlspecialchars($book->getTitle()) ?>"
+                                class="link-delete">
+                                Supprimer
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

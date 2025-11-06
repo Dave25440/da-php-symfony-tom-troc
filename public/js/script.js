@@ -61,13 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Book search
     function bookSearch() {
-        const search = document.getElementById('search');
-        const booksGrid = document.querySelector('.books-grid');
+        const search = document.getElementById("search");
+        const booksGrid = document.querySelector(".books-grid");
         let timeout;
 
         if (!search || !booksGrid) return;
 
-        search.addEventListener('input', () => {
+        search.addEventListener("input", () => {
             // Annule la recherche précédente en cours (debouncing)
             clearTimeout(timeout);
 
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     .then(res => res.json())
                     .then(books => {
                         if (!books.length) {
-                            booksGrid.innerHTML = '<p>Aucun livre trouvé.</p>';
+                            booksGrid.innerHTML = "<p>Aucun livre trouvé.</p>";
                             return;
                         }
 
@@ -95,14 +95,30 @@ document.addEventListener("DOMContentLoaded", () => {
                                     </div>
                                 </article>
                             </a>
-                        `).join('');
+                        `).join("");
                     })
                     .catch(() => {
-                        booksGrid.innerHTML = '<p>Erreur lors de la recherche, merci de réessayer plus tard.</p>';
+                        booksGrid.innerHTML = "<p>Erreur lors de la recherche, merci de réessayer plus tard.</p>";
                     });
             }, 300);
         });
     }
 
     bookSearch();
+
+
+    // Link delete
+    const linkDelete = document.querySelectorAll(".link-delete");
+
+    if (linkDelete.length) {
+        linkDelete.forEach(link => {
+            link.addEventListener("click", (e) => {
+                const message = link.getAttribute("data-confirm") || "Confirmez-vous la suppression ?";
+
+                if (!confirm(message)) {
+                    e.preventDefault();
+                }
+            });
+        });
+    }
 });
