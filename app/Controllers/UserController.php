@@ -51,6 +51,8 @@ class UserController extends AbstractController
         } elseif ($usedEmail && ($userId === null || $usedEmail->getId() !== $userId)) {
             return "Adresse '$email' indisponible.";
         }
+
+        return null;
     }
 
     public function show() : void
