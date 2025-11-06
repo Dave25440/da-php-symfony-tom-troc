@@ -70,5 +70,8 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <?php if (empty($books)): ?>
+            <p>Aucun livre ajouté</p>
+        <?php endif; ?>
     </section>
 </section>

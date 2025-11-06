@@ -726,6 +726,22 @@ textarea {
     font-weight: 600;
 }
 
+.section-account-books > p {
+    text-align: center;
+    padding: 57px 0;
+}
+
+.section-account-books > p,
+.section-account-books tbody {
+    color: var(--text-color);
+    font-size: 0.75em;
+}
+
+.section-account-books > p,
+.section-account-books tbody > tr {
+    border-top: 1px solid var(--bg-color);
+}
+
 .section-account-books thead th {
     font-weight: 600;
     padding: 33px 0 10px 80px;
@@ -738,15 +754,6 @@ textarea {
 
 .section-account-books thead th:last-child {
     padding-right: 80px;
-}
-
-.section-account-books tbody {
-    color: var(--text-color);
-    font-size: 0.75em;
-}
-
-.section-account-books tbody > tr {
-    border-top: 1px solid var(--bg-color);
 }
 
 .section-account-books tbody > tr:nth-child(even) {
@@ -1460,31 +1467,41 @@ textarea {
         font-size: 1.17em;
     }
 
-    .section-account-books thead {
-        display: none;
+    .section-account-books > p {
+        padding: 50px 0;
     }
 
+    .section-account-books > p,
     .section-account-books tbody {
         font-size: 0.875em;
+    }
+
+    .section-account-books > p,
+    .section-account-books tbody > tr {
+        border: 1px solid var(--bg-color);
+        border-radius: 20px;
+    }
+
+    .section-account-books > p,
+    .section-account-books tbody > tr,
+    .section-account-books tbody > tr:nth-child(even) {
+        background-color: var(--bg-light-color);
+    }
+
+    .section-account-books thead {
+        display: none;
     }
 
     .section-account-books tbody > tr {
         display: grid;
         grid-template-columns: 97px auto;
         grid-template-rows: 17px 33px repeat(3, auto);
-        background-color: var(--bg-light-color);
         padding: 52px 56px;
         margin-top: 16px;
-        border: 1px solid var(--bg-color);
-        border-radius: 20px;
     }
 
     .section-account-books tbody > tr:first-child {
         margin-top: 0;
-    }
-
-    .section-account-books tbody > tr:nth-child(even) {
-        background-color: var(--bg-light-color);
     }
 
     .section-account-books tbody th,
