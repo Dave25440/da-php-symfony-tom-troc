@@ -122,13 +122,18 @@ class UserController extends AbstractController
 
     public function register(): void
     {
-        $nickname = str_replace(' ', '_', trim($_POST['nickname'] ?? ''));
+        $nicknameRaw = trim($_POST['nickname'] ?? '');
+        $nickname = str_replace(' ', '_', $nicknameRaw);
         $email = trim($_POST['email'] ?? '');
         $password = trim($_POST['password'] ?? '');
         $data = ['error' => null, 'nickname' => $nickname, 'email' => $email];
 
         if (empty($nickname) || empty($email) || empty($password)) {
             $data['error'] = 'Tous les champs sont obligatoires.';
+        } elseif (strlen($nickname) > 50) {
+            $data['error'] = 'Le pseudo ne doit pas dépasser 50 caractères.';
+        } elseif (strlen($email) > 100) {
+            $data['error'] = "L'adresse email ne doit pas dépasser 100 caractères.";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $data['error'] = "Adresse '$email' invalide.";
         } elseif (strlen($password) < 8) {
@@ -136,7 +141,9 @@ class UserController extends AbstractController
         } else {
             $userManager = new UserManager();
 
-            if ($userManager->findByEmail($email)) {
+            if ($userManager->findByNickname($nickname)) {
+                $data['error'] = "Pseudo '$nickname' indisponible.";
+            } elseif ($userManager->findByEmail($email)) {
                 $data['error'] = "Adresse '$email' indisponible.";
             }
         }
