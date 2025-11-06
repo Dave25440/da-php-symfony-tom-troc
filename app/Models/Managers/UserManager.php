@@ -49,4 +49,25 @@ class UserManager extends AbstractManager
             'password' => $user->getPassword()
         ]);
     }
+
+    public function update(User $user): void
+    {
+        $sql = 'UPDATE user
+                SET nickname = :nickname, email = :email';
+
+        $params = [
+            'id' => $user->getId(),
+            'nickname' => $user->getNickname(),
+            'email' => $user->getEmail()
+        ];
+
+        if ($user->getPassword()) {
+            $sql .= ', password = :password';
+            $params['password'] = $user->getPassword();
+        }
+
+        $sql .= ' WHERE id = :id';
+
+        $this->db->query($sql, $params);
+    }
 }
