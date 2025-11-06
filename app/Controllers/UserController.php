@@ -32,6 +32,27 @@ class UserController extends AbstractController
         return compact('user', 'books', 'memberSince', 'booksCount');
     }
 
+    protected function validate(string $nickname, string $email, string $password, ?int $userId = null) : ?string
+    {
+        $userManager = new UserManager();
+        $usedNickname = $userManager->findByNickname($nickname);
+        $usedEmail = $userManager->findByEmail($email);
+
+        if (strlen($nickname) > 50) {
+            return 'Le pseudo ne doit pas dépasser 50 caractères.';
+        } elseif (strlen($email) > 100) {
+            return "L'adresse email ne doit pas dépasser 100 caractères.";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return "Adresse '$email' invalide.";
+        } elseif ($password !== '' && strlen($password) < 8) {
+            return 'Le mot de passe doit compter au moins 8 caractères.';
+        } elseif ($usedNickname && ($userId === null || $usedNickname->getId() !== $userId)) {
+            return "Pseudo '$nickname' indisponible.";
+        } elseif ($usedEmail && ($userId === null || $usedEmail->getId() !== $userId)) {
+            return "Adresse '$email' indisponible.";
+        }
+    }
+
     public function show() : void
     {
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
@@ -70,8 +91,6 @@ class UserController extends AbstractController
 
         $userManager = new UserManager();
         $user = $userManager->findById($userId);
-        $usedNickname = $userManager->findByNickname($nickname);
-        $usedEmail = $userManager->findByEmail($email);
 
         if (
             $nickname === $user->getNickname() &&
@@ -81,18 +100,12 @@ class UserController extends AbstractController
             $data['error'] = 'Données identiques.';
         } elseif (empty($nickname) || empty($email)) {
             $data['error'] = "Les champs 'Pseudo' et 'Adresse email' sont obligatoires.";
-        } elseif (strlen($nickname) > 50) {
-            $data['error'] = 'Le pseudo ne doit pas dépasser 50 caractères.';
-        } elseif (strlen($email) > 100) {
-            $data['error'] = "L'adresse email ne doit pas dépasser 100 caractères.";
-        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $data['error'] = "Adresse '$email' invalide.";
-        } elseif ($password !== '' && strlen($password) < 8) {
-            $data['error'] = 'Le mot de passe doit compter au moins 8 caractères.';
-        } elseif ($usedNickname && $usedNickname->getId() !== $userId) {
-            $data['error'] = "Pseudo '$nickname' indisponible.";
-        } elseif ($usedEmail && $usedEmail->getId() !== $userId) {
-            $data['error'] = "Adresse '$email' indisponible.";
+        } else {
+            $error = $this->validate($nickname, $email, $password, $userId);
+
+            if ($error) {
+                $data['error'] = $error;
+            }
         }
 
         if ($data['error']) {
@@ -130,21 +143,11 @@ class UserController extends AbstractController
 
         if (empty($nickname) || empty($email) || empty($password)) {
             $data['error'] = 'Tous les champs sont obligatoires.';
-        } elseif (strlen($nickname) > 50) {
-            $data['error'] = 'Le pseudo ne doit pas dépasser 50 caractères.';
-        } elseif (strlen($email) > 100) {
-            $data['error'] = "L'adresse email ne doit pas dépasser 100 caractères.";
-        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $data['error'] = "Adresse '$email' invalide.";
-        } elseif (strlen($password) < 8) {
-            $data['error'] = 'Le mot de passe doit compter au moins 8 caractères.';
         } else {
-            $userManager = new UserManager();
+            $error = $this->validate($nickname, $email, $password);
 
-            if ($userManager->findByNickname($nickname)) {
-                $data['error'] = "Pseudo '$nickname' indisponible.";
-            } elseif ($userManager->findByEmail($email)) {
-                $data['error'] = "Adresse '$email' indisponible.";
+            if ($error) {
+                $data['error'] = $error;
             }
         }
 
@@ -155,6 +158,8 @@ class UserController extends AbstractController
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $user = new User($nickname, $email, $hash);
+
+        $userManager = new UserManager();
         $userManager->add($user);
 
         header('Location: index.php?action=signin&register');
