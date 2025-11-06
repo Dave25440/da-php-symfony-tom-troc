@@ -702,6 +702,11 @@ textarea {
     margin-bottom: 26px;
 }
 
+.section-account-details > p {
+    font-size: 0.875em;
+    margin-bottom: 26px;
+}
+
 .section-account-details .cta {
     max-width: 150px;
     padding: 22px 0;
@@ -1446,7 +1451,8 @@ textarea {
         padding: 40px 16px 48px;
     }
 
-    .section-account-details > h2 {
+    .section-account-details > h2,
+    .section-account-details > p {
         margin-bottom: 22px;
     }
 

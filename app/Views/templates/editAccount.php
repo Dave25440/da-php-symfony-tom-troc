@@ -18,14 +18,19 @@
     </section>
     <section class="section-account-details">
         <h2>Vos informations personnelles</h2>
-        <form>
+        <?php if (!empty($success)): ?>
+            <p role="alert" class="text-success"><?= htmlspecialchars($success) ?></p>
+        <?php elseif (!empty($error)): ?>
+            <p role="alert" class="text-error"><?= htmlspecialchars($error) ?></p>
+        <?php endif; ?>
+        <form action="index.php?action=updateAccount" method="post">
             <label for="email" class="form-label">Adresse email</label>
-            <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="form-input form-input-update" required>
+            <input type="email" id="email" name="email" value="<?= htmlspecialchars($email ?? $user->getEmail()) ?>" class="form-input form-input-update" required>
             <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" id="password" name="password" class="form-input form-input-update" required>
-            <label for="username" class="form-label">Pseudo</label>
-            <input type="text" id="username" name="username" value="<?= htmlspecialchars($user->getNickname()) ?>" class="form-input form-input-update" required>
-            <input type="submit" id="save" value="Enregistrer" class="cta cta-input cta-reverse">
+            <input type="password" id="password" name="password" class="form-input form-input-update">
+            <label for="nickname" class="form-label">Pseudo</label>
+            <input type="text" id="nickname" name="nickname" value="<?= htmlspecialchars($nickname ?? $user->getNickname()) ?>" class="form-input form-input-update" required>
+            <input type="submit" id="update" value="Enregistrer" class="cta cta-input cta-reverse">
         </form>
     </section>
     <section class="section-account-books">
