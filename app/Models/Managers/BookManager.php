@@ -99,4 +99,13 @@ class BookManager extends AbstractManager
 
         return $books;
     }
+
+    public function delete(int $id) : void
+    {
+        $sql = "DELETE
+                FROM book
+                WHERE id = :id";
+
+        $this->db->query($sql, ['id' => $id]);
+    }
 }
