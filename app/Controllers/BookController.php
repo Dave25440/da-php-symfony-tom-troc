@@ -9,7 +9,7 @@ use App\Views\View;
 
 class BookController extends AbstractController
 {
-    protected function load(int $id) : Book
+    protected function load(int $id): Book
     {
         if ($id <= 0) {
             throw new \Exception('Le livre demandé est introuvable.');
@@ -25,7 +25,7 @@ class BookController extends AbstractController
         return $book;
     }
 
-    public function list() : void
+    public function list(): void
     {
         $search = $_GET['search'] ?? '';
         $bookManager = new BookManager();
@@ -52,7 +52,7 @@ class BookController extends AbstractController
         exit;
     }
 
-    public function show() : void
+    public function show(): void
     {
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
         $book = $this->load($id);
@@ -64,13 +64,13 @@ class BookController extends AbstractController
         $view->render('book', 'books');
     }
 
-    public function add() : void
+    public function add(): void
     {
         $view = new View('Ajouter un livre');
         $view->render('addBook', 'account');
     }
 
-    public function edit() : void
+    public function edit(): void
     {
         $this->checkAuth();
 
@@ -86,7 +86,7 @@ class BookController extends AbstractController
         $view->render('editBook', 'account');
     }
 
-    public function delete() : void
+    public function delete(): void
     {
         $this->checkAuth();
 

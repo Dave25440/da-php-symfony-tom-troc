@@ -100,7 +100,7 @@ class BookManager extends AbstractManager
         return $books;
     }
 
-    public function delete(int $id) : void
+    public function delete(int $id): void
     {
         $sql = "DELETE
                 FROM book

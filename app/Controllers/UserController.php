@@ -9,7 +9,7 @@ use App\Views\View;
 
 class UserController extends AbstractController
 {
-    protected function load(int $id) : array
+    protected function load(int $id): array
     {
         if ($id <= 0) {
             throw new \Exception("Le profil demandé est introuvable.");
@@ -32,7 +32,7 @@ class UserController extends AbstractController
         return compact('user', 'books', 'memberSince', 'booksCount');
     }
 
-    protected function validate(string $nickname, string $email, string $password, ?int $userId = null) : ?string
+    protected function validate(string $nickname, string $email, string $password, ?int $userId = null): ?string
     {
         $userManager = new UserManager();
         $usedNickname = $userManager->findByNickname($nickname);
@@ -55,7 +55,7 @@ class UserController extends AbstractController
         return null;
     }
 
-    public function show() : void
+    public function show(): void
     {
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
         $data = $this->load($id);
@@ -64,7 +64,7 @@ class UserController extends AbstractController
         $view->render('account');
     }
 
-    public function edit(array $update = []) : void
+    public function edit(array $update = []): void
     {
         $this->checkAuth();
 
@@ -80,7 +80,7 @@ class UserController extends AbstractController
         $view->render('editAccount', 'account');
     }
 
-    public function update() : void
+    public function update(): void
     {
         $this->checkAuth();
 
@@ -129,7 +129,7 @@ class UserController extends AbstractController
         exit;
     }
 
-    public function signUp(array $data = []) : void
+    public function signUp(array $data = []): void
     {
         $view = new View('Inscription', $data);
         $view->render('signup', 'signin');
@@ -168,7 +168,7 @@ class UserController extends AbstractController
         exit;
     }
 
-    public function signIn(array $data = []) : void
+    public function signIn(array $data = []): void
     {
         if (isset($_GET['register'])) {
             $data['register'] = 'Inscription réussie, vous pouvez vous connecter.';
@@ -178,7 +178,7 @@ class UserController extends AbstractController
         $view->render('signin', 'signin');
     }
 
-    public function logIn() : void
+    public function logIn(): void
     {
         $email = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? null;
