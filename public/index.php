@@ -43,6 +43,10 @@ try {
             (new BookController())->edit();
             break;
 
+        case 'deleteBook':
+            (new BookController())->delete();
+            break;
+
         case 'chat':
             (new ChatController())->show();
             break;

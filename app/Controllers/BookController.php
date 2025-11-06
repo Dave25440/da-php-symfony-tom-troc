@@ -85,4 +85,23 @@ class BookController extends AbstractController
         $view = new View('Modifier ' . $book->getTitle(), ['book' => $book]);
         $view->render('editBook', 'account');
     }
+
+    public function delete() : void
+    {
+        $this->checkAuth();
+
+        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+        $bookManager = new BookManager();
+        $book = $bookManager->findById($id);
+
+        if (!$book || $book->getUserId() !== $_SESSION['userId']) {
+            header('Location: index.php?action=editAccount');
+            exit;
+        }
+
+        $bookManager->delete($id);
+
+        header('Location: index.php?action=editAccount');
+        exit;
+    }
 }
