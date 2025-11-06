@@ -32,7 +32,7 @@ class UserController extends AbstractController
         return compact('user', 'books', 'memberSince', 'booksCount');
     }
 
-    protected function validate(string $nickname, string $email, string $password, ?int $userId = null): ?string
+    protected function validate(string $nickname, string $email, string $password, ?int $id = null): ?string
     {
         $userManager = new UserManager();
         $usedNickname = $userManager->findByNickname($nickname);
@@ -46,9 +46,9 @@ class UserController extends AbstractController
             return "Adresse '$email' invalide.";
         } elseif ($password !== '' && strlen($password) < 8) {
             return 'Le mot de passe doit compter au moins 8 caractères.';
-        } elseif ($usedNickname && ($userId === null || $usedNickname->getId() !== $userId)) {
+        } elseif ($usedNickname && ($id === null || $usedNickname->getId() !== $id)) {
             return "Pseudo '$nickname' indisponible.";
-        } elseif ($usedEmail && ($userId === null || $usedEmail->getId() !== $userId)) {
+        } elseif ($usedEmail && ($id === null || $usedEmail->getId() !== $id)) {
             return "Adresse '$email' indisponible.";
         }
 
@@ -68,7 +68,7 @@ class UserController extends AbstractController
     {
         $this->checkAuth();
 
-        $data = $this->load($_SESSION['userId']);
+        $data = $this->load($_SESSION['user_id']);
 
         if (isset($_GET['success'])) {
             $update['success'] = 'Mise à jour réussie.';
@@ -84,7 +84,7 @@ class UserController extends AbstractController
     {
         $this->checkAuth();
 
-        $userId = $_SESSION['userId'];
+        $id = $_SESSION['user_id'];
         $nicknameRaw = trim($_POST['nickname'] ?? '');
         $nickname = str_replace(' ', '_', $nicknameRaw);
         $email = trim($_POST['email'] ?? '');
@@ -92,7 +92,7 @@ class UserController extends AbstractController
         $data = ['error' => null, 'nickname' => $nickname, 'email' => $email];
 
         $userManager = new UserManager();
-        $user = $userManager->findById($userId);
+        $user = $userManager->findById($id);
 
         if (
             $nickname === $user->getNickname() &&
@@ -103,7 +103,7 @@ class UserController extends AbstractController
         } elseif (empty($nickname) || empty($email)) {
             $data['error'] = "Les champs 'Pseudo' et 'Adresse email' sont obligatoires.";
         } else {
-            $error = $this->validate($nickname, $email, $password, $userId);
+            $error = $this->validate($nickname, $email, $password, $id);
 
             if ($error) {
                 $data['error'] = $error;
@@ -200,7 +200,7 @@ class UserController extends AbstractController
             return;
         }
 
-        $_SESSION['userId'] = $user->getId();
+        $_SESSION['user_id'] = $user->getId();
 
         header('Location: index.php?action=editAccount');
         exit;
@@ -208,7 +208,7 @@ class UserController extends AbstractController
 
     public function logOut(): void
     {
-        unset($_SESSION['userId']);
+        unset($_SESSION['user_id']);
 
         header('Location: index.php');
         exit;

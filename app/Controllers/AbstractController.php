@@ -8,16 +8,16 @@ abstract class AbstractController
 {
     protected function checkAuth(): void
     {
-        if (!isset($_SESSION['userId']) || $_SESSION['userId'] <= 0) {
+        if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] <= 0) {
             header('Location: index.php?action=signin');
             exit;
         }
 
         $userManager = new UserManager();
-        $user = $userManager->findById($_SESSION['userId']);
+        $user = $userManager->findById($_SESSION['user_id']);
 
         if ($user === null) {
-            unset($_SESSION['userId']);
+            unset($_SESSION['user_id']);
             header('Location: index.php?action=signin');
             exit;
         }

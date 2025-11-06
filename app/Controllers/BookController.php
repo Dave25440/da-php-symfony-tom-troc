@@ -77,7 +77,7 @@ class BookController extends AbstractController
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
         $book = $this->load($id);
 
-        if ($book->getUserId() !== $_SESSION['userId']) {
+        if ($book->getUserId() !== $_SESSION['user_id']) {
             header('Location: index.php?action=editAccount');
             exit;
         }
@@ -94,7 +94,7 @@ class BookController extends AbstractController
         $bookManager = new BookManager();
         $book = $bookManager->findById($id);
 
-        if (!$book || $book->getUserId() !== $_SESSION['userId']) {
+        if (!$book || $book->getUserId() !== $_SESSION['user_id']) {
             header('Location: index.php?action=editAccount');
             exit;
         }
