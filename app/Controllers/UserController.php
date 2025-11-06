@@ -41,14 +41,74 @@ class UserController extends AbstractController
         $view->render('account');
     }
 
-    public function edit() : void
+    public function edit(array $update = []) : void
     {
         $this->checkAuth();
 
         $data = $this->load($_SESSION['userId']);
 
+        if (isset($_GET['success'])) {
+            $update['success'] = 'Mise à jour réussie.';
+        }
+
+        $data = array_merge($data, $update);
+
         $view = new View('Mon compte', $data);
         $view->render('editAccount', 'account');
+    }
+
+    public function update() : void
+    {
+        $this->checkAuth();
+
+        $userId = $_SESSION['userId'];
+        $nicknameRaw = trim($_POST['nickname'] ?? '');
+        $nickname = str_replace(' ', '_', $nicknameRaw);
+        $email = trim($_POST['email'] ?? '');
+        $password = trim($_POST['password'] ?? '');
+        $data = ['error' => null, 'nickname' => $nickname, 'email' => $email];
+
+        $userManager = new UserManager();
+        $user = $userManager->findById($userId);
+        $usedEmail = $userManager->findByEmail($email);
+
+        if (
+            $nickname === $user->getNickname() &&
+            $email === $user->getEmail() &&
+            $password === ''
+        ) {
+            $data['error'] = 'Données identiques.';
+        } elseif (empty($nickname) || empty($email)) {
+            $data['error'] = "Les champs 'Pseudo' et 'Adresse email' sont obligatoires.";
+        } elseif (strlen($nickname) > 50) {
+            $data['error'] = 'Le pseudo ne doit pas dépasser 50 caractères.';
+        } elseif (strlen($email) > 100) {
+            $data['error'] = "L'adresse email ne doit pas dépasser 100 caractères.";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $data['error'] = "Adresse '$email' invalide.";
+        } elseif ($password !== '' && strlen($password) < 8) {
+            $data['error'] = 'Le mot de passe doit compter au moins 8 caractères.';
+        } elseif ($usedEmail && $usedEmail->getId() !== $userId) {
+            $data['error'] = "Adresse '$email' indisponible.";
+        }
+
+        if ($data['error']) {
+            $this->edit($data);
+            return;
+        }
+
+        $user->setNickname($nickname);
+        $user->setEmail($email);
+
+        if ($password !== '') {
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $user->setPassword($hash);
+        }
+
+        $userManager->update($user);
+
+        header('Location: index.php?action=editAccount&success');
+        exit;
     }
 
     public function signUp(array $data = []) : void

@@ -55,6 +55,10 @@ try {
             (new UserController())->edit();
             break;
 
+        case 'updateAccount':
+            (new UserController())->update();
+            break;
+
         case 'signup':
             (new UserController())->signUp();
             break;
