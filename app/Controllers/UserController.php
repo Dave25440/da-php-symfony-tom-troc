@@ -70,6 +70,7 @@ class UserController extends AbstractController
 
         $userManager = new UserManager();
         $user = $userManager->findById($userId);
+        $usedNickname = $userManager->findByNickname($nickname);
         $usedEmail = $userManager->findByEmail($email);
 
         if (
@@ -88,6 +89,8 @@ class UserController extends AbstractController
             $data['error'] = "Adresse '$email' invalide.";
         } elseif ($password !== '' && strlen($password) < 8) {
             $data['error'] = 'Le mot de passe doit compter au moins 8 caractères.';
+        } elseif ($usedNickname && $usedNickname->getId() !== $userId) {
+            $data['error'] = "Pseudo '$nickname' indisponible.";
         } elseif ($usedEmail && $usedEmail->getId() !== $userId) {
             $data['error'] = "Adresse '$email' indisponible.";
         }
