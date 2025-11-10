@@ -86,4 +86,13 @@ class UserManager extends AbstractManager
 
         $this->db->query($sql, $params);
     }
+
+    public function updateAvatar(int $id, string $avatar): void
+    {
+        $sql = "UPDATE user
+                SET avatar = :avatar
+                WHERE id = :id";
+
+        $this->db->query($sql, ['id' => $id, 'avatar' => $avatar]);
+    }
 }
