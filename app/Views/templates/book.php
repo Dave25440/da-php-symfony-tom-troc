@@ -36,7 +36,7 @@
         <h3 class="title-uppercase">Propriétaire</h3>
         <a href="index.php?action=account&id=<?= (int) $user->getId() ?>" class="user-card">
             <figure>
-                <img src="images/users/<?= htmlspecialchars($user->getAvatar() ?? 'user-default.webp') ?>" alt="" class="img-cover">
+                <img src="images/users/<?= htmlspecialchars($user->getAvatar() ?? 'avatar-default.webp') ?>" alt="" class="img-cover">
             </figure>
             <?= htmlspecialchars($user->getNickname()) ?>
         </a>

@@ -2,7 +2,7 @@
     <h1 class="sr-only">Profil de <?= htmlspecialchars($user->getNickname()) ?></h1>
     <section class="section-account-profile">
         <figure>
-            <img src="images/users/<?= htmlspecialchars($user->getAvatar() ?? 'user-default.webp') ?>" alt="" class="img-cover">
+            <img src="images/users/<?= htmlspecialchars($user->getAvatar() ?? 'avatar-default.webp') ?>" alt="" class="img-cover">
         </figure>
         <hr>
         <h2 class="title"><?= htmlspecialchars($user->getNickname()) ?></h2>
