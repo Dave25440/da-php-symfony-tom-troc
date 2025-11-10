@@ -633,6 +633,12 @@ textarea {
     padding: 32px 0;
 }
 
+.section-account-profile > .text-success,
+.section-account-profile > .text-error {
+    font-size: 0.875em;
+    margin-bottom: 32px;
+}
+
 .section-account-profile > figure {
     width: 135px;
     height: 135px;
@@ -665,9 +671,14 @@ textarea {
     margin-top: 32px;
 }
 
+.section-account-profile input {
+    display: none;
+}
+
 .profile-update {
     text-decoration: underline;
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .profile-update,
@@ -1435,6 +1446,11 @@ textarea {
     /* Account profile section */
     .section-account-profile {
         padding: 48px 0 56px 0;
+    }
+
+    .section-account-profile > .text-success,
+    .section-account-profile > .text-error {
+        margin-bottom: 48px;
     }
 
     .section-account-profile > hr {

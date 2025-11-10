@@ -1,10 +1,18 @@
 <section class="section-account">
     <h1 class="title">Mon compte</h1>
     <section class="section-account-profile">
+        <?php if (!empty($successAvatar)): ?>
+            <p role="alert" class="text-success"><?= htmlspecialchars($successAvatar) ?></p>
+        <?php elseif (!empty($errorAvatar)): ?>
+            <p role="alert" class="text-error"><?= htmlspecialchars($errorAvatar) ?></p>
+        <?php endif; ?>
         <figure>
-            <img src="images/users/<?= htmlspecialchars($user->getAvatar() ?? 'user-default.webp') ?>" alt="" class="img-cover">
+            <img src="images/users/<?= htmlspecialchars($user->getAvatar() ?? 'avatar-default.webp') ?>" alt="" class="img-cover">
         </figure>
-        <a href="#" aria-label="Modifier la photo de profil" class="profile-update">modifier</a>
+        <form action="index.php?action=updateAvatar" method="post" enctype="multipart/form-data" aria-label="Formulaire de modification de l'avatar" id="form-avatar">
+            <label for="avatar" role="button" tabindex="0" class="profile-update">modifier</label>
+            <input type="file" id="avatar" name="avatar" accept="image/gif, image/jpeg, image/png, image/webp">
+        </form>
         <hr>
         <h2 class="title"><?= htmlspecialchars($user->getNickname()) ?></h2>
         <p class="profile-membership">Membre depuis <?= htmlspecialchars($memberSince) ?></p>
