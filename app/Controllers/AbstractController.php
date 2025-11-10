@@ -65,4 +65,52 @@ abstract class AbstractController
 
         return null;
     }
+
+    protected function processImage(string $file, int $width, int $height): \GdImage|false
+    {
+        $type = mime_content_type($file);
+
+        // Charge l'image selon son type MIME
+        $image = match ($type) {
+            'image/gif' => imagecreatefromgif($file),
+            'image/jpeg' => imagecreatefromjpeg($file),
+            'image/png' => imagecreatefrompng($file),
+            'image/webp' => imagecreatefromwebp($file),
+            default => false
+        };
+
+        if ($image === false) {
+            return false;
+        }
+
+        $w = imagesx($image);
+        $h = imagesy($image);
+
+        // Ajuste les dimensions pour couvrir la zone cible sans déformation
+        $scale = max($width / $w, $height / $h);
+        $scaleW = (int)($w * $scale);
+        $scaleH = (int)($h * $scale);
+
+        // Crée l'image redimensionnée avec gestion de la transparence
+        $resized = imagecreatetruecolor($scaleW, $scaleH);
+        imagesavealpha($resized, true);
+        imagealphablending($resized, false);
+        imagecopyresampled($resized, $image, 0, 0, 0, 0, $scaleW, $scaleH, $w, $h);
+
+        // Crée l'image aux dimensions demandées avec un recadrage centré
+        $final = imagecreatetruecolor($width, $height);
+        imagesavealpha($final, true);
+        imagealphablending($final, false);
+
+        $cropX = (int)(($scaleW - $width) / 2);
+        $cropY = (int)(($scaleH - $height) / 2);
+
+        imagecopy($final, $resized, 0, 0, $cropX, $cropY, $width, $height);
+
+        // Détruit les images intermédiaires
+        imagedestroy($resized);
+        imagedestroy($image);
+
+        return $final;
+    }
 }
