@@ -68,7 +68,7 @@ class UserController extends AbstractController
     {
         $this->checkAuth();
 
-        $data = $this->load($_SESSION['user_id']);
+        $data = $this->load($this->user->getId());
 
         if (isset($_GET['success'])) {
             $update['success'] = 'Mise à jour réussie.';
@@ -84,15 +84,14 @@ class UserController extends AbstractController
     {
         $this->checkAuth();
 
-        $id = $_SESSION['user_id'];
+        $user = $this->user;
+        $id = $this->user->getId();
+
         $nicknameRaw = trim($_POST['nickname'] ?? '');
         $nickname = str_replace(' ', '_', $nicknameRaw);
         $email = trim($_POST['email'] ?? '');
         $password = trim($_POST['password'] ?? '');
         $data = ['error' => null, 'nickname' => $nickname, 'email' => $email];
-
-        $userManager = new UserManager();
-        $user = $userManager->findById($id);
 
         if (
             $nickname === $user->getNickname() &&
@@ -123,6 +122,7 @@ class UserController extends AbstractController
             $user->setPassword($hash);
         }
 
+        $userManager = new UserManager();
         $userManager->update($user);
 
         header('Location: index.php?action=editAccount&success');
