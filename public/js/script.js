@@ -107,6 +107,37 @@ document.addEventListener("DOMContentLoaded", () => {
     bookSearch();
 
 
+    // Avatar update
+    const profileUpdate = document.querySelector(".profile-update");
+    const avatar = document.getElementById("avatar");
+
+    if (profileUpdate && avatar) {
+        profileUpdate.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                profileUpdate.click();
+            }
+        });
+
+        avatar.addEventListener("change", () => {
+            if (avatar.files.length) {
+                document.getElementById("form-avatar").submit();
+            }
+        });
+    }
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.has("successAvatar")) {
+        const profileImg = document.querySelector(".section-account-profile > figure > img");
+
+        if (profileImg) {
+            const src = profileImg.getAttribute("src").split("?")[0];
+            profileImg.setAttribute("src", src + "?v=" + new Date().getTime());
+        }
+    }
+
+
     // Link delete
     const linkDelete = document.querySelectorAll(".link-delete");
 
