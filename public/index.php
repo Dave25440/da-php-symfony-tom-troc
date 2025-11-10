@@ -63,6 +63,10 @@ try {
             (new UserController())->update();
             break;
 
+        case 'updateAvatar':
+            (new UserController())->updateAvatar();
+            break;
+
         case 'signup':
             (new UserController())->signUp();
             break;

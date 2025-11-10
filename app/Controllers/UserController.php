@@ -70,8 +70,16 @@ class UserController extends AbstractController
 
         $data = $this->load($this->user->getId());
 
-        if (isset($_GET['success'])) {
-            $update['success'] = 'Mise à jour réussie.';
+        $params = [
+            'success' => 'Mise à jour réussie.',
+            'errorUpload' => "Erreur lors de l'envoi du fichier.",
+            'successAvatar' => 'Mise à jour réussie.'
+        ];
+
+        foreach (array_keys($params) as $p) {
+            if (isset($_GET[$p])) {
+                $update[$p] = $params[$p];
+            }
         }
 
         $data = array_merge($data, $update);
@@ -126,6 +134,67 @@ class UserController extends AbstractController
         $userManager->update($user);
 
         header('Location: index.php?action=editAccount&success');
+        exit;
+    }
+
+    public function updateAvatar(): void
+    {
+        $this->checkAuth();
+
+        $id = $this->user->getId();
+        $data = ['errorAvatar' => null];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $file = $_FILES['avatar'] ?? null;
+
+            if (!$file) {
+                $data['errorAvatar'] = 'Aucun fichier envoyé.';
+            } elseif ($error = $this->validateImage($file, ['image/gif'])) {
+                $data['errorAvatar'] = $error;
+            } else {
+                $image = $this->processImage($file['tmp_name'], 135, 135);
+
+                if ($image === false) {
+                    $data['errorAvatar'] = "Erreur lors du traitement de l'image.";
+                } else {
+                    $dir = __DIR__ . '/../../public/images/users/';
+
+                    if (!is_dir($dir) && !mkdir($dir, 0755, true)) {
+                        imagedestroy($image);
+                        $data['errorAvatar'] = 'Dossier de destination indisponible.';
+                    } else {
+                        $avatar = 'avatar' . $id . '.webp';
+                        $path = $dir . $avatar;
+                        $saved = imagewebp($image, $path, 80);
+                        imagedestroy($image);
+
+                        if (!$saved) {
+                            $data['errorAvatar'] = "Erreur lors de la sauvegarde de l'image.";
+                        }
+                    }
+                }
+            }
+
+            if ($data['errorAvatar']) {
+                $this->edit($data);
+                return;
+            }
+
+            $userAvatar = $this->user->getAvatar();
+
+            if ($avatar !== $userAvatar) {
+                $userManager = new UserManager();
+                $userManager->updateAvatar($id, $avatar);
+
+                // Met à jour l’objet en mémoire
+                $this->user->setAvatar($avatar);
+            }
+
+            header('Location: index.php?action=editAccount&successAvatar');
+            exit;
+        }
+
+        header('Location: index.php?action=editAccount&uploadError');
         exit;
     }
 
