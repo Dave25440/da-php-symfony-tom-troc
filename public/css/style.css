@@ -50,6 +50,14 @@ form {
     flex-direction: column;
 }
 
+input[type=file] {
+    display: none;
+}
+
+textarea {
+    resize: none;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -63,10 +71,6 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
-}
-
-textarea {
-    resize: none;
 }
 
 .btn-js {
@@ -671,10 +675,6 @@ textarea {
     margin-top: 32px;
 }
 
-.section-account-profile input {
-    display: none;
-}
-
 .profile-update {
     text-decoration: underline;
     margin-top: 5px;
@@ -855,8 +855,8 @@ textarea {
     margin-top: 23px;
 }
 
-.section-edit-wrapper {
-    display: flex;
+.section-edit > form {
+    flex-direction: row;
     justify-content: space-between;
     background-color: var(--bg-light-color);
     padding: 56px 50px 68px;
@@ -864,44 +864,50 @@ textarea {
     border-radius: 20px;
 }
 
-.section-edit-wrapper > figure {
+.section-edit-photo {
     display: flex;
     flex-direction: column;
+}
+
+.section-edit-photo > figure {
     width: 488px;
 }
 
-.section-edit-wrapper img {
+.section-edit-photo img {
     height: 488px;
     object-position: 0 79%;
 }
 
-.section-edit-wrapper a {
+.photo-update {
     align-self: flex-end;
     color: var(--text-color);
     font-size: 0.75em;
     text-decoration: underline;
     margin-top: 23px;
+    cursor: pointer;
 }
 
-.section-edit-wrapper a:hover {
+.photo-update:hover {
     font-size: 0.73em;
     font-weight: 600;
 }
 
-.section-edit-wrapper > form {
+.section-edit-info {
+    display: flex;
+    flex-direction: column;
     width: 435px;
 }
 
-.section-edit-wrapper .form-input {
+.section-edit-info > .form-input {
     width: 100%;
 }
 
-.section-edit-wrapper select {
+.section-edit-info > select {
     appearance: none;
     background: var(--bg-secondary-color) url("../icons/chevron-icon.svg") no-repeat right 24px center;
 }
 
-.section-edit-wrapper .cta {
+.section-edit-info > .cta {
     width: 322px;
     margin-top: 12px;
 }
@@ -1611,49 +1617,49 @@ textarea {
         margin-top: 7px;
     }
 
-    .section-edit-wrapper {
+    .section-edit > form {
         flex-direction: column;
         justify-content: flex-start;
         padding: 42px 20px 48px;
         margin-top: 35px;
     }
 
-    .section-edit-wrapper > figure {
+    .section-edit-photo > figure {
         width: 335px;
     }
 
-    .section-edit-wrapper figcaption {
+    .section-edit-photo figcaption {
         font-size: 0.69em;
         margin-bottom: 7px;
     }
 
-    .section-edit-wrapper img {
+    .section-edit-photo img {
         height: 335px;
     }
 
-    .section-edit-wrapper a {
+    .photo-update {
         font-size: 1em;
         margin-top: 25px;
     }
 
-    .section-edit-wrapper a:hover {
+    .photo-update:hover {
         font-size: 0.98em;
     }
 
-    .section-edit-wrapper > form {
+    .section-edit-info {
         width: 335px;
         margin-top: 32px;
     }
 
-    .section-edit-wrapper textarea {
+    .section-edit-info > textarea {
         height: 433px;
     }
 
-    .section-edit-wrapper select {
+    .section-edit-info > select {
         background-position: right 16px center;
     }
 
-    .section-edit-wrapper .cta {
+    .section-edit-info > .cta {
         width: 100%;
     }
 
