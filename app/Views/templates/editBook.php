@@ -1,13 +1,16 @@
 <section class="section-edit">
     <a href="index.php?action=editAccount">&lt;- retour</a>
     <h1 class="title">Modifier les informations</h1>
-    <div class="section-edit-wrapper">
-        <figure>
-            <figcaption class="form-label">Photo</figcaption>
-            <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'book-default.webp') ?>" alt="" class="img-cover">
-            <a href="#">Modifier la photo</a>
-        </figure>
-        <form>
+    <form>
+        <div class="section-edit-photo">
+            <figure>
+                <figcaption class="form-label">Photo</figcaption>
+                <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'book-default.webp') ?>" alt="" class="img-cover">
+            </figure>
+            <label for="photo" tabindex="0" class="photo-update">Modifier la photo</label>
+            <input type="file" id="photo" name="photo" accept="image/jpeg, image/png, image/webp">
+        </div>
+        <div class="section-edit-info">
             <label for="title" class="form-label">Titre</label>
             <input type="text" id="title" name="title" value="<?= htmlspecialchars($book->getTitle()) ?>" class="form-input form-input-update" required>
             <label for="author" class="form-label">Auteur</label>
@@ -22,6 +25,6 @@
                 <option value="0" <?= ((int) $book->isExchangeable() === 0) ? 'selected' : '' ?>>non dispo.</option>
             </select>
             <input type="submit" id="validate" value="Valider" class="cta cta-input">
-        </form>
-    </div>
+        </div>
+    </form>
 </section>

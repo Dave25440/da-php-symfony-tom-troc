@@ -10,7 +10,7 @@
             <img src="images/users/<?= htmlspecialchars($user->getAvatar() ?? 'avatar-default.webp') ?>" alt="" class="img-cover">
         </figure>
         <form action="index.php?action=updateAvatar" method="post" enctype="multipart/form-data" aria-label="Formulaire de modification de l'avatar" id="form-avatar">
-            <label for="avatar" role="button" tabindex="0" class="profile-update">modifier</label>
+            <label for="avatar" tabindex="0" class="profile-update">modifier</label>
             <input type="file" id="avatar" name="avatar" accept="image/gif, image/jpeg, image/png, image/webp">
         </form>
         <hr>
