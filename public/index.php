@@ -39,6 +39,10 @@ try {
             (new BookController())->add();
             break;
 
+        case 'storeBook':
+            (new BookController())->store();
+            break;
+
         case 'editBook':
             (new BookController())->edit();
             break;

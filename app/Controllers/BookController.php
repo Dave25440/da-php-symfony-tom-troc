@@ -138,10 +138,73 @@ class BookController extends AbstractController
         $view->render('book', 'books');
     }
 
-    public function add(): void
+    public function add(array $data = []): void
     {
-        $view = new View('Ajouter un livre');
+        $this->checkAuth();
+
+        $view = new View('Ajouter un livre', $data);
         $view->render('addBook', 'account');
+    }
+
+    public function store(): void
+    {
+        $this->checkAuth();
+
+        $userId = $this->user->getId();
+        $title = trim($_POST['title'] ?? '');
+        $author = trim($_POST['author'] ?? '');
+        $file = $_FILES['cover_image'] ?? null;
+        $coverImage = null;
+
+        $description = isset($_POST['description']) && trim($_POST['description']) !== ''
+            ? trim($_POST['description'])
+            : null;
+
+        $isExchangeable = isset($_POST['is_exchangeable']) ? (bool) $_POST['is_exchangeable'] : 0;
+
+        $data = [
+            'error' => null,
+            'title' => $title,
+            'author' => $author,
+            'description' => $description,
+            'isExchangeable' => $isExchangeable
+        ];
+
+        $error = $this->validate($title, $author, $description);
+
+        if ($error) {
+            $data['error'] = $error;
+        } elseif ($file && $file['error'] !== UPLOAD_ERR_NO_FILE) {
+            $errorCover = $this->validateImage($file);
+
+            if ($errorCover) {
+                $data['error'] = $errorCover;
+            } else {
+                $cover = $this->processCover($file, $title, $author, $userId);
+
+                if (isset($cover['error'])) {
+                    $data['error'] = $cover['error'];
+                } else {
+                    $coverImage = $cover['coverImage'];
+                }
+            }
+        }
+
+        if ($data['error']) {
+            $this->add($data);
+            return;
+        }
+
+        $book = new Book($userId, $title, $author);
+        $book->setCoverImage($coverImage);
+        $book->setDescription($description);
+        $book->setIsExchangeable($isExchangeable);
+
+        $bookManager = new BookManager();
+        $bookManager->add($book);
+
+        header('Location: index.php?action=editAccount');
+        exit;
     }
 
     public function edit(): void
