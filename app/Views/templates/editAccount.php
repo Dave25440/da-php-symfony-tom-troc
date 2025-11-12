@@ -59,7 +59,7 @@
                 <?php foreach ($books as $book): ?>
                     <tr>
                         <td>
-                            <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'book-default.webp') ?>" alt="" class="img-cover">
+                            <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'cover-default.webp') ?>" alt="" class="img-cover">
                         </td>
                         <th scope="row" class="text-ellipsis account-books-title"><?= htmlspecialchars($book->getTitle()) ?></th>
                         <td class="text-ellipsis account-books-author"><?= htmlspecialchars($book->getAuthor()) ?></td>

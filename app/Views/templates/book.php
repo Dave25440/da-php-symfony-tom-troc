@@ -12,7 +12,7 @@
 </nav>
 <article class="article-book">
     <figure>
-        <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'book-default.webp') ?>" alt="" class="img-cover article-book-cover">
+        <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'cover-default.webp') ?>" alt="" class="img-cover article-book-cover">
     </figure>
     <div class="article-book-content">
         <h1 class="title">

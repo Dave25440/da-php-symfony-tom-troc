@@ -5,7 +5,7 @@
         <div class="section-edit-photo">
             <figure>
                 <figcaption class="form-label">Photo</figcaption>
-                <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'book-default.webp') ?>" alt="" class="img-cover">
+                <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'cover-default.webp') ?>" alt="" class="img-cover">
             </figure>
             <label for="cover-image" tabindex="0" id="cover-update">Modifier la photo</label>
             <input type="file" id="cover-image" name="cover_image" accept="image/jpeg, image/png, image/webp">
