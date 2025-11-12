@@ -193,6 +193,10 @@ img {
     font-weight: 600;
 }
 
+.text-error:empty {
+    display: none;
+}
+
 .text-light,
 .text-light * {
     font-weight: 300;
@@ -896,6 +900,11 @@ img {
     display: flex;
     flex-direction: column;
     width: 435px;
+}
+
+.section-edit-info > .text-error {
+    font-size: 0.875em;
+    margin-bottom: 32px;
 }
 
 .section-edit-info > .form-input {
