@@ -107,6 +107,51 @@ document.addEventListener("DOMContentLoaded", () => {
     bookSearch();
 
 
+    // Cover update
+    const photoImg = document.querySelector(".section-edit-photo img");
+    const coverUpdate = document.getElementById("cover-update");
+    const coverImage = document.getElementById("cover-image");
+    const textError = document.querySelector(".text-error");
+
+    if (coverUpdate && coverImage) {
+        coverUpdate.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                coverUpdate.click();
+            }
+        });
+
+        coverImage.addEventListener("change", () => {
+            const file = coverImage.files[0];
+
+            if (file) {
+                const types = ["image/jpeg", "image/png", "image/webp"];
+
+                if (!types.includes(file.type)) {
+                    textError.textContent = "Les formats d'image autorisés sont JPEG, PNG, WEBP.";
+                    coverImage.value = "";
+                    return;
+                }
+
+                if (file.size > 2 * 1024 * 1024) {
+                    textError.textContent = "La taille de l'image ne doit pas dépasser 2 Mo.";
+                    coverImage.value = "";
+                    return;
+                }
+
+                const preview = new FileReader();
+
+                preview.onload = (e) => {
+                    photoImg.setAttribute("src", e.target.result);
+                    textError.textContent = "";
+                };
+
+                preview.readAsDataURL(file);
+            }
+        });
+    }
+
+
     // Avatar update
     const avatarUpdate = document.getElementById("avatar-update");
     const avatar = document.getElementById("avatar");
