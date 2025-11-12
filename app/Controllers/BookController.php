@@ -25,6 +25,21 @@ class BookController extends AbstractController
         return $book;
     }
 
+    protected function validate(string $title, string $author, ?string $description = null): ?string
+    {
+        if (empty($title) || empty($author)) {
+            return "Les champs 'Titre' et 'Auteur' sont obligatoires.";
+        } elseif (strlen($title) > 100) {
+            return 'Le titre ne doit pas dépasser 100 caractères.';
+        } elseif (strlen($author) > 50) {
+            return "L'auteur ne doit pas dépasser 50 caractères.";
+        } elseif ($description !== null && strlen($description) > 1000) {
+            return "La description ne doit pas dépasser 1000 caractères.";
+        }
+
+        return null;
+    }
+
     public function list(): void
     {
         $search = $_GET['search'] ?? '';
