@@ -22,8 +22,11 @@ class UserController extends AbstractController
             throw new \Exception("Le profil demandé est introuvable.");
         }
 
+        $authId = $this->user ? $this->user->getId() : null;
+        $isOwner = ($authId === $user->getId());
+
         $bookManager = new BookManager();
-        $books = $bookManager->findByUserId($user->getId());
+        $books = $bookManager->findByUserId($user->getId(), $isOwner);
 
         $memberSince = $user->getMemberSince();
         $booksCount = count($books);

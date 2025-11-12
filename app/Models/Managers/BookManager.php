@@ -11,6 +11,7 @@ class BookManager extends AbstractManager
         $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.is_exchangeable, user.nickname AS user_nickname
                 FROM book
                 INNER JOIN user ON book.user_id = user.id
+                WHERE book.is_exchangeable = 1
                 ORDER BY book.id DESC';
 
         if ($limit !== null) {
@@ -27,13 +28,22 @@ class BookManager extends AbstractManager
         return $books;
     }
 
-    public function findById(int $id): ?Book
+    public function findById(int $id, ?int $userId = null): ?Book
     {
         $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.description, book.is_exchangeable
                 FROM book
                 WHERE id = :id';
 
-        $stmt = $this->db->query($sql, ['id' => $id]);
+        $params['id'] = $id;
+
+        if ($userId === null) {
+            $sql .= ' AND is_exchangeable = 1';
+        } else {
+            $sql .= ' AND (is_exchangeable = 1 OR user_id = :user_id)';
+            $params['user_id'] = $userId;
+        }
+
+        $stmt = $this->db->query($sql, $params);
         $data = $stmt->fetch();
 
         if ($data) {
@@ -48,9 +58,10 @@ class BookManager extends AbstractManager
         $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.is_exchangeable, user.nickname AS user_nickname
                 FROM book
                 INNER JOIN user ON book.user_id = user.id
-                WHERE book.title LIKE :search
+                WHERE (book.title LIKE :search
                     OR book.author LIKE :search
-                    OR user.nickname LIKE :search
+                    OR user.nickname LIKE :search)
+                    AND book.is_exchangeable = 1
                 ORDER BY book.id DESC';
 
         $params = ['search' => '%' . $search . '%'];
@@ -83,12 +94,17 @@ class BookManager extends AbstractManager
         }, $books);
     }
 
-    public function findByUserId(int $userId): array
+    public function findByUserId(int $userId, bool $isOwner = false): array
     {
         $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.description, book.is_exchangeable
                 FROM book
-                WHERE book.user_id = :user_id
-                ORDER BY book.id DESC';
+                WHERE book.user_id = :user_id';
+
+        if (!$isOwner) {
+            $sql .= ' AND book.is_exchangeable = 1';
+        }
+
+        $sql .= ' ORDER BY book.id DESC';
 
         $stmt = $this->db->query($sql, ['user_id' => $userId]);
         $books = [];

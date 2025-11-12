@@ -15,8 +15,10 @@ class BookController extends AbstractController
             throw new \Exception('Le livre demandé est introuvable.');
         }
 
+        $userId = $this->user ? $this->user->getId() : null;
+
         $bookManager = new BookManager();
-        $book = $bookManager->findById($id);
+        $book = $bookManager->findById($id, $userId);
 
         if ($book === null) {
             throw new \Exception('Le livre demandé est introuvable.');
