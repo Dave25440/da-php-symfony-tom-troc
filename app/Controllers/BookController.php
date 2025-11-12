@@ -40,6 +40,37 @@ class BookController extends AbstractController
         return null;
     }
 
+    protected function nameCover(string $title, string $author, int $userId): string
+    {
+        $slugify = function (string $text): string {
+            $text = mb_strtolower($text, 'UTF-8');
+
+            // Supprime les accents avec translittération
+            $text = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $text);
+
+            // Remplace les caractères non alphanumériques par des tirets
+            $text = preg_replace('~[^\w]+~', '-', $text);
+
+            // Supprime les tirets en début et fin de chaîne
+            $text = trim($text, '-');
+
+            // Renvoie 'cover' si le résultat est vide
+            return $text ?: 'cover';
+        };
+
+        $slugTitle = $slugify($title);
+
+        // Découpe le nom de l'auteur selon les espaces
+        $authorNames = preg_split('/\s+/', trim($author));
+
+        // Récupère le nom de famille
+        $lastName = mb_strtolower(end($authorNames), 'UTF-8');
+
+        $slugAuthor = $slugify($lastName);
+
+        return sprintf('%s-%s-%d.webp', $slugTitle, $slugAuthor, $userId);
+    }
+
     public function list(): void
     {
         $search = $_GET['search'] ?? '';
