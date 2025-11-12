@@ -71,6 +71,34 @@ class BookController extends AbstractController
         return sprintf('%s-%s-%d.webp', $slugTitle, $slugAuthor, $userId);
     }
 
+    protected function processCover(array $file, string $title, string $author, int $userId): array
+    {
+        $image = $this->processImage($file['tmp_name'], 720, 863);
+
+        if ($image === false) {
+            return ['error' => "Erreur lors du traitement de l'image."];
+        }
+
+        $dir = __DIR__ . '/../../public/images/books/';
+
+        if (!is_dir($dir) && !mkdir($dir, 0755, true)) {
+            imagedestroy($image);
+            return ['error' => 'Dossier de destination indisponible.'];
+        }
+
+        $coverImage = $this->nameCover($title, $author, $userId);
+
+        $path = $dir . $coverImage;
+        $saved = imagewebp($image, $path, 75);
+        imagedestroy($image);
+
+        if (!$saved) {
+            return ['error' => "Erreur lors de la sauvegarde de l'image."];
+        }
+
+        return ['coverImage' => $coverImage];
+    }
+
     public function list(): void
     {
         $search = $_GET['search'] ?? '';
