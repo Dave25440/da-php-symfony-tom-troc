@@ -108,20 +108,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // Avatar update
-    const profileUpdate = document.querySelector(".profile-update");
+    const avatarUpdate = document.getElementById("avatar-update");
     const avatar = document.getElementById("avatar");
 
-    if (profileUpdate && avatar) {
-        profileUpdate.addEventListener("keydown", (e) => {
+    if (avatarUpdate && avatar) {
+        avatarUpdate.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                profileUpdate.click();
+                avatarUpdate.click();
             }
         });
 
         avatar.addEventListener("change", () => {
             if (avatar.files.length) {
-                document.getElementById("form-avatar").submit();
+                document.querySelector(".section-account-profile > form").submit();
             }
         });
     }

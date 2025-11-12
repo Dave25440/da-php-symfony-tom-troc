@@ -7,8 +7,8 @@
                 <figcaption class="form-label">Photo</figcaption>
                 <img src="images/books/book-default.webp" alt="" class="img-cover">
             </figure>
-            <label for="photo" tabindex="0" class="photo-update">Modifier la photo</label>
-            <input type="file" id="photo" name="photo" accept="image/jpeg, image/png, image/webp">
+            <label for="cover-image" tabindex="0" id="cover-update">Modifier la photo</label>
+            <input type="file" id="cover-image" name="cover_image" accept="image/jpeg, image/png, image/webp">
         </div>
         <div class="section-edit-info">
             <label for="title" class="form-label">Titre</label>

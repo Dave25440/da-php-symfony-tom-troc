@@ -658,7 +658,7 @@ img {
 }
 
 .section-account-profile > h2,
-.profile-update:hover,
+#avatar-update:hover,
 .profile-books {
     color: var(--text-color);
 }
@@ -675,13 +675,13 @@ img {
     margin-top: 32px;
 }
 
-.profile-update {
+#avatar-update {
     text-decoration: underline;
     margin-top: 5px;
     cursor: pointer;
 }
 
-.profile-update,
+#avatar-update,
 .profile-membership {
     color: var(--text-light-color);
     font-size: 0.875em;
@@ -878,7 +878,7 @@ img {
     object-position: 0 79%;
 }
 
-.photo-update {
+#cover-update {
     align-self: flex-end;
     color: var(--text-color);
     font-size: 0.75em;
@@ -887,7 +887,7 @@ img {
     cursor: pointer;
 }
 
-.photo-update:hover {
+#cover-update:hover {
     font-size: 0.73em;
     font-weight: 600;
 }
@@ -1637,12 +1637,12 @@ img {
         height: 335px;
     }
 
-    .photo-update {
+    #cover-update {
         font-size: 1em;
         margin-top: 25px;
     }
 
-    .photo-update:hover {
+    #cover-update:hover {
         font-size: 0.98em;
     }
 
