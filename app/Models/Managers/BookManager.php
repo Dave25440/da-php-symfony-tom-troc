@@ -100,6 +100,21 @@ class BookManager extends AbstractManager
         return $books;
     }
 
+    public function add(Book $book): void
+    {
+        $sql = 'INSERT INTO book (user_id, title, author, cover_image, description, is_exchangeable)
+                VALUES (:user_id, :title, :author, :cover_image, :description, :is_exchangeable)';
+
+        $this->db->query($sql, [
+            'user_id' => $book->getUserId(),
+            'title' => $book->getTitle(),
+            'author' => $book->getAuthor(),
+            'cover_image' => $book->getCoverImage(),
+            'description' => $book->getDescription(),
+            'is_exchangeable' => $book->isExchangeable()
+        ]);
+    }
+
     public function delete(int $id): void
     {
         $sql = "DELETE
