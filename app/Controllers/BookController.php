@@ -311,7 +311,19 @@ class BookController extends AbstractController
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
         $book = $this->checkOwner($id);
 
+        $coverImage = $book->getCoverImage();
+
         $bookManager = new BookManager();
+        $coverCount = $bookManager->countByCoverImage($coverImage, $id);
+
+        if ($coverCount === 0 && $coverImage) {
+            $path = __DIR__ . '/../../public/images/books/' . basename($coverImage);
+
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+
         $bookManager->delete($id);
 
         header('Location: index.php?action=editAccount');
