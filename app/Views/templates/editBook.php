@@ -1,7 +1,8 @@
 <section class="section-edit">
     <a href="index.php?action=editAccount">&lt;- retour</a>
     <h1 class="title">Modifier les informations</h1>
-    <form>
+    <form action="index.php?action=updateBook" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($book->getId()) ?>">
         <div class="section-edit-photo">
             <figure>
                 <figcaption class="form-label">Photo</figcaption>
@@ -11,20 +12,21 @@
             <input type="file" id="cover-image" name="cover_image" accept="image/jpeg, image/png, image/webp">
         </div>
         <div class="section-edit-info">
+            <p role="alert" class="text-error"><?= !empty($error) ? htmlspecialchars($error) : '' ?></p>
             <label for="title" class="form-label">Titre</label>
             <input type="text" id="title" name="title" value="<?= htmlspecialchars($book->getTitle()) ?>" class="form-input form-input-update" required>
             <label for="author" class="form-label">Auteur</label>
             <input type="text" id="author" name="author" value="<?= htmlspecialchars($book->getAuthor()) ?>" class="form-input form-input-update" required>
             <label for="description" class="form-label">Description</label>
             <textarea id="description" name="description" rows="19" class="form-input form-input-update"><?=
-                htmlspecialchars($book->getDescription() ?? 'Aucune description fournie.')
+                htmlspecialchars($book->getDescription())
             ?></textarea>
-            <label for="available" class="form-label">Disponibilité</label>
-            <select id="available" name="available" class="form-input form-input-update">
+            <label for="is-exchangeable" class="form-label">Disponibilité</label>
+            <select id="is-exchangeable" name="is_exchangeable" class="form-input form-input-update">
                 <option value="1" <?= ((int) $book->isExchangeable() === 1) ? 'selected' : '' ?>>disponible</option>
                 <option value="0" <?= ((int) $book->isExchangeable() === 0) ? 'selected' : '' ?>>non dispo.</option>
             </select>
-            <input type="submit" id="validate" value="Valider" class="cta cta-input">
+            <input type="submit" id="update" value="Valider" class="cta cta-input">
         </div>
     </form>
 </section>
