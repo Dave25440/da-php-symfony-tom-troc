@@ -27,6 +27,18 @@ class BookController extends AbstractController
         return $book;
     }
 
+    protected function checkOwner(int $id): Book
+    {
+        $book = $this->load($id);
+
+        if ($book->getUserId() !== $this->user->getId()) {
+            header('Location: index.php?action=editAccount');
+            exit;
+        }
+
+        return $book;
+    }
+
     protected function validate(string $title, string $author, ?string $description = null): ?string
     {
         if (empty($title) || empty($author)) {
@@ -214,12 +226,7 @@ class BookController extends AbstractController
         $this->checkAuth();
 
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
-        $book = $this->load($id);
-
-        if ($book->getUserId() !== $this->user->getId()) {
-            header('Location: index.php?action=editAccount');
-            exit;
-        }
+        $book = $this->checkOwner($id);
 
         $view = new View('Modifier ' . $book->getTitle(), ['book' => $book]);
         $view->render('editBook', 'account');
@@ -230,14 +237,9 @@ class BookController extends AbstractController
         $this->checkAuth();
 
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+        $book = $this->checkOwner($id);
+
         $bookManager = new BookManager();
-        $book = $bookManager->findById($id);
-
-        if (!$book || $book->getUserId() !== $this->user->getId()) {
-            header('Location: index.php?action=editAccount');
-            exit;
-        }
-
         $bookManager->delete($id);
 
         header('Location: index.php?action=editAccount');
