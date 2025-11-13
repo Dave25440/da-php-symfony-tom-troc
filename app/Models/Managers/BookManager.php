@@ -116,6 +116,25 @@ class BookManager extends AbstractManager
         return $books;
     }
 
+    public function countByCoverImage(string $coverImage, int $id = 0): int
+    {
+        $sql = 'SELECT COUNT(*)
+                FROM book
+                WHERE cover_image = :cover_image';
+        
+        $params = ['cover_image' => $coverImage];
+
+        if ($id) {
+            $sql .= ' AND id != :id';
+            $params['id'] = $id;
+        }
+
+        $stmt = $this->db->query($sql, $params);
+        $count = $stmt->fetchColumn();
+
+        return (int) $count;
+    }
+
     public function add(Book $book): void
     {
         $sql = 'INSERT INTO book (user_id, title, author, cover_image, description, is_exchangeable)
