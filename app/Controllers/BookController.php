@@ -47,8 +47,8 @@ class BookController extends AbstractController
             return 'Le titre ne doit pas dépasser 100 caractères.';
         } elseif (strlen($author) > 50) {
             return "L'auteur ne doit pas dépasser 50 caractères.";
-        } elseif ($description !== null && strlen($description) > 1000) {
-            return "La description ne doit pas dépasser 1000 caractères.";
+        } elseif ($description !== null && strlen($description) > 1500) {
+            return "La description ne doit pas dépasser 1500 caractères.";
         }
 
         return null;
