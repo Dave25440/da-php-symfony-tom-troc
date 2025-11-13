@@ -131,6 +131,24 @@ class BookManager extends AbstractManager
         ]);
     }
 
+    public function update(Book $book): void
+    {
+        $sql = 'UPDATE book
+                SET title = :title, author = :author, cover_image = :cover_image, description = :description, is_exchangeable = :is_exchangeable
+                WHERE id = :id';
+
+        $params = [
+            'id' => $book->getId(),
+            'title' => $book->getTitle(),
+            'author' => $book->getAuthor(),
+            'cover_image' => $book->getCoverImage(),
+            'description' => $book->getDescription(),
+            'is_exchangeable' => $book->isExchangeable(),
+        ];
+
+        $this->db->query($sql, $params);
+    }
+
     public function delete(int $id): void
     {
         $sql = "DELETE
