@@ -221,15 +221,87 @@ class BookController extends AbstractController
         exit;
     }
 
-    public function edit(): void
+    public function edit(array $data = []): void
     {
         $this->checkAuth();
 
-        $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+        // Évite de recharger 'book' et d'utiliser l'id dans l'URL après une erreur
+        if (!isset($data['book'])) {
+            $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+            $data['book'] = $this->checkOwner($id);
+        }
+
+        $view = new View('Modifier ' . $data['book']->getTitle(), $data);
+        $view->render('editBook', 'account');
+    }
+
+    public function update(): void
+    {
+        $this->checkAuth();
+
+        $id = isset($_POST['id']) ? (int) $_POST['id'] : 0;
         $book = $this->checkOwner($id);
 
-        $view = new View('Modifier ' . $book->getTitle(), ['book' => $book]);
-        $view->render('editBook', 'account');
+        $userId = $this->user->getId();
+        $title = trim($_POST['title'] ?? '');
+        $author = trim($_POST['author'] ?? '');
+        $file = $_FILES['cover_image'] ?? null;
+        $coverImage = $book->getCoverImage();
+
+        $description = isset($_POST['description']) && trim($_POST['description']) !== ''
+            ? trim($_POST['description'])
+            : null;
+
+        $isExchangeable = isset($_POST['is_exchangeable']) ? (bool) $_POST['is_exchangeable'] : 0;
+        $data = ['error' => null, 'book' => $book];
+
+        $error = $this->validate($title, $author, $description);
+
+        if ($error) {
+            $data['error'] = $error;
+        } elseif ($file && $file['error'] !== UPLOAD_ERR_NO_FILE) {
+            $errorCover = $this->validateImage($file);
+
+            if ($errorCover) {
+                $data['error'] = $errorCover;
+            } else {
+                $cover = $this->processCover($file, $title, $author, $userId);
+
+                if (isset($cover['error'])) {
+                    $data['error'] = $cover['error'];
+                } else {
+                    $coverImage = $cover['coverImage'];
+                }
+            }
+        }
+
+        if (
+            $title === $book->getTitle() &&
+            $author === $book->getAuthor() &&
+            $coverImage === $book->getCoverImage() &&
+            $description === $book->getDescription() &&
+            $isExchangeable === $book->isExchangeable()
+        ) {
+            header('Location: index.php?action=editAccount');
+            exit;
+        }
+
+        $book->setTitle($title);
+        $book->setAuthor($author);
+        $book->setCoverImage($coverImage);
+        $book->setDescription($description);
+        $book->setIsExchangeable($isExchangeable);
+
+        if ($data['error']) {
+            $this->edit($data);
+            return;
+        }
+
+        $bookManager = new BookManager();
+        $bookManager->update($book);
+
+        header('Location: index.php?action=editAccount');
+        exit;
     }
 
     public function delete(): void

@@ -47,6 +47,10 @@ try {
             (new BookController())->edit();
             break;
 
+        case 'updateBook':
+            (new BookController())->update();
+            break;
+
         case 'deleteBook':
             (new BookController())->delete();
             break;
