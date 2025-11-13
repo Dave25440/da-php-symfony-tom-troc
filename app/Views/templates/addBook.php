@@ -25,7 +25,7 @@
                 <option value="1">disponible</option>
                 <option value="0" <?= (isset($isExchangeable) && !$isExchangeable) ? 'selected' : '' ?>>non dispo.</option>
             </select>
-            <input type="submit" id="store-book" value="Valider" class="cta cta-input">
+            <input type="submit" id="store" value="Valider" class="cta cta-input">
         </div>
     </form>
 </section>
