@@ -8,7 +8,7 @@ class UserManager extends AbstractManager
 {
     public function findById(int $id): ?User
     {
-        $sql = 'SELECT user.id, user.nickname, user.email, user.password, user.avatar, user.created_at
+        $sql = 'SELECT id, nickname, email, password, avatar, created_at
                 FROM user
                 WHERE id = :id';
 
@@ -24,7 +24,7 @@ class UserManager extends AbstractManager
 
     public function findByNickname(string $nickname): ?User
     {
-        $sql = 'SELECT user.id, user.nickname, user.email, user.password
+        $sql = 'SELECT id, nickname, email, password
                 FROM user
                 WHERE nickname = :nickname';
 
@@ -40,7 +40,7 @@ class UserManager extends AbstractManager
 
     public function findByEmail(string $email): ?User
     {
-        $sql = 'SELECT user.id, user.nickname, user.email, user.password
+        $sql = 'SELECT id, nickname, email, password
                 FROM user
                 WHERE email = :email';
 

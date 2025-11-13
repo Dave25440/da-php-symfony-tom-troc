@@ -30,7 +30,7 @@ class BookManager extends AbstractManager
 
     public function findById(int $id, ?int $userId = null): ?Book
     {
-        $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.description, book.is_exchangeable
+        $sql = 'SELECT id, user_id, title, author, cover_image, description, is_exchangeable
                 FROM book
                 WHERE id = :id';
 
@@ -96,15 +96,15 @@ class BookManager extends AbstractManager
 
     public function findByUserId(int $userId, bool $isOwner = false): array
     {
-        $sql = 'SELECT book.id, book.user_id, book.title, book.author, book.cover_image, book.description, book.is_exchangeable
+        $sql = 'SELECT id, user_id, title, author, cover_image, description, is_exchangeable
                 FROM book
-                WHERE book.user_id = :user_id';
+                WHERE user_id = :user_id';
 
         if (!$isOwner) {
-            $sql .= ' AND book.is_exchangeable = 1';
+            $sql .= ' AND is_exchangeable = 1';
         }
 
-        $sql .= ' ORDER BY book.id DESC';
+        $sql .= ' ORDER BY id DESC';
 
         $stmt = $this->db->query($sql, ['user_id' => $userId]);
         $books = [];
