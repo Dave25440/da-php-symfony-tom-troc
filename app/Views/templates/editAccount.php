@@ -19,7 +19,7 @@
         <h3 class="title-uppercase">Bibliothèque</h3>
         <p class="profile-books">
             <img src="icons/books-icon.svg" alt="" aria-hidden="true">
-            <?= (int) $booksCount ?>
+            <?= $booksCount ?>
             <?= $booksCount > 1 ? 'livres' : 'livre' ?>
         </p>
         <a href="index.php?action=addBook" class="cta cta-reverse">Ajouter un livre</a>
