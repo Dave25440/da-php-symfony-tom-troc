@@ -12,7 +12,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\HomeController;
 use App\Controllers\BookController;
-use App\Controllers\ChatController;
+use App\Controllers\MessageController;
 use App\Controllers\UserController;
 
 $action = $_GET['action'] ?? 'home';
@@ -56,7 +56,7 @@ try {
             break;
 
         case 'chat':
-            (new ChatController())->show();
+            (new MessageController())->show();
             break;
 
         case 'account':

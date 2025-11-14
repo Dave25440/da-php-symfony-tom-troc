@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Views\View;
 
-class ChatController
+class MessageController extends AbstractController
 {
     public function show(): void
     {
