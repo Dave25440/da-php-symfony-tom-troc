@@ -3,42 +3,28 @@
         <h1 class="title">Messagerie</h1>
         <nav aria-label="Liste des conversations enregisrées">
             <ul>
-                <li>
-                    <a href="#" class="chat-card active">
-                        <article>
-                            <figure>
-                                <img src="images/users/avatar13.webp" alt="Avatar de Alexlecture" class="img-cover">
-                            </figure>
-                            <h3 class="text-ellipsis">Alexlecture</h3>
-                            <time datetime="2025-08-21T15:43">15:43</time>
-                            <p class="text-ellipsis">Lorem ipsum dolor sit amet, consectetur .adipiscing elit, sed do eiusmod tempor</p>
-                        </article>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="chat-card">
-                        <article>
-                            <figure>
-                                <img src="images/users/avatar14.webp" alt="Avatar de Nathalire" class="img-cover">
-                            </figure>
-                            <h3 class="text-ellipsis">Nathalire</h3>
-                            <time datetime="2025-08-20">20.08</time>
-                            <p class="text-ellipsis">Lorem ipsum dolor sit amet, consectetur .adipiscing elit, sed do eiusmod tempor</p>
-                        </article>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="chat-card">
-                        <article>
-                            <figure>
-                                <img src="images/users/avatar6.webp" alt="Avatar de Sas634" class="img-cover">
-                            </figure>
-                            <h3 class="text-ellipsis">Sas634</h3>
-                            <time datetime="2025-08-15">15.08</time>
-                            <p class="text-ellipsis">Lorem ipsum dolor sit amet, consectetur .adipiscing elit, sed do eiusmod tempor</p>
-                        </article>
-                    </a>
-                </li>
+                <?php 
+                    $today = new DateTime('today');
+
+                    foreach ($conversations as $conversation):
+                        $activeChat = ($conversation['contact_id'] === $contactId);
+                        $lastDate = new DateTime($conversation['last_date']);
+                ?>
+                    <li>
+                        <a href="index.php?action=chat&id=<?= $conversation['contact_id'] ?>" class="chat-card<?= $activeChat ? ' active' : '' ?>">
+                            <article>
+                                <figure>
+                                    <img src="images/users/<?= htmlspecialchars($conversation['user_avatar']) ?>" alt="Avatar de <?= htmlspecialchars($conversation['user_nickname']) ?>" class="img-cover">
+                                </figure>
+                                <h3 class="text-ellipsis"><?= htmlspecialchars($conversation['user_nickname']) ?></h3>
+                                <time datetime="<?= $lastDate->format('c') ?>">
+                                    <?= $lastDate >= $today ? $lastDate->format('H:i') : $lastDate->format('d.m') ?>
+                                </time>
+                                <p class="text-ellipsis"><?= htmlspecialchars($conversation['content']) ?></p>
+                            </article>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </nav>
     </div>
