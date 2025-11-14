@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Global
+    const params = new URLSearchParams(window.location.search);
 
     // Media query
     const mediaQuery = window.matchMedia("(max-width: 768px)");
@@ -30,32 +32,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Chat display
     const chatContacts = document.querySelector(".section-chat-conversations");
-    const chatCards = document.querySelectorAll(".section-chat-conversations .chat-card");
     const chatContent = document.querySelector(".section-chat-content");
     const chatBack = document.getElementById("chat-back");
 
-    function chatToggle() {
-        if (isMobile()) {
-            chatContacts.classList.toggle("hidden");
-            chatContent.classList.toggle("visible");
+    function showChatContent() {
+        chatContacts.classList.add("hidden");
+        chatContent.classList.add("visible");
+    }
+
+    function showChatContacts() {
+        chatContacts.classList.remove("hidden");
+        chatContent.classList.remove("visible");
+    }
+
+    function chatDisplay() {
+        if (!isMobile() || params.get("id") === null) {
+            showChatContacts();
+        } else {
+            showChatContent();
         }
     }
 
-    if (chatContacts && chatCards.length && chatContent) {
-        chatCards.forEach(card => {
-            card.addEventListener("click", chatToggle);
-        });
-
+    if (chatContacts && chatContent) {
         if (chatBack) {
-            chatBack.addEventListener("click", chatToggle);
+            chatBack.addEventListener("click", () => {
+                if (isMobile()) {
+                    showChatContacts();
+                }
+            });
         }
 
-        mediaQuery.addEventListener("change", (e) => {
-            if (!e.matches) {
-                chatContacts.classList.remove("hidden");
-                chatContent.classList.remove("visible");
-            }
+        mediaQuery.addEventListener("change", () => {
+            chatDisplay();
         });
+
+        chatDisplay();
     }
 
 
@@ -170,8 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
-    const params = new URLSearchParams(window.location.search);
 
     if (params.has("successAvatar")) {
         const profileImg = document.querySelector(".section-account-profile > figure > img");
