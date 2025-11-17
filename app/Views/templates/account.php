@@ -13,7 +13,7 @@
             <?= $booksCount ?>
             <?= $booksCount > 1 ? 'livres' : 'livre' ?>
         </p>
-        <a href="index.php?action=chat" class="cta cta-reverse">Écrire un message</a>
+        <a href="index.php?action=chat&id=<?= (int) $user->getId() ?>" class="cta cta-reverse">Écrire un message</a>
     </section>
     <section class="section-account-books">
         <h2 class="sr-only">Livres de <?= htmlspecialchars($user->getNickname()) ?></h2>

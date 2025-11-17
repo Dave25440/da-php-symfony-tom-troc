@@ -40,6 +40,6 @@
             </figure>
             <?= htmlspecialchars($user->getNickname()) ?>
         </a>
-        <a href="index.php?action=chat" class="cta">Envoyer un message</a>
+        <a href="index.php?action=chat&id=<?= (int) $user->getId() ?>" class="cta">Envoyer un message</a>
     </div>
 </article>
