@@ -116,8 +116,12 @@ class BookManager extends AbstractManager
         return $books;
     }
 
-    public function countByCoverImage(string $coverImage, int $id = 0): int
+    public function countByCoverImage(?string $coverImage, int $id = 0): int
     {
+        if (empty($coverImage)) {
+            return 0;
+        }
+
         $sql = 'SELECT COUNT(*)
                 FROM book
                 WHERE cover_image = :cover_image';
