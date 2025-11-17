@@ -43,4 +43,23 @@ class MessageManager extends AbstractManager
 
         return $conversations;
     }
+
+    public function findBetweenUsers(int $userId, int $contactId): array
+    {
+        $sql = 'SELECT author_id, receiver_id, content, created_at
+                FROM message
+                WHERE (author_id = :user_id AND receiver_id = :contact_id)
+                OR (author_id = :contact_id AND receiver_id = :user_id)
+                ORDER BY created_at ASC
+                LIMIT 15';
+
+        $stmt = $this->db->query($sql, ['user_id' => $userId, 'contact_id' => $contactId]);
+        $messages = [];
+
+        while ($data = $stmt->fetch()) {
+            $messages[] = Message::fromArray($data);
+        }
+
+        return $messages;
+    }
 }

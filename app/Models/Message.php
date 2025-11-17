@@ -17,6 +17,14 @@ class Message extends AbstractModel
         $this->content = $content;
     }
 
+    public static function fromArray(array $data): Message
+    {
+        $message = new self($data['author_id'], $data['receiver_id'], $data['content']);
+        unset($data['author_id'], $data['receiver_id'], $data['content']);
+        $message->hydrate($data);
+        return $message;
+    }
+
     public function getAuthorId(): int
     {
         return $this->authorId;
