@@ -70,29 +70,41 @@
             <button id="chat-back" aria-label="Retour à la liste des conversations" type="button" class="btn-js">
                 &lt;- retour
             </button>
-            <div class="chat-card">
-                <figure>
-                    <img src="images/users/avatar13.webp" alt="Avatar de Alexlecture" class="img-cover">
-                </figure>
-                <h2>Alexlecture</h2>
-            </div>
+            <?php
+                foreach ($conversations as $conversation) {
+                    if ($conversation['contact_id'] === $contactId) {
+                        $activeContact = $conversation;
+                        break;
+                    }
+                }
+                
+                if ($activeContact):
+            ?>
+                <div class="chat-card">
+                    <figure>
+                        <img src="images/users/<?= htmlspecialchars($conversation['user_avatar'] ?? 'avatar-default.webp') ?>" alt="Avatar de <?= htmlspecialchars($conversation['user_nickname']) ?>" class="img-cover">
+                    </figure>
+                    <h2><?= htmlspecialchars($conversation['user_nickname']) ?></h2>
+                </div>
+            <?php endif; ?>
             <div class="section-chat-messages">
                 <ul>
-                    <li>
-                        <article class="chat-message sent" aria-label="Message envoyé">
-                            <time datetime="2025-08-21T15:44">21.08 15:44</time>
-                            <p>Lorem ipsum dolor sit amet, consectetur .adipiscing elit, sed do eiusmod tempor</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article class="chat-message received" aria-label="Message reçu">
-                            <figure>
-                                <img src="images/users/avatar13.webp" alt="Avatar de Alexlecture" class="img-cover">
-                            </figure>
-                            <time datetime="2025-08-21T15:48">21.08 15:48</time>
-                            <p>Lorem ipsum dolor sit amet, consectetur .adipiscing elit, sed do eiusmod tempor</p>
-                        </article>
-                    </li>
+                    <?php foreach ($messages as $message):
+                        $sent = ($message->getAuthorId() === $userId);
+                        $date = $message->getCreatedAt();
+                    ?>
+                        <li>
+                            <article class="chat-message <?= $sent ? 'sent' : 'received' ?>" aria-label="Message <?= $sent ? 'envoyé' : 'reçu' ?>">
+                                <?php if (!$sent): ?>
+                                    <figure>
+                                        <img src="images/users/<?= htmlspecialchars($conversation['user_avatar'] ?? 'avatar-default.webp') ?>" alt="Avatar de <?= htmlspecialchars($conversation['user_nickname']) ?>" class="img-cover">
+                                    </figure>
+                                <?php endif; ?>
+                                <time datetime="<?= $date->format('c') ?>"><?= $date->format('d.m H:i') ?></time>
+                                <p><?= htmlspecialchars($message->getContent()) ?></p>
+                            </article>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
             <form>

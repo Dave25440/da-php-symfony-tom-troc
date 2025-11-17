@@ -58,7 +58,19 @@ class MessageController extends AbstractController
             $contactId = (int) $conversations[0]['contact_id'];
         }
 
-        $view = new View('Messagerie', ['conversations' => $conversations, 'contactId' => $contactId]);
+        if ($contactId > 0) {
+            $messages = $messageManager->findBetweenUsers($userId, $contactId);
+        } else {
+            $messages = [];
+        }
+
+        $view = new View('Messagerie', [
+            'userId' => $userId,
+            'contactId' => $contactId,
+            'conversations' => $conversations,
+            'messages' => $messages
+        ]);
+
         $view->render('chat', 'chat');
     }
 }
