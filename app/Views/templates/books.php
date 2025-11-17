@@ -10,21 +10,20 @@
     <div class="books-grid">
         <?php if (empty($books)): ?>
             <p>Aucun livre trouvé.</p>
-        <?php else: ?>
-            <?php foreach ($books as $book): ?>
-                <a href="index.php?action=book&id=<?= (int) $book->getId() ?>" class="book-card">
-                    <article>
-                        <figure>
-                            <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'cover-default.webp') ?>" alt="" class="img-cover">
-                        </figure>
-                        <div class="text-ellipsis book-info">
-                            <h3><?= htmlspecialchars($book->getTitle()) ?></h3>
-                            <h4><?= htmlspecialchars($book->getAuthor()) ?></h4>
-                            <p class="text-caption">Vendu par : <?= htmlspecialchars($book->getUserNickname() ?? 'Inconnu') ?></p>
-                        </div>
-                    </article>
-                </a>
-            <?php endforeach; ?>
         <?php endif; ?>
+        <?php foreach ($books as $book): ?>
+            <a href="index.php?action=book&id=<?= (int) $book->getId() ?>" class="book-card">
+                <article>
+                    <figure>
+                        <img src="images/books/<?= htmlspecialchars($book->getCoverImage() ?? 'cover-default.webp') ?>" alt="" class="img-cover">
+                    </figure>
+                    <div class="text-ellipsis book-info">
+                        <h3><?= htmlspecialchars($book->getTitle()) ?></h3>
+                        <h4><?= htmlspecialchars($book->getAuthor()) ?></h4>
+                        <p class="text-caption">Vendu par : <?= htmlspecialchars($book->getUserNickname() ?? 'Inconnu') ?></p>
+                    </div>
+                </article>
+            </a>
+        <?php endforeach; ?>
     </div>
 </section>
