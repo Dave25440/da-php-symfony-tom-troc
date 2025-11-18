@@ -62,4 +62,16 @@ class MessageManager extends AbstractManager
 
         return $messages;
     }
+
+    public function add(Message $message): void
+    {
+        $sql = 'INSERT INTO message (author_id, receiver_id, content)
+                VALUES (:author_id, :receiver_id, :content)';
+
+        $this->db->query($sql, [
+            'author_id' => $message->getAuthorId(),
+            'receiver_id' => $message->getReceiverId(),
+            'content' => $message->getContent()
+        ]);
+    }
 }
