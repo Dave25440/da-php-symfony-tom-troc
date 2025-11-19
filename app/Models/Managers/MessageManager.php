@@ -50,14 +50,17 @@ class MessageManager extends AbstractManager
                 FROM message
                 WHERE (author_id = :user_id AND receiver_id = :contact_id)
                 OR (author_id = :contact_id AND receiver_id = :user_id)
-                ORDER BY created_at ASC
+                ORDER BY created_at DESC
                 LIMIT 15';
 
         $stmt = $this->db->query($sql, ['user_id' => $userId, 'contact_id' => $contactId]);
+        $data = $stmt->fetchAll();
+        $data = array_reverse($data);
+
         $messages = [];
 
-        while ($data = $stmt->fetch()) {
-            $messages[] = Message::fromArray($data);
+        foreach ($data as $d) {
+            $messages[] = Message::fromArray($d);
         }
 
         return $messages;
