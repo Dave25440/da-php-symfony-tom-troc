@@ -2,29 +2,41 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
 use App\Models\Managers\MessageManager;
 use App\Models\Managers\UserManager;
 use App\Views\View;
 
 class MessageController extends AbstractController
 {
-    public function validateContact(int $contactId, int $userId, array $conversations): array
+    protected function loadConversation(int $contactId, array $conversations): ?array
     {
-        if ($contactId === $userId) {
+        foreach ($conversations as $conversation) {
+            if ($conversation['contact_id'] === $contactId) {
+                return $conversation;
+            }
+        }
+
+        return null;
+    }
+
+    protected function loadContact(int $contactId, int $userId): User
+    {
+        if ($contactId <= 0) {
+            throw new \Exception('Le contact est introuvable.');
+        } elseif ($contactId === $userId) {
             header('Location: index.php?action=chat');
             exit;
         }
 
-        $exists = false;
+        $userManager = new UserManager();
+        $user = $userManager->findById($contactId);
 
-        foreach ($conversations as $conversation) {
-            if ($conversation['contact_id'] === $contactId) {
-                $exists = true;
-                break;
-            }
+        if ($user === null) {
+            throw new \Exception('Le contact est introuvable.');
         }
 
-        return [$contactId, $exists];
+        return $user;
     }
 
     public function show(): void
@@ -37,36 +49,32 @@ class MessageController extends AbstractController
         $messageManager = new MessageManager();
         $conversations = $messageManager->findConversationsByUserId($userId);
 
-        [$contactId, $exists] = $this->validateContact($contactId, $userId, $conversations);
-
-        if ($contactId > 0 && !$exists) {
-            $userManager = new UserManager();
-            $user = $userManager->findById($contactId);
-
-            if ($user) {
-                array_unshift($conversations, [
-                    'contact_id' => $contactId,
-                    'user_nickname' => $user->getNickname(),
-                    'user_avatar' => $user->getAvatar(),
-                    'content' => 'Nouvelle conversation',
-                    'last_date' => date('Y-m-d H:i:s')
-                ]);
-            }
-        }
-
         if ($contactId === 0 && !empty($conversations)) {
             $contactId = (int) $conversations[0]['contact_id'];
         }
 
-        if ($contactId > 0) {
-            $messages = $messageManager->findBetweenUsers($userId, $contactId);
-        } else {
-            $messages = [];
+        $activeContact = $this->loadConversation($contactId, $conversations);
+
+        if ($contactId !== 0 && $activeContact === null) {
+            $user = $this->loadContact($contactId, $userId);
+
+            $activeContact = [
+                'contact_id' => $user->getId(),
+                'user_nickname' => $user->getNickname(),
+                'user_avatar' => $user->getAvatar(),
+                'content' => 'Nouvelle conversation',
+                'last_date' => date('Y-m-d H:i:s')
+            ];
+
+            array_unshift($conversations, $activeContact);
         }
+
+        $messages = $messageManager->findBetweenUsers($userId, $contactId);
 
         $view = new View('Messagerie', [
             'userId' => $userId,
             'contactId' => $contactId,
+            'activeContact' => $activeContact,
             'conversations' => $conversations,
             'messages' => $messages
         ]);

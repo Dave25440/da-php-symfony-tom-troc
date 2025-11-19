@@ -70,21 +70,12 @@
             <button id="chat-back" aria-label="Retour à la liste des conversations" type="button" class="btn-js">
                 &lt;- retour
             </button>
-            <?php
-                foreach ($conversations as $conversation) {
-                    if ($conversation['contact_id'] === $contactId) {
-                        $activeContact = $conversation;
-                        break;
-                    }
-                }
-                
-                if ($activeContact):
-            ?>
+            <?php if ($activeContact): ?>
                 <div class="chat-card">
                     <figure>
-                        <img src="images/users/<?= htmlspecialchars($conversation['user_avatar'] ?? 'avatar-default.webp') ?>" alt="Avatar de <?= htmlspecialchars($conversation['user_nickname']) ?>" class="img-cover">
+                        <img src="images/users/<?= htmlspecialchars($activeContact['user_avatar'] ?? 'avatar-default.webp') ?>" alt="Avatar de <?= htmlspecialchars($activeContact['user_nickname']) ?>" class="img-cover">
                     </figure>
-                    <h2><?= htmlspecialchars($conversation['user_nickname']) ?></h2>
+                    <h2><?= htmlspecialchars($activeContact['user_nickname']) ?></h2>
                 </div>
             <?php endif; ?>
             <div class="section-chat-messages">
@@ -97,7 +88,7 @@
                             <article class="chat-message <?= $sent ? 'sent' : 'received' ?>" aria-label="Message <?= $sent ? 'envoyé' : 'reçu' ?>">
                                 <?php if (!$sent): ?>
                                     <figure>
-                                        <img src="images/users/<?= htmlspecialchars($conversation['user_avatar'] ?? 'avatar-default.webp') ?>" alt="Avatar de <?= htmlspecialchars($conversation['user_nickname']) ?>" class="img-cover">
+                                        <img src="images/users/<?= htmlspecialchars($activeContact['user_avatar'] ?? 'avatar-default.webp') ?>" alt="Avatar de <?= htmlspecialchars($activeContact['user_nickname']) ?>" class="img-cover">
                                     </figure>
                                 <?php endif; ?>
                                 <time datetime="<?= $date->format('c') ?>"><?= $date->format('d.m H:i') ?></time>
