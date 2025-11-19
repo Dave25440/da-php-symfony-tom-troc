@@ -1019,6 +1019,11 @@ img {
     margin-top: 100px;
 }
 
+.section-chat-content > .text-error {
+    font-size: 0.875em;
+    margin-top: 21px;
+}
+
 .section-chat-content .form-input {
     width: 100%;
     padding: 16px 18px;

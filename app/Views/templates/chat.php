@@ -98,11 +98,17 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
-            <form>
-                <label for="message" class="sr-only">Tapez votre message ici</label>
-                <textarea id="message" name="message" rows="1" placeholder="Tapez votre message ici" class="form-input"></textarea>
+            <form action="index.php?action=sendMessage" method="post" aria-label="Envoyer un message">
+                <input type="hidden" name="contact_id" value="<?= $contactId ?>">
+                <label for="content" class="sr-only">Tapez votre message ici</label>
+                <textarea id="content" name="content" rows="1" placeholder="Tapez votre message ici" class="form-input" required><?=
+                    htmlspecialchars($content)
+                ?></textarea>
                 <input type="submit" id="send" value="Envoyer" class="cta cta-input">
             </form>
+            <?php if (!empty($error)): ?>
+                <p role="alert" class="text-error"><?= htmlspecialchars($error) ?></p>
+            <?php endif; ?>
         <?php endif; ?>
     </section>
 </section>
