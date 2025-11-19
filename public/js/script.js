@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+
     // Global
     const params = new URLSearchParams(window.location.search);
+
 
     // Media query
     const mediaQuery = window.matchMedia("(max-width: 768px)");
@@ -19,54 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
             nav.classList.toggle("visible");
             toggle.classList.toggle("active");
         });
-    }
-
-
-    // Chat scroll
-    const chatList = document.querySelector(".section-chat-messages > ul");
-
-    if (chatList && !isMobile()) {
-        chatList.scrollTop = chatList.scrollHeight - chatList.clientHeight;
-    }
-
-
-    // Chat display
-    const chatContacts = document.querySelector(".section-chat-conversations");
-    const chatContent = document.querySelector(".section-chat-content");
-    const chatBack = document.getElementById("chat-back");
-
-    function showChatContent() {
-        chatContacts.classList.add("hidden");
-        chatContent.classList.add("visible");
-    }
-
-    function showChatContacts() {
-        chatContacts.classList.remove("hidden");
-        chatContent.classList.remove("visible");
-    }
-
-    function chatDisplay() {
-        if (!isMobile() || params.get("id") === null) {
-            showChatContacts();
-        } else {
-            showChatContent();
-        }
-    }
-
-    if (chatContacts && chatContent) {
-        if (chatBack) {
-            chatBack.addEventListener("click", () => {
-                if (isMobile()) {
-                    showChatContacts();
-                }
-            });
-        }
-
-        mediaQuery.addEventListener("change", () => {
-            chatDisplay();
-        });
-
-        chatDisplay();
     }
 
 
@@ -118,6 +72,83 @@ document.addEventListener("DOMContentLoaded", () => {
     bookSearch();
 
 
+    // Chat display
+    const chatContacts = document.querySelector(".section-chat-conversations");
+    const chatContent = document.querySelector(".section-chat-content");
+    const chatBack = document.getElementById("chat-back");
+
+    function showChatContent() {
+        chatContacts.classList.add("hidden");
+        chatContent.classList.add("visible");
+    }
+
+    function showChatContacts() {
+        chatContacts.classList.remove("hidden");
+        chatContent.classList.remove("visible");
+    }
+
+    function chatDisplay() {
+        if (!isMobile() || params.get("id") === null) {
+            showChatContacts();
+        } else {
+            showChatContent();
+        }
+    }
+
+    if (chatContacts && chatContent) {
+        if (chatBack) {
+            chatBack.addEventListener("click", () => {
+                if (isMobile()) {
+                    showChatContacts();
+                }
+            });
+        }
+
+        mediaQuery.addEventListener("change", () => {
+            chatDisplay();
+        });
+
+        chatDisplay();
+    }
+
+
+    // Chat scroll
+    const chatList = document.querySelector(".section-chat-messages > ul");
+
+    if (chatList && !isMobile()) {
+        chatList.scrollTop = chatList.scrollHeight - chatList.clientHeight;
+    }
+
+
+    // Avatar update
+    const avatarUpdate = document.getElementById("avatar-update");
+    const avatar = document.getElementById("avatar");
+
+    if (avatarUpdate && avatar) {
+        avatarUpdate.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                avatarUpdate.click();
+            }
+        });
+
+        avatar.addEventListener("change", () => {
+            if (avatar.files.length) {
+                document.querySelector(".section-account-profile > form").submit();
+            }
+        });
+    }
+
+    if (params.has("successAvatar")) {
+        const profileImg = document.querySelector(".section-account-profile > figure > img");
+
+        if (profileImg) {
+            const src = profileImg.getAttribute("src").split("?")[0];
+            profileImg.setAttribute("src", src + "?v=" + new Date().getTime());
+        }
+    }
+
+
     // Cover update
     const photoImg = document.querySelector(".section-edit-photo img");
     const coverUpdate = document.getElementById("cover-update");
@@ -160,35 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 preview.readAsDataURL(file);
             }
         });
-    }
-
-
-    // Avatar update
-    const avatarUpdate = document.getElementById("avatar-update");
-    const avatar = document.getElementById("avatar");
-
-    if (avatarUpdate && avatar) {
-        avatarUpdate.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                avatarUpdate.click();
-            }
-        });
-
-        avatar.addEventListener("change", () => {
-            if (avatar.files.length) {
-                document.querySelector(".section-account-profile > form").submit();
-            }
-        });
-    }
-
-    if (params.has("successAvatar")) {
-        const profileImg = document.querySelector(".section-account-profile > figure > img");
-
-        if (profileImg) {
-            const src = profileImg.getAttribute("src").split("?")[0];
-            profileImg.setAttribute("src", src + "?v=" + new Date().getTime());
-        }
     }
 
 
