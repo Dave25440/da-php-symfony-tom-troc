@@ -23,8 +23,8 @@
             ?></textarea>
             <label for="is-exchangeable" class="form-label">Disponibilité</label>
             <select id="is-exchangeable" name="is_exchangeable" class="form-input form-input-update">
-                <option value="1" <?= ((int) $book->isExchangeable() === 1) ? 'selected' : '' ?>>disponible</option>
-                <option value="0" <?= ((int) $book->isExchangeable() === 0) ? 'selected' : '' ?>>non dispo.</option>
+                <option value="1">disponible</option>
+                <option value="0" <?= !$book->isExchangeable() ? 'selected' : '' ?>>non dispo.</option>
             </select>
             <input type="submit" id="update" value="Valider" class="cta cta-input">
         </div>
