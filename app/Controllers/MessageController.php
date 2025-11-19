@@ -89,6 +89,29 @@ class MessageController extends AbstractController
         $view->render('chat', 'chat');
     }
 
+    public function get(): void
+    {
+        $this->checkAuth();
+
+        $userId = $this->user->getId();
+        $contactId = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
+        $user = $this->loadContact($contactId, $userId);
+
+        $activeContact = [
+            'contact_id' => $user-> getId(),
+            'user_nickname' => $user->getNickname(),
+            'user_avatar' => $user->getAvatar()
+        ];
+
+        $messageManager = new MessageManager();
+        $messages = $messageManager->findBetweenUsers($userId, $contactId);
+
+        header('Content-Type: text/html; charset=utf-8');
+        include __DIR__ . '/../Views/templates/_messages.php';
+        exit;
+    }
+
     public function send(): void
     {
         $this->checkAuth();
