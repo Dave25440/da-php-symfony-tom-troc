@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Message;
 use App\Models\User;
 use App\Models\Managers\MessageManager;
 use App\Models\Managers\UserManager;
@@ -71,14 +72,52 @@ class MessageController extends AbstractController
 
         $messages = $messageManager->findBetweenUsers($userId, $contactId);
 
+        $error = $_SESSION['error'] ?? '';
+        $content = $_SESSION['content'] ?? '';
+        unset($_SESSION['error'], $_SESSION['content']);
+
         $view = new View('Messagerie', [
             'userId' => $userId,
             'contactId' => $contactId,
             'activeContact' => $activeContact,
             'conversations' => $conversations,
-            'messages' => $messages
+            'messages' => $messages,
+            'error' => $error,
+            'content' => $content
         ]);
 
         $view->render('chat', 'chat');
+    }
+
+    public function send(): void
+    {
+        $this->checkAuth();
+
+        $userId = $this->user->getId();
+        $contactId = isset($_POST['contact_id']) ? (int) $_POST['contact_id'] : 0;
+        $content = trim($_POST['content'] ?? '');
+
+        $user = $this->loadContact($contactId, $userId);
+
+        if (empty($content)) {
+            $_SESSION['error'] = 'Aucun message envoyé.';
+        } elseif (strlen($content) > 1000) {
+            $_SESSION['error'] = 'Le message ne doit pas dépasser 1000 caractères.';
+        }
+
+        if (isset($_SESSION['error'])) {
+            $_SESSION['content'] = $content;
+
+            header('Location: index.php?action=chat&id=' . $contactId);
+            exit;
+        }
+
+        $message = new Message($userId, $contactId, $content);
+
+        $messageManager = new MessageManager();
+        $messageManager->add($message);
+
+        header('Location: index.php?action=chat&id=' . $contactId);
+        exit;
     }
 }

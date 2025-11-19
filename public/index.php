@@ -59,6 +59,10 @@ try {
             (new MessageController())->show();
             break;
 
+        case 'sendMessage':
+            (new MessageController())->send();
+            break;
+
         case 'account':
             (new UserController())->show();
             break;
