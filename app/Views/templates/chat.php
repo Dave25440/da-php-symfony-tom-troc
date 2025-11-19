@@ -78,7 +78,7 @@
                     <h2><?= htmlspecialchars($activeContact['user_nickname']) ?></h2>
                 </div>
             <?php endif; ?>
-            <div class="section-chat-messages">
+            <div class="section-chat-messages" data-id="<?= $contactId ?>">
                 <ul>
                     <?php foreach ($messages as $message):
                         $sent = ($message->getAuthorId() === $userId);

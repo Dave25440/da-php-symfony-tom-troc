@@ -112,11 +112,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Chat scroll
+    // Chat messages
+    const chatMessages = document.querySelector(".section-chat-messages");
     const chatList = document.querySelector(".section-chat-messages > ul");
+    const content = document.getElementById("content");
 
     if (chatList && !isMobile()) {
         chatList.scrollTop = chatList.scrollHeight - chatList.clientHeight;
+    }
+
+    if (chatMessages && chatList) {
+        const contactId = chatMessages.getAttribute("data-id");
+
+        if (contactId) {
+            const interval = setInterval(() => {
+                fetch(`index.php?action=getMessages&id=${contactId}`)
+                    .then(res => res.text())
+                    .then(messages => {
+                        chatList.innerHTML = messages;
+                    })
+                    .catch(() => {
+                        chatList.innerHTML = "<li>Erreur lors du chargement des messages, merci de réessayer plus tard.</li>";
+                    });
+            }, 10000);
+
+            // Arrête le rafraîchissement lors du départ de la page
+            window.addEventListener("beforeunload", () => {
+                clearInterval(interval);
+            });
+        }
+    }
+
+    if (content) {
+        content.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                e.target.form.submit();
+            }
+        });
     }
 
 
