@@ -63,8 +63,7 @@ class UserController extends AbstractController
         $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
         $data = $this->load($id);
 
-        $view = new View('Profil de ' . $data['user']->getNickname(), $data);
-        $view->render('account');
+        $this->renderView('Profil de ' . $data['user']->getNickname(), $data, 'account');
     }
 
     public function edit(array $update = []): void
@@ -87,8 +86,7 @@ class UserController extends AbstractController
 
         $data = array_merge($data, $update);
 
-        $view = new View('Mon compte', $data);
-        $view->render('editAccount', 'account');
+        $this->renderView('Mon compte', $data, 'editAccount', 'account');
     }
 
     public function update(): void

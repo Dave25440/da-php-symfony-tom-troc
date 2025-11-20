@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Models\Book;
 use App\Models\Managers\BookManager;
 use App\Models\Managers\UserManager;
-use App\Views\View;
 
 class BookController extends AbstractController
 {
@@ -124,8 +123,7 @@ class BookController extends AbstractController
             $books = $bookManager->findAll();
         }
 
-        $view = new View('Nos livres', ['books' => $books, 'search' => $search]);
-        $view->render('books', 'books');
+        $this->renderView('Nos livres', ['books' => $books, 'search' => $search], 'books', 'books');
     }
 
     public function search(): void
@@ -148,16 +146,14 @@ class BookController extends AbstractController
         $userManager = new UserManager();
         $user = $userManager->findById($book->getUserId());
 
-        $view = new View($book->getTitle(), ['book' => $book, 'user' => $user]);
-        $view->render('book', 'books');
+        $this->renderView($book->getTitle(), ['book' => $book, 'user' => $user], 'book', 'books');
     }
 
     public function add(array $data = []): void
     {
         $this->checkAuth();
 
-        $view = new View('Ajouter un livre', $data);
-        $view->render('addBook', 'account');
+        $this->renderView('Ajouter un livre', $data, 'addBook', 'account');
     }
 
     public function store(): void
@@ -231,8 +227,7 @@ class BookController extends AbstractController
             $data['book'] = $this->checkOwner($id);
         }
 
-        $view = new View('Modifier ' . $data['book']->getTitle(), $data);
-        $view->render('editBook', 'account');
+        $this->renderView('Modifier ' . $data['book']->getTitle(), $data, 'editBook', 'account');
     }
 
     public function update(): void

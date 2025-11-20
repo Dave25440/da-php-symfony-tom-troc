@@ -4,10 +4,28 @@ namespace App\Controllers;
 
 use App\Models\User;
 use App\Models\Managers\UserManager;
+use App\Services\UserNotification;
+use App\Views\View;
 
 abstract class AbstractController
 {
+    protected UserNotification $userNotification;
     protected ?User $user = null;
+
+    public function __construct()
+    {
+        $this->userNotification = new UserNotification();
+    }
+
+    protected function renderView(string $title, array $data = [], string $template, ?string $activeMenu = null): void
+    {
+        $data['unreadMessages'] = $this->userNotification->getUnreadMessages($_SESSION['user_id'] ?? null);
+
+        $view = new View($title, $data);
+        $view->render($template, $activeMenu);
+
+        exit;
+    }
 
     protected function checkAuth(): void
     {

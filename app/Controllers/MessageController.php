@@ -6,7 +6,6 @@ use App\Models\Message;
 use App\Models\User;
 use App\Models\Managers\MessageManager;
 use App\Models\Managers\UserManager;
-use App\Views\View;
 
 class MessageController extends AbstractController
 {
@@ -77,7 +76,7 @@ class MessageController extends AbstractController
         $content = $_SESSION['content'] ?? '';
         unset($_SESSION['error'], $_SESSION['content']);
 
-        $view = new View('Messagerie', [
+        $this->renderView('Messagerie', [
             'userId' => $userId,
             'contactId' => $contactId,
             'activeContact' => $activeContact,
@@ -85,9 +84,7 @@ class MessageController extends AbstractController
             'messages' => $messages,
             'error' => $error,
             'content' => $content
-        ]);
-
-        $view->render('chat', 'chat');
+        ], 'chat', 'chat');
     }
 
     public function get(): void
