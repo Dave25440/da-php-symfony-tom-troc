@@ -66,6 +66,19 @@ class MessageManager extends AbstractManager
         return $messages;
     }
 
+    public function countUnreadByUserId(int $userId): int
+    {
+        $sql = 'SELECT COUNT(*)
+                FROM message
+                WHERE receiver_id = :user_id
+                AND is_read = 0';
+
+        $stmt = $this->db->query($sql, ['user_id' => $userId]);
+        $count = $stmt->fetchColumn();
+
+        return (int) $count;
+    }
+
     public function add(Message $message): void
     {
         $sql = 'INSERT INTO message (author_id, receiver_id, content)
