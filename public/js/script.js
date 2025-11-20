@@ -24,6 +24,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // Nav counter
+    const counter = document.querySelector(".nav-counter");
+
+    if (counter) {
+        const interval = setInterval(() => {
+            fetch("index.php?action=countUnreadMessages")
+                .then(res => {
+                    if (!res.ok) throw new Error("Erreur HTTP " + res.status);
+                    return res.json();
+                })
+                .then(count => {
+                    counter.textContent = count.unreadMessages;
+                    counter.classList.toggle("hidden", count.unreadMessages === 0);
+                })
+                .catch(() => {
+                    counter.textContent = "0";
+                    counter.classList.add("hidden");
+                    clearInterval(interval);
+                });
+        }, 30000);
+
+        // Arrête le rafraîchissement lors du départ de la page
+        window.addEventListener("beforeunload", () => {
+            clearInterval(interval);
+        });
+    }
+
+
     // Book search
     function bookSearch() {
         const search = document.getElementById("search");
@@ -143,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
             }, 10000);
 
-            // Arrête le rafraîchissement lors du départ de la page
             window.addEventListener("beforeunload", () => {
                 clearInterval(interval);
             });
