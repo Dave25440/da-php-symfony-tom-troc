@@ -26,6 +26,14 @@ abstract class AbstractController
         }
     }
 
+    protected function redirectAuth(): void
+    {
+        if (isset($_SESSION['user_id']) && $_SESSION['user_id'] > 0) {
+            header('Location: index.php?action=editAccount');
+            exit;
+        }
+    }
+
     protected function validateImage(array $file, array $extraTypes = []): ?string
     {
         if ($file['error'] !== UPLOAD_ERR_OK) {

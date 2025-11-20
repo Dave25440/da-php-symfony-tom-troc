@@ -203,12 +203,16 @@ class UserController extends AbstractController
 
     public function signUp(array $data = []): void
     {
+        $this->redirectAuth();
+
         $view = new View('Inscription', $data);
         $view->render('signup', 'signin');
     }
 
     public function register(): void
     {
+        $this->redirectAuth();
+
         $nicknameRaw = trim($_POST['nickname'] ?? '');
         $nickname = str_replace(' ', '_', $nicknameRaw);
         $email = trim($_POST['email'] ?? '');
@@ -242,6 +246,8 @@ class UserController extends AbstractController
 
     public function signIn(array $data = []): void
     {
+        $this->redirectAuth();
+
         if (isset($_GET['register'])) {
             $data['register'] = 'Inscription réussie, vous pouvez vous connecter.';
         }
@@ -252,6 +258,8 @@ class UserController extends AbstractController
 
     public function logIn(): void
     {
+        $this->redirectAuth();
+
         $email = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? null;
         $data = ['error' => null, 'email' => $email];
