@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Toggle menu
+    // Menu toggle
     const toggle = document.getElementById("menu-toggle");
     const nav = document.querySelector(".main-nav > ul");
 
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Nav counter
+    // Message counter
     const counter = document.querySelector(".nav-counter");
 
     if (counter) {
