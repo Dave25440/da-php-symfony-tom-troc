@@ -77,4 +77,18 @@ class MessageManager extends AbstractManager
             'content' => $message->getContent()
         ]);
     }
+
+    public function markAsReadBetweenUsers(int $userId, int $contactId): int
+    {
+        $sql = 'UPDATE message
+                SET is_read = 1
+                WHERE receiver_id = :user_id
+                AND author_id = :contact_id
+                AND is_read = 0';
+
+        $stmt = $this->db->query($sql, ['user_id' => $userId, 'contact_id' => $contactId]);
+        $count = $stmt->rowCount();
+
+        return $count;
+    }
 }

@@ -70,6 +70,7 @@ class MessageController extends AbstractController
             array_unshift($conversations, $activeContact);
         }
 
+        $messageManager->markAsReadBetweenUsers($userId, $contactId);
         $messages = $messageManager->findBetweenUsers($userId, $contactId);
 
         $error = $_SESSION['error'] ?? '';
@@ -98,13 +99,15 @@ class MessageController extends AbstractController
 
         $user = $this->loadContact($contactId, $userId);
 
+        $messageManager = new MessageManager();
+        $messageManager->markAsReadBetweenUsers($userId, $contactId);
+
         $activeContact = [
             'contact_id' => $user-> getId(),
             'user_nickname' => $user->getNickname(),
             'user_avatar' => $user->getAvatar()
         ];
 
-        $messageManager = new MessageManager();
         $messages = $messageManager->findBetweenUsers($userId, $contactId);
 
         header('Content-Type: text/html; charset=utf-8');
