@@ -40,7 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const query = search.value.trim();
 
                 fetch(`index.php?action=searchBook&search=${encodeURIComponent(query)}`)
-                    .then(res => res.json())
+                    .then(res => {
+                        if (!res.ok) throw new Error("Erreur HTTP " + res.status);
+                        return res.json();
+                    })
                     .then(books => {
                         if (!books.length) {
                             booksGrid.innerHTML = "<p>Aucun livre trouvé.</p>";
@@ -127,12 +130,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (contactId) {
             const interval = setInterval(() => {
                 fetch(`index.php?action=getMessages&id=${contactId}`)
-                    .then(res => res.text())
+                    .then(res => {
+                        if (!res.ok) throw new Error("Erreur HTTP " + res.status);
+                        return res.text();
+                    })
                     .then(messages => {
                         chatList.innerHTML = messages;
                     })
                     .catch(() => {
                         chatList.innerHTML = "<li>Erreur lors du chargement des messages, merci de réessayer plus tard.</li>";
+                        clearInterval(interval);
                     });
             }, 10000);
 
