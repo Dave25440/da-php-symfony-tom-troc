@@ -277,6 +277,10 @@ img {
     border-radius: 6.75px;
 }
 
+.nav-counter.hidden {
+    display: none;
+}
+
 
 /* Breadcrumb nav */
 .breadcrumb-nav > ol {

@@ -31,10 +31,10 @@
                     <li class="nav-item-right nav-item-border">
                         <img src="icons/chat-icon.svg" alt="Icône Messagerie" class="nav-icon">
                         <a href="index.php?action=chat" <?= $activeMenu === 'chat' ? 'class="active"' : '' ?>>Messagerie</a>
-                        <span class="nav-counter" aria-live="polite">
-                            1
-                            <span class="sr-only"> message(s) non lu(s)</span>
+                        <span class="nav-counter<?= empty($unreadMessages) ? ' hidden' : '' ?>" aria-live="polite">
+                            <?= !empty($unreadMessages) ? htmlspecialchars($unreadMessages, ENT_QUOTES, 'UTF-8') : '0' ?>
                         </span>
+                        <span class="sr-only"> message(s) non lu(s)</span>
                     </li>
                     <li class="nav-item-right">
                         <img src="icons/account-icon.svg" alt="Icône Mon compte" class="nav-icon">
