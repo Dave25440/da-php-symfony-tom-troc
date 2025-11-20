@@ -63,6 +63,10 @@ try {
             (new MessageController())->get();
             break;
 
+        case 'countUnreadMessages':
+            (new MessageController())->countUnread();
+            break;
+
         case 'sendMessage':
             (new MessageController())->send();
             break;

@@ -112,6 +112,17 @@ class MessageController extends AbstractController
         exit;
     }
 
+    public function countUnread(): void
+    {
+        $this->checkAuth();
+
+        $count = $this->userNotification->getUnreadMessages($this->user->getId());
+
+        header('Content-Type: application/json');
+        echo json_encode(['unreadMessages' => $count]);
+        exit;
+    }
+
     public function send(): void
     {
         $this->checkAuth();
