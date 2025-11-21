@@ -1123,6 +1123,24 @@ img {
 }
 
 
+/* Error section */
+.section-error {
+    background-color: var(--bg-medium-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 300px 0;
+}
+
+.section-error > p {
+    font-weight: 300;
+    margin-top: 1.5em;
+}
+
+.section-error > .cta {
+    margin-top: 48px;
+}
+
+
 /* Footer */
 .page-footer {
     background-color: var(--bg-light-color);
@@ -1795,6 +1813,12 @@ img {
 
     .chat-message.received {
         gap: 6px;
+    }
+
+
+    /* Error section */
+    .section-error {
+        padding: 80px 20px;
     }
 
 
