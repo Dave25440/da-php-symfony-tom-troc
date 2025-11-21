@@ -1,9 +1,9 @@
 <?php
 
-$configPath = __DIR__ . '/../app/Config/config.php';
+$config = __DIR__ . '/../app/Config/config.php';
 
-if (file_exists($configPath)) {
-    require_once $configPath;
+if (file_exists($config)) {
+    require_once $config;
 } else {
     throw new Exception('Le fichier de configuration est introuvable.');
 }
@@ -14,6 +14,7 @@ use App\Controllers\HomeController;
 use App\Controllers\BookController;
 use App\Controllers\MessageController;
 use App\Controllers\UserController;
+use App\Views\View;
 
 $action = $_GET['action'] ?? 'home';
 
@@ -112,6 +113,10 @@ try {
     }
 } catch (Exception $e) {
     error_log('Erreur de navigation : ' . $e->getMessage());
-    http_response_code(404);
-    die('La page demandée est introuvable.');
+
+    $code = 404;
+    http_response_code($code);
+
+    $view = new View('Erreur '. $code, ['code' => $code]);
+    $view->render('error');
 }
