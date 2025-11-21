@@ -1163,6 +1163,21 @@ img {
 }
 
 
+/* Privacy & legal sections */
+.section-privacy,
+.section-legal {
+    background-color: var(--bg-medium-color);
+    color: var(--text-color);
+    padding: 90px 150px;
+}
+
+.section-privacy > p,
+.section-legal > p {
+    font-weight: 300;
+    margin-top: 1.5em;
+}
+
+
 /* Mobile version */
 @media (max-width: 768px) {
 
@@ -1836,5 +1851,17 @@ img {
     .page-footer a:hover,
     .page-footer a.active {
         font-size: 0.96em;
+    }
+
+
+    /* Privacy & legal sections */
+    .section-privacy,
+    .section-legal {
+        padding: 80px 20px;
+    }
+
+    .section-privacy > p,
+    .section-legal > p {
+        font-size: 0.875em;
     }
 }
