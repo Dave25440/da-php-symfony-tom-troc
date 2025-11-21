@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Managers\BookManager;
 
-class HomeController extends AbstractController
+class PageController extends AbstractController
 {
-    public function show(): void
+    public function home(): void
     {
         $bookManager = new BookManager();
         $books = $bookManager->findAll(4);

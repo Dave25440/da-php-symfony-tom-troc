@@ -10,9 +10,9 @@ if (file_exists($config)) {
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use App\Controllers\HomeController;
 use App\Controllers\BookController;
 use App\Controllers\MessageController;
+use App\Controllers\PageController;
 use App\Controllers\UserController;
 use App\Views\View;
 
@@ -21,15 +21,15 @@ $action = $_GET['action'] ?? 'home';
 try {
     switch ($action) {
         case 'home':
-            (new HomeController())->show();
+            (new PageController())->home();
             break;
 
         case 'privacy':
-            (new HomeController())->privacy();
+            (new PageController())->privacy();
             break;
 
         case 'legal':
-            (new HomeController())->legal();
+            (new PageController())->legal();
             break;
 
         case 'books':
