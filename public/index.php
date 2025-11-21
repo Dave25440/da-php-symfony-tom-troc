@@ -24,6 +24,14 @@ try {
             (new HomeController())->show();
             break;
 
+        case 'privacy':
+            (new HomeController())->privacy();
+            break;
+
+        case 'legal':
+            (new HomeController())->legal();
+            break;
+
         case 'books':
             (new BookController())->list();
             break;

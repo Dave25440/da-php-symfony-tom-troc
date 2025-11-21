@@ -56,8 +56,8 @@
         </main>
         <footer class="page-footer text-light">
             <ul>
-                <li><a href="#">Politique de confidentialité</a></li>
-                <li><a href="#">Mentions légales</a></li>
+                <li><a href="index.php?action=privacy" <?= $activeMenu === 'privacy' ? 'class="active"' : '' ?>>Politique de confidentialité</a></li>
+                <li><a href="index.php?action=legal" <?= $activeMenu === 'legal' ? 'class="active"' : '' ?>>Mentions légales</a></li>
                 <li>Tom Troc©</li>
                 <li><img src="images/tt-logo.svg" alt="Logo TT"></li>
             </ul>

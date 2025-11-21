@@ -13,4 +13,14 @@ class HomeController extends AbstractController
 
         $this->renderView('Accueil', ['books' => $books], 'home', 'home');
     }
+
+    public function privacy(): void
+    {
+        $this->renderView('Politique de confidentialité', [], 'privacy', 'privacy');
+    }
+
+    public function legal(): void
+    {
+        $this->renderView('Mentions légales', [], 'legal', 'legal');
+    }
 }
