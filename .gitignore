@@ -1,5 +1,5 @@
 # App
-/app/Config/
+/app/Config/config.php
 
 # Composer
 /vendor/
